@@ -41,8 +41,51 @@
       "src/"
     ],
     "files": [
-      "src/assertType.php",
-      "src/isType.php"
+      "src/all.php",
+      "src/any.php",
+      "src/comparator.php",
+      "src/compose.php",
+      "src/curry_left.php",
+      "src/curry_right.php",
+      "src/equal.php",
+      "src/equalTo.php",
+      "src/filter.php",
+      "src/filterWith.php",
+      "src/first.php",
+      "src/firstWith.php",
+      "src/flatMap.php",
+      "src/flatMapWith.php",
+      "src/flatten.php",
+      "src/flip.php",
+      "src/get.php",
+      "src/getWith.php",
+      "src/greaterThan.php",
+      "src/greaterThanOrEqual.php",
+      "src/greaterThanOrEqualTo.php",
+      "src/group.php",
+      "src/groupBy.php",
+      "src/isEven.php",
+      "src/isOdd.php",
+      "src/isType.php",
+      "src/last.php",
+      "src/lessThan.php",
+      "src/map.php",
+      "src/mapObject.php",
+      "src/mapObjectWith.php",
+      "src/pair.php",
+      "src/pairWith.php",
+      "src/pipeLine.php",
+      "src/pluck.php",
+      "src/pluckWith.php",
+      "src/reduce.php",
+      "src/reduceWith.php",
+      "src/sort.php",
+      "src/sortBy.php",
+      "src/useWith.php",
+      "src/walk.php"
     ]
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit"
   }
 }

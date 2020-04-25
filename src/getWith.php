@@ -4,5 +4,5 @@ namespace Slash;
 
 function getWith($fn)
 {
-    return curry_right('get',$fn);
+    return curry_right('Slash\get',$fn);
 }
