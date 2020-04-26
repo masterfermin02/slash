@@ -1,10 +1,13 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use function Slash\flip;
+use function Slash\getWith;
 use function Slash\pipeLine;
 use function Slash\filterWith;
+use function Slash\pluckWith;
 use function Slash\reduceWith;
+use function Slash\useWith;
+use function Slash\equalTo;
 
 class pipeLineTest extends TestCase {
 
@@ -58,5 +61,26 @@ class pipeLineTest extends TestCase {
         );
         $experted = 6 * 5 * 5;
         $this->assertEquals($experted, $pipelines([1,2,3,4]));
+    }
+
+    public function testAverageCaculation()
+    {
+        $withinMale             = useWith(equalTo('male'), getWith('gender'));
+        $filterByMale           = filterWith($withinMale);
+        $caculateAverageMaleAge = Slash\pipeLine(
+            $filterByMale,
+            pluckWith('age'),
+            'Slash\average'
+        );
+        $data = [
+            ['name' => 'John', 'age' => 12, 'gender' => 'male'],
+            ['name' => 'Jane', 'age' => 34, 'gender' => 'female'],
+            ['name' => 'Pete', 'age' => 23, 'gender' => 'male'],
+            ['name' => 'Mark', 'age' => 11, 'gender' => 'male'],
+            ['name' => 'Mary', 'age' => 42, 'gender' => 'female'],
+        ];
+        $avgMaleAge = $caculateAverageMaleAge($data);
+        $experted = (12 + 23 + 11) / 3;
+        $this->assertEquals($experted, $avgMaleAge);
     }
 }

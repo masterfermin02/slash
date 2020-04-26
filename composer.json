@@ -45,6 +45,8 @@
     "files": [
       "src/all.php",
       "src/any.php",
+      "src/average.php",
+      "src/averageWith.php",
       "src/comparator.php",
       "src/compose.php",
       "src/curryLeft.php",
@@ -72,6 +74,7 @@
       "src/last.php",
       "src/lessThan.php",
       "src/map.php",
+      "src/mapWith.php",
       "src/mapObject.php",
       "src/mapObjectWith.php",
       "src/pair.php",
@@ -83,6 +86,7 @@
       "src/reduceWith.php",
       "src/sort.php",
       "src/sortBy.php",
+      "src/sum.php",
       "src/useWith.php",
       "src/walk.php"
     ]
