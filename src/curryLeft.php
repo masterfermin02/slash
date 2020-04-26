@@ -2,7 +2,7 @@
 
 namespace Slash;
 
-function curry_left($callable)
+function curryLeft($callable)
 {
     $outerArguments = func_get_args();
     array_shift($outerArguments);

@@ -2,6 +2,15 @@
 
 namespace Slash;
 
+/**
+ *
+ * Returns a curried version of the function `fn`, with arguments
+ * curried from right -> left.  Uses the natural arity of `fn` to
+ * determine how many arguments to curry, or `n` if passed.
+ *
+ * @param $callable
+ * @return \Closure
+ */
 function curry_right($callable)
 {
     $outerArguments = func_get_args();

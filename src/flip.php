@@ -2,6 +2,14 @@
 
 namespace Slash;
 
+/**
+ *
+ * Returns a new function
+ * that calls the original function with arguments reversed.
+ *
+ * @param $fn
+ * @return \Closure
+ */
 function flip($fn) {
 
     return function() use($fn){
