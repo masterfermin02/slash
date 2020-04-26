@@ -4,5 +4,5 @@ namespace Slash;
 
 function groupBy($fn)
 {
-    return curry_right('group',$fn);
+    return curry_right('Slash\group',$fn);
 }

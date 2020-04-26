@@ -4,5 +4,5 @@ namespace Slash;
 
 function pairWith($fn)
 {
-    return curry_right('pair',$fn);
+    return curry_right('Slash\pair',$fn);
 }

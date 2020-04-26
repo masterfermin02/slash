@@ -4,5 +4,5 @@ namespace Slash;
 
 function mapObjectWith($fn)
 {
-    return curry_right('mapObject',$fn);
+    return curry_right('Slash\mapObject',$fn);
 }
