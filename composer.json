@@ -37,15 +37,17 @@
     }
   },
   "autoload": {
-    "Slash\\": [
-      "src/"
-    ],
+    "psr-4": {
+      "Slash\\": [
+          "src/"
+        ]
+    },
     "files": [
       "src/all.php",
       "src/any.php",
       "src/comparator.php",
       "src/compose.php",
-      "src/curry_left.php",
+      "src/curryLeft.php",
       "src/curry_right.php",
       "src/equal.php",
       "src/equalTo.php",
