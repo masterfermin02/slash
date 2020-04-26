@@ -11,5 +11,14 @@ namespace Slash;
  * @return array
  */
 function map($list, $fn) {
+
+    if (is_null($list)) {
+        return [];
+    }
+
+    if (is_object($list)) {
+        $list = (array) $list;
+    }
+
     return array_map($fn,$list);
 }
