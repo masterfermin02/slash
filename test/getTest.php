@@ -47,6 +47,11 @@ class getTest extends TestCase {
                 'prop' => 'prop',
                 'experted' => self::SAMPLE_VALUE,
             ],
+            'With function' => [
+                'input' => function() { return self::SAMPLE_VALUE; },
+                'prop' => 'prop',
+                'experted' => self::SAMPLE_VALUE,
+            ],
         ];
     }
 

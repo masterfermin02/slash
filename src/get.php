@@ -14,7 +14,7 @@ function get($input, $prop)
     }
 
     if (is_callable($input)) {
-        return  call_user_func($prop, $input);
+        return  call_user_func($input, $prop);
     }
 
     if (is_object($input)) {
