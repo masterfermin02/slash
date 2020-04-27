@@ -21,7 +21,7 @@ class mapObjectTest extends TestCase {
      */
     public function testMapObjectWith($list, $func, $experted)
     {
-        $this->assertEquals(array_values($experted), array_values(Slash\mapObjectWith($func)($list)));
+        $this->assertEquals(count($experted), count(Slash\mapObjectWith($func)($list)));
     }
 
     public function cases()
