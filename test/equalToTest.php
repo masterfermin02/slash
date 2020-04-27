@@ -12,6 +12,11 @@ class equalToTest extends TestCase {
         $this->assertEquals($experted, Slash\equalTo(0)($list[0]));
     }
 
+    public function testGreaterOrEqual()
+    {
+        $this->assertEquals(true, Slash\greaterThanOrEqualTo(3)(5));
+    }
+
     public function cases()
     {
         return [

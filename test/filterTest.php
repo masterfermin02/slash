@@ -1,8 +1,6 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use function Slash\getWith;
-use function Slash\useWith;
 
 class filterTest extends TestCase {
 
@@ -35,8 +33,8 @@ class filterTest extends TestCase {
             ],
             'With an associative array with several elements that satisfy the predicate' => [
                 'list' => ['a' => 1, 'b' => 2, 'c' => 4, 'd' => 7, 'e' => 9],
-                'func' => 'Slash\isEven',
-                'expected' => ['b' => 2, 'c' => 4],
+                'func' => Slash\greaterThanOrEqualTo(3),
+                'expected' => ['c' => 4, 'd' => 7, 'e' => 9],
             ],
             'With an associative array with all elements that satisfy the predicate' => [
                 'list' => ['a' => 1, 'b' => 3, 'c' => 5, 'd' => 7, 'e' => 8],
