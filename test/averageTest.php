@@ -1,6 +1,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
+use function Slash\average;
 
 class averageTest extends TestCase {
 
@@ -9,7 +10,15 @@ class averageTest extends TestCase {
      */
     public function testAverage($list, $experted)
     {
-        $this->assertEquals($experted, Slash\average($list));
+        $this->assertEquals($experted, average($list));
+    }
+
+    /**
+     * @dataProvider cases
+     */
+    public function testAverageWith($list, $experted)
+    {
+        $this->assertEquals($experted, Slash\averageWith(function ($list) { return $list; })($list));
     }
 
     public function cases()

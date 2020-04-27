@@ -1,18 +1,15 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use function Slash\getWith;
-use function Slash\useWith;
 
-class filterTest extends TestCase {
+class lastTest extends TestCase {
 
-    protected $evenExperted = [2,4,6,8,10];
     /**
      * @dataProvider cases
      */
-    public function testFilter($list, $func, $experted)
+    public function testAll($list, $func, $experted)
     {
-        $this->assertEquals(array_values($experted), array_values(Slash\filter($list, $func)));
+        $this->assertEquals($experted, Slash\last($list, $func));
     }
 
     public function cases()
@@ -21,52 +18,52 @@ class filterTest extends TestCase {
             'With null' => [
                 'list' => null,
                 'func' => 'Slash\isEven',
-                'experted' => [],
+                'experted' => null,
             ],
             'With a empty list' => [
                 'list' => [],
                 'func' => 'Slash\isEven',
-                'experted' => [],
+                'experted' => null,
             ],
             'With range 1-10 return false for even' => [
                 'list' => [1,2,3,4,5,6,7,8,9,10],
                 'func' => 'Slash\isEven',
-                'experted' => $this->evenExperted,
+                'experted' => 10,
             ],
             'With an associative array with several elements that satisfy the predicate' => [
                 'list' => ['a' => 1, 'b' => 2, 'c' => 4, 'd' => 7, 'e' => 9],
                 'func' => 'Slash\isEven',
-                'expected' => ['b' => 2, 'c' => 4],
+                'expected' => 4,
             ],
             'With an associative array with all elements that satisfy the predicate' => [
                 'list' => ['a' => 1, 'b' => 3, 'c' => 5, 'd' => 7, 'e' => 8],
                 'func' => 'Slash\isOdd',
-                'expected' => ['a' => 1, 'b' => 3, 'c' => 5, 'd' => 7],
+                'expected' => 7,
             ],
             'With an empty stdClass' => [
                 'list' => (object) [],
                 'func' => 'Slash\isOdd',
-                'expected' => [],
+                'expected' => null,
             ],
             'With an stdClass with no elements that satisfy the predicate' => [
                 'list' => (object) ['a' => 2, 'b' => 4, 'c' => 6],
                 'func' => 'Slash\isOdd',
-                'expected' => [],
+                'expected' => null,
             ],
             'With an stdClass with one element that satisfies the predicate' => [
                 'list' => (object) ['a' => 2, 'b' => 3, 'c' => 6],
                 'func' => 'Slash\isOdd',
-                'expected' => ['b' => 3],
+                'expected' => 3,
             ],
             'With an stdClass with several elements that satisfy the predicate' => [
                 'list' => (object) ['a' => 1, 'b' => 4, 'c' => 5],
                 'func' => 'Slash\isOdd',
-                'expected' => ['a' => 1, 'c' => 5],
+                'expected' => 5,
             ],
             'With an stdClass with all elements that satisfy the predicate' => [
                 'list' => (object) ['a' => 1, 'b' => 3, 'c' => 5],
                 'func' => 'Slash\isOdd',
-                'expected' => ['a' => 1, 'b' => 3, 'c' => 5],
+                'expected' => 5,
             ],
 
             /*
@@ -76,27 +73,27 @@ class filterTest extends TestCase {
             'With an empty ArrayObject' => [
                 'list' => new ArrayObject([]),
                 'func' => 'Slash\isOdd',
-                'expected' => [],
+                'expected' => null,
             ],
             'With an ArrayObject with no elements that satisfy the predicate' => [
                 'list' => new ArrayObject(['a' => 2, 'b' => 4, 'c' => 6]),
                 'func' => 'Slash\isOdd',
-                'expected' => [],
+                'expected' => null,
             ],
             'With an ArrayObject with one element that satisfies the predicate' => [
                 'list' => new ArrayObject(['a' => 2, 'b' => 3, 'c' => 6]),
                 'func' => 'Slash\isOdd',
-                'expected' => ['b' => 3],
+                'expected' => 3,
             ],
             'With an ArrayObject with several elements that satisfy the predicate' => [
                 'list' => new ArrayObject(['a' => 1, 'b' => 4, 'c' => 5]),
                 'func' => 'Slash\isOdd',
-                'expected' => ['a' => 1, 'c' => 5],
+                'expected' => 5,
             ],
             'With an ArrayObject with all elements that satisfy the predicate' => [
                 'list' => new ArrayObject(['a' => 1, 'b' => 3, 'c' => 5]),
-                'func' => Slash\greaterThanOrEqualTo(3),
-                'expected' => ['b' => 3, 'c' => 5],
+                'func' => 'Slash\isOdd',
+                'expected' => 5,
             ],
 
         ];
