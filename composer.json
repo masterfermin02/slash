@@ -70,7 +70,6 @@
       "src/groupBy.php",
       "src/isEven.php",
       "src/isOdd.php",
-      "src/isType.php",
       "src/last.php",
       "src/lessThan.php",
       "src/map.php",
