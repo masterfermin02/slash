@@ -74,8 +74,6 @@
       "src/lessThan.php",
       "src/map.php",
       "src/mapWith.php",
-      "src/mapObject.php",
-      "src/mapObjectWith.php",
       "src/pair.php",
       "src/pairWith.php",
       "src/pipeLine.php",
