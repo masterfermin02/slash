@@ -81,6 +81,8 @@
       "src/pluckWith.php",
       "src/reduce.php",
       "src/reduceWith.php",
+      "src/reject.php",
+      "src/rejectWith.php",
       "src/sort.php",
       "src/sortBy.php",
       "src/sum.php",
