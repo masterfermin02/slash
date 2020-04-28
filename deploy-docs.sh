@@ -5,6 +5,7 @@ set -e
 
 # build
 vendor/bin/phpdoc -d ./src -t ./docs/api
+php bin/docs.php src/ docs/Operations.md
 
 # navigate into the build output directory
 cd ./docs/api
