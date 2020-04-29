@@ -50,7 +50,7 @@
       "src/comparator.php",
       "src/compose.php",
       "src/curryLeft.php",
-      "src/curry_right.php",
+      "src/curryRight.php",
       "src/equal.php",
       "src/equalTo.php",
       "src/filter.php",
