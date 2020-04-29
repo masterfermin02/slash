@@ -11,7 +11,7 @@ namespace Slash;
  * @param $callable
  * @return \Closure
  */
-function curry_right($callable)
+function curryRight($callable)
 {
     $outerArguments = func_get_args();
     array_shift($outerArguments);
