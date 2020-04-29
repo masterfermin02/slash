@@ -4,5 +4,5 @@ namespace Slash;
 
 function firstWith($fn)
 {
-    return curry_right('Slash\first',$fn);
+    return curryRight('Slash\first',$fn);
 }

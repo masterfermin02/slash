@@ -8,7 +8,7 @@ Operation | Signature | Curried
 [average](#average) | `: float\|int\|null` | 
 [comparator](#comparator) | `: \Closure` | 
 [compose](#compose) | `: \Closure\|mixed` | 
-[curry_right](#curry_right) | `curry_right($callable): \Closure` | 
+[curryRight](#curryright) | `curryRight($callable): \Closure` | 
 [first](#first) | `: mixed\|null` | 
 [flatMap](#flatmap) | `: mixed` | 
 [flip](#flip) | `: \Closure` | 
@@ -153,11 +153,11 @@ echo $pipelines("hello world----");
 @return \Closure|mixed
 ```
 [↑ Top](#operations)
-curry_right
+curryRight
 ---
 
 ```php
-curry_right($callable): \Closure
+curryRight($callable): \Closure
 ```
 Returns a curried version of the function `fn`, with arguments
 curried from right -> left.  Uses the natural arity of `fn` to

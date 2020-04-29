@@ -4,5 +4,5 @@ namespace Slash;
 
 function pluckWith($fn)
 {
-    return curry_right('Slash\pluck',$fn);
+    return curryRight('Slash\pluck',$fn);
 }

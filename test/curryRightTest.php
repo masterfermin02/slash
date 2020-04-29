@@ -1,13 +1,13 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use function Slash\curry_right;
+use function Slash\curryRight;
 
 class curryRightTest extends TestCase {
 
     public function testCurryRunOneFunction()
     {
-        $isEven = curry_right(
+        $isEven = curryRight(
             Slash\filterWith('Slash\isEven')
         );
         $experted = [2,4];

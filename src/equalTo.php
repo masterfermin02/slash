@@ -2,4 +2,4 @@
 
 namespace Slash;
 
-function equalTo($to){ return curry_right('Slash\equal',$to); }
+function equalTo($to){ return curryRight('Slash\equal',$to); }

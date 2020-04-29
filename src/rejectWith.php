@@ -4,5 +4,5 @@ namespace Slash;
 
 function rejectWith($fn)
 {
-    return curry_right('Slash\reject', $fn);
+    return curryRight('Slash\reject', $fn);
 }

@@ -10,7 +10,7 @@ use function Slash\rejectWith;
 use function Slash\sortBy;
 use function Slash\getWith;
 use function Slash\useWith;
-use function Slash\curry_right;
+use function Slash\curryRight;
 use function Slash\any;
 use function Slash\firstWith;
 
@@ -68,7 +68,7 @@ function createOp($filepath)
 }
 
 function joinWith($func) {
-    return curry_right('join', $func);
+    return curryRight('join', $func);
 }
 
 function extractDocblockString($filepath)
