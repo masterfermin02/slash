@@ -71,7 +71,7 @@ Slash\map([1, 2, 3], function ($n) { return $n * 2; });  // === [2, 4, 6]
 ```
 
 ## Docs
-[docs](https://masterfermin02.github.io/slash/namespaces/Slash.html)
+[docs](https://github.com/masterfermin02/slash/blob/master/docs/Operations.md)
 
 ## Feedback
 Found a bug or have a suggestion? Please [create a new GitHub issue](https://github.com/masterfermin02/slash/issues/new). We want your feedback!
