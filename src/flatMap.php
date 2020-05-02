@@ -10,6 +10,11 @@ namespace Slash;
  * @param $list
  * @param $fn
  * @return mixed
+ *
+ * @example
+ *
+ * Slash\flatMap([[1,2],[3,4]], function($x) { return $x + 1; }) // === [2,3,4,5]
+ *
  */
 function flatMap($list, $fn) {
     return flatten(map($list, $fn));

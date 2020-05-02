@@ -9,6 +9,12 @@ namespace Slash;
  *
  * @param $fn
  * @return \Closure
+ *
+ * $add = function($number1, $number2, $number3) {
+ *      return $number + $number2 + $number3;
+ * };
+ *
+ * Slash\flip($add)(1,2,3); // === 6
  */
 function flip($fn) {
 

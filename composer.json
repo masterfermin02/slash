@@ -46,7 +46,6 @@
       "src/all.php",
       "src/any.php",
       "src/average.php",
-      "src/averageWith.php",
       "src/comparator.php",
       "src/compose.php",
       "src/curryLeft.php",

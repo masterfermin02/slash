@@ -2,11 +2,25 @@
 
 namespace Slash;
 
-// Similar to Ramda's useWith(fn,...) which allows you to supply
-// a function `fn`, along with one or more transform functions. When
-// the returned function is called, it will each argument passed to `fn`
-// using the correlating transform function - if there are more arguments
-// than transform functions, those arguments will be passed as is.
+
+/**
+ *
+ * Similar to Ramda's useWith(fn,...) which allows you to supply
+ * a function `fn`, along with one or more transform functions. When
+ * the returned function is called, it will each argument passed to `fn`
+ * using the correlating transform function - if there are more arguments
+ * than transform functions, those arguments will be passed as is.
+ *
+ * @param $fn
+ * @return \Closure
+ *
+ * @example
+ *
+ * $sum = function($a, $b) { return $a + $b;  };
+ *
+ * Slash\useWith($sum, Slash\getWith('a'), Slash\getWith('b'))(['a' => 1, 'b' => 1]); // === 2
+ *
+ */
 function useWith($fn /*, txfn, ... */) {
     $transforms = func_get_args();
     array_shift($transforms);

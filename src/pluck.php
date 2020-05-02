@@ -8,6 +8,7 @@ namespace Slash;
  * @param $list
  * @param $prop
  * @return mixed
+ *
  */
 function pluck($list, $prop) {
     return call_user_func(mapWith(getWith($prop)),$list);

@@ -10,6 +10,17 @@ namespace Slash;
  *
  * @param $callable
  * @return \Closure
+ *
+ * @example
+ *
+ * $greaterThan3 = function ($number) {
+ *  return $number > 3;
+ * };
+ *
+ * $filterGreaterThan3 = Slash\curryRight('Slash\filter', $greaterThan3);
+ *
+ * $filteredNumber = $filterGreaterThan3([1, 2, 3, 4, ,5]) ; // === [4, 5]
+ *
  */
 function curryRight($callable)
 {

@@ -9,6 +9,11 @@ namespace Slash;
  * @param $list
  * @param $fn
  * @return array
+ *
+ * @example
+ *
+ * Slash\map([1,2,3], function($x){ return $x+1; }); // [2,3,4]
+ *
  */
 function map($list, $fn) {
 

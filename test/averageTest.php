@@ -13,14 +13,6 @@ class averageTest extends TestCase {
         $this->assertEquals($experted, average($list));
     }
 
-    /**
-     * @dataProvider cases
-     */
-    public function testAverageWith($list, $experted)
-    {
-        $this->assertEquals($experted, Slash\averageWith(function ($list) { return $list; })($list));
-    }
-
     public function cases()
     {
         return [

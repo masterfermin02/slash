@@ -10,6 +10,10 @@ namespace Slash;
  *
  * @param $fn
  * @return \Closure
+ *
+ * @example
+ *
+ *  Slash\comparator(Slash\greaterThan([1, 0])) // === -1
  */
 function comparator($fn) {
     return function($a,$b) use($fn){

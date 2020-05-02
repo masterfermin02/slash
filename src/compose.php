@@ -9,6 +9,9 @@ namespace Slash;
  * that will compose those functions passing its input to the
  * right-most, inner function.
  * ie., compose(f,g,h) == f(g(h()))
+ *
+ * @return \Closure|mixed
+ *
  * @example:
  *
  * $pipelines = compose(
@@ -17,10 +20,9 @@ namespace Slash;
  *   addPoint
  *   );
  *
- * echo $pipelines("hello world----");
- *   // results "Hello world."
+ * echo $pipelines("hello world----"); // === "Hello world."
  *
- * @return \Closure|mixed
+ *
  */
 function compose() {
     $args = func_get_args();

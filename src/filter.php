@@ -2,7 +2,19 @@
 
 namespace Slash;
 
-// Filter `list` using the predicate function `fn`
+/**
+ *
+ * Filter `list` using the predicate function `fn`
+ *
+ * @param $list
+ * @param $fn
+ * @return array
+ *
+ * @example
+ *
+ * Slash\filter([1,2,3],function($number) { return $number === 2; }); // === [2]
+ *
+ */
 function filter($list, $fn) {
 
     if (is_null($list)) {

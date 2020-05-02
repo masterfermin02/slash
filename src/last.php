@@ -9,6 +9,11 @@ namespace Slash;
  * @param $array
  * @param $test
  * @return mixed|null
+ *
+ * @example
+ *
+ * Slash\last([1,2,3],function($number) { return $number === 2; }); // === 2
+ *
  */
 function last($array, $test) {
 

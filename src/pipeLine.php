@@ -5,8 +5,13 @@ namespace Slash;
 /**
  * Reverse of compose, taking it's arguments and chaining
  * them from left -> right
- * ie., pipeline(f,g,h) = h(g(f()))
+ *
  * @return \Closure
+ *
+ * @example
+ *
+ * ie., pipeline(f,g,h) = h(g(f()))
+ *
  */
 function pipeLine() {
     $args = func_get_args();

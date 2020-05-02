@@ -3,31 +3,29 @@
 namespace Slash;
 
 /**
- *  If all the element of the list pass will return true
- *  is any fail will return false
+ *  Return true only If all the element of the list pass the predicate
  *
  * @param $array
- * @param $test
+ * @param $predicate
  * @return bool
  *
  * @example
-    Slaash\all([1, 3, 5], 'Slaash\isOdd');
-    // === true
-    Slaash\all([1, 3, 5], function ($n) { return $n != 3; });
-    // === false
-    Slash\all([], 'Dash\isOdd');
-    // === true
-    Slaash\all((object) ['a' => 1, 'b' => 3, 'c' => 5], 'Slash\isOdd');
-    // === true
- */
-function all($array, $test) {
+    Slash\all([1, 3, 5], 'Slash\isOdd'); // === true
 
-    if(is_null($array)) {
+    Slash\all([1, 3, 5], function ($n) { return $n != 3; }); // === false
+
+    Slash\all([], 'Slash\isOdd'); // === true
+
+    Slash\all((object) ['a' => 1, 'b' => 3, 'c' => 5], 'Slash\isOdd'); // === true
+ */
+function all($array, $predicate) {
+
+    if (is_null($array)) {
         return true;
     }
 
-    foreach ($array as $v) {
-        if (!call_user_func($test,$v)) {
+    foreach($array as $v) {
+        if (!call_user_func($predicate,$v)) {
             return false;
         }
     }
