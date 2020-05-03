@@ -3,6 +3,12 @@ Operations
 Is there an operation you'd like to see? [Open an issue](https://github.com/mpetrovich/dash/issues/new?labels=enhancement) or vote on an existing one.
 Operation | Signature | Curried
 :--- | :--- | :---
+[Arrays](#arrays) | `: mixed\|array` | 
+[Collections](#collections) | `: void` | 
+[Functions](#functions) | `` | 
+[Objects](#objects) | `: mixed` | 
+[Slash](#slash) | `` | 
+[Utilities](#utilities) | `: string` | 
 [all](#all) | `: bool` | 
 [any](#any) | `: bool` | 
 [average](#average) | `: float\|int\|null` | 
@@ -34,6 +40,103 @@ Operation | Signature | Curried
 [useWith](#usewith) | `: \Closure` | 
 [walk](#walk) | `` | 
 
+Arrays
+---
+
+```php
+: mixed|array
+```
+Get the first n elements.
+
+**Returns** | `mixed\|array` |
+**Example:** Get the first n elements.
+```php
+
+@param array $elements
+@param integer $amount
+@return mixed|array
+```
+[↑ Top](#operations)
+Collections
+---
+
+```php
+: void
+```
+Iterate through $collection using $iterator.
+
+**Returns** | `void` |
+**Example:** Iterate through $collection using $iterator.
+```php
+
+@param array $collection
+@param Closure $iterator
+@return void
+```
+[↑ Top](#operations)
+Functions
+---
+
+```php
+
+```
+The cached closures.
+
+
+**Example:** The cached closures.
+```php
+
+@var array
+```
+[↑ Top](#operations)
+Objects
+---
+
+```php
+: mixed
+```
+Invoke $closure on $object, then return $object.
+
+**Returns** | `mixed` |
+**Example:** Invoke $closure on $object, then return $object.
+```php
+
+@param mixed $object
+@param Closure $closure
+@return mixed
+```
+[↑ Top](#operations)
+Slash
+---
+
+```php
+
+```
+The instance of Slash.
+
+
+**Example:** The instance of Slash.
+```php
+
+@var Slash
+```
+[↑ Top](#operations)
+Utilities
+---
+
+```php
+: string
+```
+Generate a unique identifier.
+
+**Returns** | `string` |
+**Example:** Generate a unique identifier.
+```php
+
+@param string $prefix
+@return string
+```
+[↑ Top](#operations)
 all
 ---
 
