@@ -15,7 +15,7 @@ namespace Slash;
  *
  */
 function flatten($list) {
-    return reduce($list,function($items,$item){
-        return is_array($item) ? array_merge($items,$item) : $item;
+    return reduce($list,function($items,$item) {
+        return is_array($item) ? array_merge($items, $item) : $item;
     },[]);
 }

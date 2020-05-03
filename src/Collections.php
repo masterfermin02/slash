@@ -1,0 +1,209 @@
+<?php
+
+namespace Slash;
+
+use Closure;
+use Countable;
+
+class Collections {
+
+    /**
+     * Iterate through $collection using $iterator.
+     *
+     * @param array $collection
+     * @param Closure $iterator
+     * @return void
+     */
+    public function each(array $collection, Closure $iterator)
+    {
+        walk($collection, $iterator);
+    }
+
+    /**
+     * "Map" through $collection using $iterator.
+     *
+     * @param array $collection
+     * @param Closure $iterator
+     * @return array
+     */
+    public function map(array $collection, Closure $iterator)
+    {
+        return map($collection, $iterator);
+    }
+
+    /**
+     * Convert $value to an array.
+     *
+     * @param mixed $value
+     * @return array
+     */
+    public function toArray($value)
+    {
+        return (array) $value;
+    }
+
+    /**
+     * Calculate the size of $value.
+     *
+     * @param array|Countable $value
+     * @return null|integer
+     */
+    public function size($value)
+    {
+        if (is_array($value) or ($value instanceof Countable))
+        {
+            return count($value);
+        }
+
+        return null;
+    }
+
+    /**
+     * "Shuffle" the given $collection.
+     *
+     * @param array $collection
+     * @return array
+     */
+    public function shuffle(array $collection)
+    {
+        shuffle($collection);
+
+        return $collection;
+    }
+
+    /**
+     * Check whether any values in $collection pass $iterator.
+     *
+     * @param array $collection
+     * @param Closure $iterator
+     * @return boolean
+     */
+    public function any(array $collection, Closure $iterator)
+    {
+        return any($collection, $iterator);
+    }
+
+    /**
+     * Check whether all values in $collection pass $iterator.
+     *
+     * @param array $collection
+     * @param Closure $iterator
+     * @return boolean
+     */
+    public function all(array $collection, Closure $iterator)
+    {
+        return all($collection, $iterator);
+    }
+
+    /**
+     * Run $iterator and remove all failing items in $collection.
+     *
+     * @param array $collection
+     * @param Closure $iterator
+     * @return array
+     */
+    public function reject(array $collection, Closure $iterator)
+    {
+        return array_values(reject($collection, $iterator));
+    }
+
+    /**
+     * Extract an array of values associated with $key from $collection.
+     *
+     * @param array $collection
+     * @param string $key
+     * @return array
+     */
+    public function pluck(array $collection, $key)
+    {
+        return pluck($collection, $key);
+    }
+
+    /**
+     * Determine if $collection contains $value (=== is used).
+     *
+     * @param array $collection
+     * @param mixed $value
+     * @return boolean
+     */
+    public function contains(array $collection, $value)
+    {
+        return in_array($value, $collection, true);
+    }
+
+    /**
+     * Run $function across all elements in $collection.
+     *
+     * @param array $collection
+     * @param string $function
+     * @return array
+     */
+    public function invoke(array $collection, $function)
+    {
+        return map($collection, $function);
+    }
+
+    /**
+     * Reduce $collection into a single value using $iterator.
+     *
+     * @param array $collection
+     * @param Closure $iterator
+     * @param mixed $initial
+     * @return mixed
+     */
+    public function reduce(array $collection, Closure $iterator, $initial = 0)
+    {
+        return reduce($collection, $iterator, $initial);
+    }
+
+    /**
+     * Return $collection sorted in ascending order based on $iterator results.
+     *
+     * @param array $collection
+     * @param Closure $iterator
+     * @return array
+     */
+    public function sortBy(array $collection, Closure $iterator)
+    {
+        return sortBy($iterator)($collection);
+    }
+
+    /**
+     * Group values in $collection by $iterator's return value.
+     *
+     * @param array $collection
+     * @param Closure $iterator
+     * @return array
+     */
+    public function groupBy(array $collection, $iterator)
+    {
+        return groupBy($iterator)($collection);
+    }
+
+    /**
+     * Return the maximum value from $collection.
+     *
+     * @param array $collection
+     * @return mixed
+     */
+    public function max(array $collection)
+    {
+        \sort($collection);
+
+        return end($collection);
+    }
+
+    /**
+     * Return the minimum value from $collection.
+     *
+     * @param array $collection
+     * @return mixed
+     */
+    public function min(array $collection)
+    {
+        \sort($collection);
+
+        return reset($collection);
+    }
+
+}

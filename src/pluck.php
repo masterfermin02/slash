@@ -11,5 +11,10 @@ namespace Slash;
  *
  */
 function pluck($list, $prop) {
-    return call_user_func(mapWith(getWith($prop)),$list);
+    return reduce($list, function ($result, $element) use($prop) {
+        if(isset($element[$prop])) {
+            $result[] = $element[$prop];
+        }
+        return $result;
+    }, []);
 }
