@@ -66,7 +66,7 @@ class Functions {
      */
     public function compose(array $closures, array $arguments = [])
     {
-        $composed = call_user_func_array('Slash\compose', $closures);
+        $composed = call_user_func_array(curryRight('Slash\compose'), $closures);
 
         return call_user_func_array($composed, $arguments);
     }
@@ -121,7 +121,7 @@ class Functions {
             return null;
         };
 
-        return $this->after($number, $closure);
+        return null;
     }
 
 }
