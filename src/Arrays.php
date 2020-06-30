@@ -138,7 +138,7 @@ class Arrays {
             $elements = array_unique($elements);
         }
 
-        return array_values($elements);
+        return array_values($elements);;
     }
 
     /**

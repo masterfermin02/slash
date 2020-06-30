@@ -86,6 +86,7 @@
       "src/sortBy.php",
       "src/sum.php",
       "src/useWith.php",
+      "src/unique.php",
       "src/walk.php"
     ]
   },
