@@ -46,6 +46,11 @@ class uniqueTest extends TestCase {
                 'func' => function($element) { return $element; },
                 'expected' => ['a' => 2, 'b' => 4, 'c' => 6],
             ],
+            'With null callback' => [
+                'list' => [1,3,1,3,2,4,5,6,2,1,3,5],
+                'func' => null,
+                'expected' => [1,3,2,4,5,6],
+            ],
         ];
     }
 }
