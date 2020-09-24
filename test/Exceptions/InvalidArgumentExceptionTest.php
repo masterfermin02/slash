@@ -119,4 +119,60 @@ class InvalidArgumentExceptionTest extends TestCase
         $this->expectExceptionMessage('func() expects parameter 2 to be positive integer, string given');
         InvalidArgumentException::assertPositiveInteger('str', 'func', 2);
     }
+
+    public function testExceptionIfValidArrayKey()
+    {
+        $this->expectException('Slash\Exceptions\InvalidArgumentException');
+        $this->expectExceptionMessage('foo(): callback returned invalid array key of type');
+        InvalidArgumentException::assertValidArrayKey(new \stdClass(), 'foo');
+    }
+
+    public function testExceptionIfArrayKeyExists()
+    {
+        $this->expectException('Slash\Exceptions\InvalidArgumentException');
+        $this->expectExceptionMessage('foo(): unknown key "foo"');
+        InvalidArgumentException::assertArrayKeyExists([], 'foo', 'foo');
+    }
+
+    public function testExceptionIfBoolean()
+    {
+        $this->expectException('Slash\Exceptions\InvalidArgumentException');
+        $this->expectExceptionMessage('foo() expects parameter 0 to be boolean, string given');
+        InvalidArgumentException::assertBoolean('str', 'foo', 'foo');
+    }
+
+    public function testExceptionIfInterger()
+    {
+        $this->expectException('Slash\Exceptions\InvalidArgumentException');
+        $this->expectExceptionMessage('foo() expects parameter 0 to be integer, string given');
+        InvalidArgumentException::assertInteger('str', 'foo', 'foo');
+    }
+
+    public function testExceptionIfIntegerGreaterThanOrEqual()
+    {
+        $this->expectException('Slash\Exceptions\InvalidArgumentException');
+        $this->expectExceptionMessage('foo() expects parameter 0 to be an integer greater than or equal to 2');
+        InvalidArgumentException::assertIntegerGreaterThanOrEqual(1, 2, 'foo', 0);
+    }
+
+    public function testExceptionIfIntegerLessThanOrEqual()
+    {
+        $this->expectException('Slash\Exceptions\InvalidArgumentException');
+        $this->expectExceptionMessage('foo() expects parameter 0 to be an integer less than or equal to 1');
+        InvalidArgumentException::assertIntegerLessThanOrEqual(2, 1, 'foo', 0);
+    }
+
+    public function testExceptionIfResolvablePlaceholder()
+    {
+        $this->expectException('Slash\Exceptions\InvalidArgumentException');
+        $this->expectExceptionMessage('Cannot resolve parameter placeholder at position 1. Parameter stack is empty.');
+        InvalidArgumentException::assertResolvablePlaceholder([], 1);
+    }
+
+    public function testExceptionIfNonZeroInteger()
+    {
+        $this->expectException('Slash\Exceptions\InvalidArgumentException');
+        $this->expectExceptionMessage('foo expected parameter 0 to be non-zero');
+        InvalidArgumentException::assertNonZeroInteger(0, 'foo');
+    }
 }
