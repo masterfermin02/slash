@@ -2,6 +2,12 @@
 
 <phpunit
         bootstrap="vendor/autoload.php">
+    <php>
+        <ini name="error_reporting" value="-1" />
+        <ini name="xdebug.mode" value="coverage" />
+        <env name="XDEBUG_MODE" value="coverage" />
+    </php>
+
     <testsuites>
         <testsuite name="Slash Test Suite">
             <directory>./test/</directory>

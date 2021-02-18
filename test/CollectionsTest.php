@@ -88,7 +88,7 @@ class CollectionsTest extends TestCase {
             ],
             'With array test sortBy' => [
                 'list' => [1,4,2,3],
-                'func' => function ($a, $b) { return $a < $b; },
+                'func' => function ($a, $b) { return $a < $b ? 1 : 0; },
                 'method' => 'sortBy',
                 'experted' => [4,3,2,1],
             ],
