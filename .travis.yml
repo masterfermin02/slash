@@ -20,7 +20,7 @@ install:
   - composer install --prefer-dist --ignore-platform-reqs
 
 script:
-  - vendor/bin/phpunit
+  - XDEBUG_MODE=coverage php vendor/bin/phpunit
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
