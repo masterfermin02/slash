@@ -1,6 +1,6 @@
 # Slash
 
-[![Build Status](http://img.shields.io/travis/masterfermin02/slash.svg?style=flat)](https://travis-ci.org/masterfermin02/slash)
+[![Build Status](https://www.travis-ci.com/masterfermin02/slash.svg?branch=master)](https://travis-ci.org/masterfermin02/slash)
 [![Latest Stable Version](http://img.shields.io/packagist/v/masterfermin02/slash.svg?style=flat)](https://packagist.org/packages/masterfermin02/slash)
 [![Total Downloads](http://img.shields.io/packagist/dt/masterfermin02/slash.svg?style=flat)](https://packagist.org/packages/masterfermin02/slash)
 [![codecov](https://codecov.io/gh/masterfermin02/slash/branch/master/graph/badge.svg)](https://codecov.io/gh/masterfermin02/slash)
