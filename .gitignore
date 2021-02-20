@@ -3,3 +3,4 @@ composer.lock
 .idea/
 test-coverage/
 coverage.xml
+.phpunit.result.cache
