@@ -15,15 +15,15 @@ namespace Slash;
  * Slash\filter([1,2,3],function($number) { return $number === 2; }); // === [2]
  *
  */
-function filter($list, $fn) {
+function filter($list, $fn)
+{
+	if (is_null($list)) {
+		return [];
+	}
 
-    if (is_null($list)) {
-        return [];
-    }
+	if (is_object($list)) {
+		$list = (array) $list;
+	}
 
-    if (is_object($list)) {
-        $list = (array) $list;
-    }
-
-    return array_filter($list,$fn);
+	return array_filter($list, $fn);
 }

@@ -13,9 +13,10 @@ namespace Slash;
  * ie., pipeline(f,g,h) = h(g(f()))
  *
  */
-function pipeLine() {
-    $args = func_get_args();
-    return function ($items) use($args) {
-        return call_user_func_array(flip('Slash\compose'), $args)($items);
-    };
+function pipeLine()
+{
+	$args = func_get_args();
+	return function ($items) use ($args) {
+		return call_user_func_array(flip('Slash\compose'), $args)($items);
+	};
 }

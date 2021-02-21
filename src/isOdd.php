@@ -2,6 +2,7 @@
 
 namespace Slash;
 
-function isOdd($number) {
-    return !isEven($number);
+function isOdd($number)
+{
+	return !isEven($number);
 }

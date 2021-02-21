@@ -13,4 +13,6 @@ namespace Slash;
  * equal(1, 2); // false
  * equal(1,1); // true
  */
-function equal($a, $b) { return $a === $b; }
+function equal($a, $b)
+{
+	return $a === $b; }

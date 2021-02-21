@@ -9,13 +9,13 @@ namespace Slash;
  * determine how many arguments to curry, or `n` if passed.
  *
  * @param $callable
- * @param $outerArguments
+ * @param ...$outerArguments
  * @return \Closure
  *
  * @example
  *
  * $greaterThan3 = function ($number) {
-        return $number > 3;
+ *		return $number > 3;
  * };
  *
  * $filterGreaterThan3 = Slash\curryLeft('Slash\filter', $greaterThan3);
@@ -25,7 +25,7 @@ namespace Slash;
  */
 function curryLeft($callable, ...$outerArguments)
 {
-    return function() use ($callable, $outerArguments) {
-        return call_user_func_array($callable, array_merge($outerArguments, func_get_args()));
-    };
+	return function () use ($callable, $outerArguments) {
+		return call_user_func_array($callable, array_merge($outerArguments, func_get_args()));
+	};
 }

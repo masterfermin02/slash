@@ -10,15 +10,15 @@ namespace Slash;
  * @return float|int|null
  *
  * @example
-    Slash\average([1, 3, 5]); // === 3
+	Slash\average([1, 3, 5]); // === 3
  */
-function average($list) {
+function average($list)
+{
+	$size = count($list);
 
-    $size = count($list);
+	if ($size === 0) {
+		return null;
+	}
 
-    if ($size === 0) {
-        return null;
-    }
-
-    return sum($list) / $size;
+	return sum($list) / $size;
 }

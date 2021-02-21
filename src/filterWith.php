@@ -8,5 +8,5 @@ namespace Slash;
  */
 function filterWith($fn)
 {
-    return curryRight('Slash\filter',$fn);
+	return curryRight('Slash\filter', $fn);
 }

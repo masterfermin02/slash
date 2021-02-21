@@ -3,78 +3,79 @@ Operations
 Is there an operation you'd like to see? [Open an issue](https://github.com/masterfermin02/slash/issues/new?labels=enhancement) or vote on an existing one.
 Operation | Signature | Curried
 :--- | :--- | :---
-[Arrays](#arrays) | `: mixed\|array` | 
-[Collections](#collections) | `: void` | 
+[Arrays](#arrays) | `` | 
+[Collections](#collections) | `` | 
 [Functions](#functions) | `` | 
-[Objects](#objects) | `: mixed` | 
+[Objects](#objects) | `` | 
 [Slash](#slash) | `` | 
-[Utilities](#utilities) | `: string` | 
-[all](#all) | `: bool` | 
-[any](#any) | `: bool` | 
-[average](#average) | `: float\|int\|null` | 
-[comparator](#comparator) | `: \Closure` | 
-[compose](#compose) | `: \Closure\|mixed` | 
+[Utilities](#utilities) | `` | 
+[all](#all) | `all($array, $predicate): bool` | 
+[any](#any) | `any($array, $predicate): bool` | 
+[average](#average) | `average($list): float\|int\|null` | 
+[comparator](#comparator) | `comparator($fn): \Closure` | 
+[compose](#compose) | `compose(...$args): \Closure\|mixed` | 
 [curryLeft](#curryleft) | `curryLeft($callable, ...$outerArguments): \Closure` | 
 [curryRight](#curryright) | `curryRight($callable, ...$outerArguments): \Closure` | 
-[equal](#equal) | `: bool` | 
-[equalTo](#equalto) | `: \Closure` | 
-[filter](#filter) | `: array` | 
+[equal](#equal) | `equal($a, $b): bool` | 
+[equalTo](#equalto) | `equalTo($to): \Closure` | 
+[filter](#filter) | `filter($list, $fn): array` | 
 [filterWith](#filterwith) | `filterWith($fn): \Closure` | 
-[first](#first) | `: mixed\|null` | 
-[flatMap](#flatmap) | `: mixed` | 
-[flatten](#flatten) | `: mixed` | 
-[flip](#flip) | `: \Closure` | 
+[first](#first) | `first($array, $predicate): mixed\|null` | 
+[flatMap](#flatmap) | `flatMap($list, $fn): mixed` | 
+[flatten](#flatten) | `flatten($list): mixed` | 
+[flip](#flip) | `flip($fn): \Closure` | 
 [get](#get) | `get($input, $prop): mixed` | 
-[group](#group) | `: mixed` | 
-[groupBy](#groupby) | `groupById($list): mixed` | 
-[last](#last) | `: mixed\|null` | 
-[lessThan](#lessthan) | `: bool` | 
-[map](#map) | `: array` | 
+[greaterThanOrEqual](#greaterthanorequal) | `greaterThanOrEqual($a, $b): bool` | 
+[group](#group) | `group($list, $prop): mixed` | 
+[groupBy](#groupby) | `groupBy($fn): \Closure` | 
+[last](#last) | `last($array, $test): mixed\|null` | 
+[lessThan](#lessthan) | `lessThan($a, $b): bool` | 
+[map](#map) | `map($list, $fn): array` | 
 [mapWith](#mapwith) | `mapWith($fn): \Closure` | 
-[pair](#pair) | `: mixed` | 
-[pipeLine](#pipeline) | `: \Closure` | 
-[pluck](#pluck) | `: mixed` | 
-[reject](#reject) | `: mixed` | 
+[pair](#pair) | `pair($list, $listFn): mixed` | 
+[pipeLine](#pipeline) | `pipeLine(): \Closure` | 
+[pluck](#pluck) | `pluck($list, $prop): mixed` | 
+[reject](#reject) | `reject($list, $func): mixed` | 
 [rejectWith](#rejectwith) | `rejectWith($fn): \Closure` | 
-[sort](#sort) | `: mixed` | 
+[sort](#sort) | `sort($list, $fn): mixed` | 
 [sortBy](#sortby) | `sortBy($fn): \Closure` | 
-[sum](#sum) | `: float\|int` | 
+[sum](#sum) | `sum($list): float\|int` | 
 [unique](#unique) | `unique($collection, callable $callback = null, $strict = true): array` | 
-[useWith](#usewith) | `: \Closure` | 
-[walk](#walk) | `` | 
+[useWith](#usewith) | `useWith($fn /*, txfn, ... */): \Closure` | 
+[walk](#walk) | `walk(&$list, $fn): void` | 
 
 Arrays
 ---
 
 ```php
-: mixed|array
+
 ```
-Get the first n elements.
+* Get the first n elements.
+	 *
 
-**Returns** | `mixed\|array` |
-**Example:** Get the first n elements.
+**Example:** * Get the first n elements.
 ```php
-
-@param array $elements
-@param integer $amount
-@return mixed|array
+ *
+ * @param array $elements
+ * @param integer $amount
+ * @return mixed|array
 ```
 [↑ Top](#operations)
 Collections
 ---
 
 ```php
-: void
+
 ```
-Iterate through $collection using $iterator.
+* Iterate through $collection using $iterator.
+	 *
 
-**Returns** | `void` |
-**Example:** Iterate through $collection using $iterator.
+**Example:** * Iterate through $collection using $iterator.
 ```php
-
-@param array $collection
-@param Closure $iterator
-@return void
+ *
+ * @param array $collection
+ * @param Closure $iterator
+ * @return void
 ```
 [↑ Top](#operations)
 Functions
@@ -83,30 +84,30 @@ Functions
 ```php
 
 ```
-The cached closures.
+* The cached closures.
+	 *
 
-
-**Example:** The cached closures.
+**Example:** * The cached closures.
 ```php
-
-@var array
+ *
+ * @var array
 ```
 [↑ Top](#operations)
 Objects
 ---
 
 ```php
-: mixed
+
 ```
-Invoke $closure on $object, then return $object.
+* Invoke $closure on $object, then return $object.
+	 *
 
-**Returns** | `mixed` |
-**Example:** Invoke $closure on $object, then return $object.
+**Example:** * Invoke $closure on $object, then return $object.
 ```php
-
-@param mixed $object
-@param Closure $closure
-@return mixed
+ *
+ * @param mixed $object
+ * @param Closure $closure
+ * @return mixed
 ```
 [↑ Top](#operations)
 Slash
@@ -115,47 +116,47 @@ Slash
 ```php
 
 ```
-The instance of Slash.
+* The instance of Slash.
+	 *
 
-
-**Example:** The instance of Slash.
+**Example:** * The instance of Slash.
 ```php
-
-@var Slash
+ *
+ * @var Slash
 ```
 [↑ Top](#operations)
 Utilities
 ---
 
 ```php
-: string
+
 ```
-Generate a unique identifier.
+* Generate a unique identifier.
+	 *
 
-**Returns** | `string` |
-**Example:** Generate a unique identifier.
+**Example:** * Generate a unique identifier.
 ```php
-
-@param string $prefix
-@return string
+ *
+ * @param string $prefix
+ * @return string
 ```
 [↑ Top](#operations)
 all
 ---
 
 ```php
-: bool
+all($array, $predicate): bool
 ```
 Return true only If all the element of the list pass the predicate
 
 
-    Slash\all([1, 3, 5], 'Slash\isOdd'); // === true
+Slash\all([1, 3, 5], 'Slash\isOdd'); // === true
 
-    Slash\all([1, 3, 5], function ($n) { return $n != 3; }); // === false
+	Slash\all([1, 3, 5], function ($n) { return $n != 3; }); // === false
 
-    Slash\all([], 'Slash\isOdd'); // === true
+	Slash\all([], 'Slash\isOdd'); // === true
 
-    Slash\all((object) ['a' => 1, 'b' => 3, 'c' => 5], 'Slash\isOdd'); // === true
+	Slash\all((object) ['a' => 1, 'b' => 3, 'c' => 5], 'Slash\isOdd'); // === true
 **Returns** | `bool` |
 **Example:** Return true only If all the element of the list pass the predicate
 ```php
@@ -164,33 +165,33 @@ Return true only If all the element of the list pass the predicate
 @param $predicate
 @return bool
 
-    Slash\all([1, 3, 5], 'Slash\isOdd'); // === true
+Slash\all([1, 3, 5], 'Slash\isOdd'); // === true
 
-    Slash\all([1, 3, 5], function ($n) { return $n != 3; }); // === false
+Slash\all([1, 3, 5], function ($n) { return $n != 3; }); // === false
 
-    Slash\all([], 'Slash\isOdd'); // === true
+Slash\all([], 'Slash\isOdd'); // === true
 
-    Slash\all((object) ['a' => 1, 'b' => 3, 'c' => 5], 'Slash\isOdd'); // === true
+Slash\all((object) ['a' => 1, 'b' => 3, 'c' => 5], 'Slash\isOdd'); // === true
 ```
 [↑ Top](#operations)
 any
 ---
 
 ```php
-: bool
+any($array, $predicate): bool
 ```
 Return true if at least one element matches the predicate
 
 
-    Slash\any([1, 3, 5], 'Slash\isOdd'); // === true
+	Slash\any([1, 3, 5], 'Slash\isOdd'); // === true
 
-    Slash\any([1, 3, 5], function ($n) { return $n != 3; }); // === true
+	Slash\any([1, 3, 5], function ($n) { return $n != 3; }); // === true
 
-    Slash\any([], 'Slash\isOdd'); // === false
+	Slash\any([], 'Slash\isOdd'); // === false
 
-    Slash\any([2, 4, 8], 'Slash\isOdd'); // === false
+	Slash\any([2, 4, 8], 'Slash\isOdd'); // === false
 
-    Slash\any((object) ['a' => 1, 'b' => 3, 'c' => 5], 'Slash\isOdd'); // === true
+	Slash\any((object) ['a' => 1, 'b' => 3, 'c' => 5], 'Slash\isOdd'); // === true
 **Returns** | `bool` |
 **Example:** Return true if at least one element matches the predicate
 ```php
@@ -199,27 +200,27 @@ Return true if at least one element matches the predicate
 @param $predicate
 @return bool
 
-    Slash\any([1, 3, 5], 'Slash\isOdd'); // === true
+Slash\any([1, 3, 5], 'Slash\isOdd'); // === true
 
-    Slash\any([1, 3, 5], function ($n) { return $n != 3; }); // === true
+Slash\any([1, 3, 5], function ($n) { return $n != 3; }); // === true
 
-    Slash\any([], 'Slash\isOdd'); // === false
+Slash\any([], 'Slash\isOdd'); // === false
 
-    Slash\any([2, 4, 8], 'Slash\isOdd'); // === false
+Slash\any([2, 4, 8], 'Slash\isOdd'); // === false
 
-    Slash\any((object) ['a' => 1, 'b' => 3, 'c' => 5], 'Slash\isOdd'); // === true
+Slash\any((object) ['a' => 1, 'b' => 3, 'c' => 5], 'Slash\isOdd'); // === true
 ```
 [↑ Top](#operations)
 average
 ---
 
 ```php
-: float|int|null
+average($list): float|int|null
 ```
 Return the average of an array
 
 
-    Slash\average([1, 3, 5]); // === 3
+	Slash\average([1, 3, 5]); // === 3
 **Returns** | `float\|int\|null` |
 **Example:** Return the average of an array
 ```php
@@ -227,14 +228,14 @@ Return the average of an array
 @param $list
 @return float|int|null
 
-    Slash\average([1, 3, 5]); // === 3
+Slash\average([1, 3, 5]); // === 3
 ```
 [↑ Top](#operations)
 comparator
 ---
 
 ```php
-: \Closure
+comparator($fn): \Closure
 ```
 Takes a binary comparison function
 and returns a version that adhere's to the Array#sort
@@ -260,7 +261,7 @@ compose
 ---
 
 ```php
-: \Closure|mixed
+compose(...$args): \Closure|mixed
 ```
 This function allows creating a new function from two functions passed into it
 Compose: f(g(x)) for variable number of arguments (recursive)
@@ -285,7 +286,7 @@ Takes two or more functions as arguments and returns a function
 that will compose those functions passing its input to the
 right-most, inner function.
 ie., compose(f,g,h) == f(g(h()))
-@param $args
+@param ...$args
 @return \Closure|mixed
 
 
@@ -311,7 +312,7 @@ determine how many arguments to curry, or `n` if passed.
 
 
 $greaterThan3 = function ($number) {
-        return $number > 3;
+		return $number > 3;
 };
 
 $filterGreaterThan3 = Slash\curryLeft('Slash\filter', $greaterThan3);
@@ -324,12 +325,12 @@ curried from left -> right.  Uses the natural arity of `fn` to
 determine how many arguments to curry, or `n` if passed.
 
 @param $callable
-@param $outerArguments
+@param ...$outerArguments
 @return \Closure
 
 
 $greaterThan3 = function ($number) {
-        return $number > 3;
+	return $number > 3;
 };
 
 $filterGreaterThan3 = Slash\curryLeft('Slash\filter', $greaterThan3);
@@ -363,7 +364,7 @@ curried from right -> left.  Uses the natural arity of `fn` to
 determine how many arguments to curry, or `n` if passed.
 
 @param $callable
-@param $outerArguments
+@param ...$outerArguments
 @return \Closure
 
 
@@ -380,7 +381,7 @@ equal
 ---
 
 ```php
-: bool
+equal($a, $b): bool
 ```
 Compare if value $a is equal to $b
 
@@ -403,7 +404,7 @@ equalTo
 ---
 
 ```php
-: \Closure
+equalTo($to): \Closure
 ```
 Returns a curried version of the function of equal function
 
@@ -429,7 +430,7 @@ filter
 ---
 
 ```php
-: array
+filter($list, $fn): array
 ```
 Filter `list` using the predicate function `fn`
 
@@ -465,7 +466,7 @@ first
 ---
 
 ```php
-: mixed|null
+first($array, $predicate): mixed|null
 ```
 Return the first / last element matching a predicate
 
@@ -488,7 +489,7 @@ flatMap
 ---
 
 ```php
-: mixed
+flatMap($list, $fn): mixed
 ```
 Return a flattened list which is the result of passing each
 item in `list` thorugh the function `fn`
@@ -513,7 +514,7 @@ flatten
 ---
 
 ```php
-: mixed
+flatten($list): mixed
 ```
 Return a copy of the array 'list' flattened by one level, ie [[1,2],[3,4]] = [1,2,3,4]
 
@@ -535,7 +536,7 @@ flip
 ---
 
 ```php
-: \Closure
+flip($fn): \Closure
 ```
 Returns a new function
 that calls the original function with arguments reversed.
@@ -575,11 +576,34 @@ get($input, $prop): mixed
 @return mixed
 ```
 [↑ Top](#operations)
+greaterThanOrEqual
+---
+
+```php
+greaterThanOrEqual($a, $b): bool
+```
+Simple comparison for '>='
+
+
+
+$greaterThanOrEqualFive = greaterThanOrEqual(5, 5); // === true
+**Returns** | `bool` |
+**Example:** Simple comparison for '>='
+```php
+
+@param $a
+@param $b
+@return bool
+
+
+$greaterThanOrEqualFive = greaterThanOrEqual(5, 5); // === true
+```
+[↑ Top](#operations)
 group
 ---
 
 ```php
-: mixed
+group($list, $prop): mixed
 ```
 Returns an object which groups objects in `list` by property `prop`. If
 `prop` is a function, will group the objects in list using the string returned
@@ -588,9 +612,9 @@ by passing each obj through `prop` function.
 
 
 Slash\group([1,2,3], function($number) {
-        return Slash\even($number) ? 'Even' : 'Odd';
+		return Slash\even($number) ? 'Even' : 'Odd';
 });
-    // === [
+	// === [
 'Even' => [2]
 'Odd' => [1,3]
 ]
@@ -626,9 +650,9 @@ by passing each obj through `prop` function.
 
 
 Slash\group([1,2,3], function($number) {
-        return Slash\even($number) ? 'Even' : 'Odd';
+	return Slash\even($number) ? 'Even' : 'Odd';
 });
-    // === [
+// === [
 'Even' => [2]
 'Odd' => [1,3]
 ]
@@ -658,7 +682,7 @@ groupBy
 ---
 
 ```php
-groupById($list): mixed
+groupBy($fn): \Closure
 ```
 Returns an object which groups objects in `list` by property `prop`. If
 `prop` is a function, will group the objects in list using the string returned
@@ -679,34 +703,33 @@ return Slash\even($number) ? 'Even' : 'Odd';
 use function Slash\groupBy;
 
 $records = [
-['id' => 1, 'value1' => 5, 'value2' => 10],
-['id' => 2, 'value1' => 50, 'value2' => 100],
-['id' => 1, 'value1' => 2, 'value2' => 2],
-['id' => 2, 'value1' => 15, 'value2' => 20],
-['id' => 3, 'value1' => 15, 'value2' => 20],
+	['id' => 1, 'value1' => 5, 'value2' => 10],
+	['id' => 2, 'value1' => 50, 'value2' => 100],
+	['id' => 1, 'value1' => 2, 'value2' => 2],
+	['id' => 2, 'value1' => 15, 'value2' => 20],
+	['id' => 3, 'value1' => 15, 'value2' => 20],
 ];
 
 function groupById($list)
 {
-return groupBy('id')($list);
+	return groupBy('id')($list);
 }
 
 $grouped = groupById($records);
 
 resultado :    [
-1 => [ [ "id" => 1, "value1" => 5, "value2" => 10 ], [ "id" => 1, "value1" => 1, "value2" => 2 ] ],
-2 => [ [ "id" => 2, "value1" => 50, "value2" => 100 ], [ "id" => 2, "value1" => 15, "value2" => 20 ] ],
-3 => [ [ "id" => 3, "value1" => 15, "value2" => 20 ] ]
+		1 => [ [ "id" => 1, "value1" => 5, "value2" => 10 ], [ "id" => 1, "value1" => 1, "value2" => 2 ] ],
+		2 => [ [ "id" => 2, "value1" => 50, "value2" => 100 ], [ "id" => 2, "value1" => 15, "value2" => 20 ] ],
+		3 => [ [ "id" => 3, "value1" => 15, "value2" => 20 ] ]
 ];
-**Returns** | `mixed` |
+**Returns** | `\Closure` |
 **Example:** Returns an object which groups objects in `list` by property `prop`. If
 ```php
 `prop` is a function, will group the objects in list using the string returned
 by passing each obj through `prop` function.
 
-@param $list
-@param $prop
-@return mixed
+@param $fn
+@return \Closure
 
 
 Slash\groupBy(function($number) {
@@ -737,9 +760,9 @@ return groupBy('id')($list);
 $grouped = groupById($records);
 
 resultado :    [
-1 => [ [ "id" => 1, "value1" => 5, "value2" => 10 ], [ "id" => 1, "value1" => 1, "value2" => 2 ] ],
-2 => [ [ "id" => 2, "value1" => 50, "value2" => 100 ], [ "id" => 2, "value1" => 15, "value2" => 20 ] ],
-3 => [ [ "id" => 3, "value1" => 15, "value2" => 20 ] ]
+	1 => [ [ "id" => 1, "value1" => 5, "value2" => 10 ], [ "id" => 1, "value1" => 1, "value2" => 2 ] ],
+	2 => [ [ "id" => 2, "value1" => 50, "value2" => 100 ], [ "id" => 2, "value1" => 15, "value2" => 20 ] ],
+	3 => [ [ "id" => 3, "value1" => 15, "value2" => 20 ] ]
 ];
 ```
 [↑ Top](#operations)
@@ -747,7 +770,7 @@ last
 ---
 
 ```php
-: mixed|null
+last($array, $test): mixed|null
 ```
 return the last element of the array that match the predicate
 
@@ -770,7 +793,7 @@ lessThan
 ---
 
 ```php
-: bool
+lessThan($a, $b): bool
 ```
 
 **Returns** | `bool` |
@@ -784,7 +807,7 @@ map
 ---
 
 ```php
-: array
+map($list, $fn): array
 ```
 Returns a new list by applying the function `fn` to each item
 in `list`
@@ -829,7 +852,7 @@ pair
 ---
 
 ```php
-: mixed
+pair($list, $listFn): mixed
 ```
 Return new list as combination of the two lists passed
 The second list can be a function which will be passed each item
@@ -856,7 +879,7 @@ pipeLine
 ---
 
 ```php
-: \Closure
+pipeLine(): \Closure
 ```
 Reverse of compose, taking it's arguments and chaining
 them from left -> right
@@ -879,7 +902,7 @@ pluck
 ---
 
 ```php
-: mixed
+pluck($list, $prop): mixed
 ```
 Given a list of objects, return a list of the values
 for property 'prop' in each object
@@ -896,7 +919,7 @@ reject
 ---
 
 ```php
-: mixed
+reject($list, $func): mixed
 ```
 
 **Returns** | `mixed` |
@@ -923,7 +946,7 @@ sort
 ---
 
 ```php
-: mixed
+sort($list, $fn): mixed
 ```
 Sort a list using comparator function `fn`,
 returns new array (shallow copy) in sorted order.
@@ -980,7 +1003,7 @@ sum
 ---
 
 ```php
-: float|int
+sum($list): float|int
 ```
 
 **Returns** | `float\|int` |
@@ -1015,7 +1038,7 @@ useWith
 ---
 
 ```php
-: \Closure
+useWith($fn /*, txfn, ... */): \Closure
 ```
 Similar to Ramda's useWith(fn,...) which allows you to supply
 a function `fn`, along with one or more transform functions. When
@@ -1049,12 +1072,13 @@ walk
 ---
 
 ```php
-
+walk(&$list, $fn): void
 ```
 
-
+**Returns** | `void` |
 **Example:** @param $list
 ```php
 @param $fn
+@return void
 ```
 [↑ Top](#operations)

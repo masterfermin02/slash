@@ -7,10 +7,13 @@ package:
 	pear package
 
 update:
-	php composer.phar update --dev
+	php composer update --dev
 
 vendor:
-	php composer.phar install --no-interaction --prefer-source --dev
+	composer install --no-interaction --prefer-source --dev
 
-test: vendor
-	vendor/bin/phpunit --coverage-clover=coverage.xml
+test:
+	vendor/bin/phpunit
+
+doc: 
+	php bin/docs.php src/ docs/Operations.md

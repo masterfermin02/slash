@@ -16,14 +16,14 @@ namespace Slash;
  * @example
  * Ex.,   pair([a,b], [c,d]) => [[a,c],[a,d],[b,c],[b,d]]
  */
-function pair($list, $listFn) {
+function pair($list, $listFn)
+{
+	is_array($list) || ($list = [$list]);
+	(is_callable($listFn) || is_array($listFn)) || ($listFn = [$listFn]);
 
-    is_array($list) || ($list = [$list]);
-    (is_callable($listFn) || is_array($listFn)) || ($listFn = [$listFn]);
-
-    return call_user_func(flatMapWith(function($itemLeft) use($listFn) {
-        return call_user_func(mapWith(function($itemRight) use($itemLeft) {
-            return [$itemLeft, $itemRight];
-        }),is_callable($listFn) ? call_user_func( $listFn, $itemLeft ) : $listFn);
-    }),$list);
+	return call_user_func(flatMapWith(function ($itemLeft) use ($listFn) {
+		return call_user_func(mapWith(function ($itemRight) use ($itemLeft) {
+			return [$itemLeft, $itemRight];
+		}), is_callable($listFn) ? call_user_func($listFn, $itemLeft) : $listFn);
+	}), $list);
 }

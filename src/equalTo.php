@@ -16,4 +16,6 @@ namespace Slash;
  * $isEqualTo5 = $equalToFive(4); // false
  *
  */
-function equalTo($to){ return curryRight('Slash\equal',$to); }
+function equalTo($to)
+{
+	return curryRight('Slash\equal', $to); }

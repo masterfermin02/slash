@@ -2,4 +2,6 @@
 
 namespace Slash;
 
-function greaterThan($a,$b) { return $a > $b; }
+function greaterThan($a, $b)
+{
+	return $a > $b; }

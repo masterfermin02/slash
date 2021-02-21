@@ -15,10 +15,15 @@ namespace Slash;
  *
  *  Slash\comparator(Slash\greaterThan([1, 0])) // === -1
  */
-function comparator($fn) {
-    return function($a,$b) use($fn){
-        if(call_user_func($fn,$a,$b)) return -1;
-        if(call_user_func($fn,$b,$a)) return 1;
-        return 0;
-    };
+function comparator($fn)
+{
+	return function ($a, $b) use ($fn) {
+		if (call_user_func($fn, $a, $b)) {
+			return -1;
+		}
+		if (call_user_func($fn, $b, $a)) {
+			return 1;
+		}
+		return 0;
+	};
 }

@@ -2,7 +2,7 @@
 
 namespace Slash;
 
-function greaterThanOrEqualTo($to){
-
-    return curryRight('Slash\greaterThanOrEqual',$to);
+function greaterThanOrEqualTo($to)
+{
+	return curryRight('Slash\greaterThanOrEqual', $to);
 }

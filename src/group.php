@@ -15,9 +15,9 @@ namespace Slash;
  * @example
  *
  *  Slash\group([1,2,3], function($number) {
-        return Slash\even($number) ? 'Even' : 'Odd';
+		return Slash\even($number) ? 'Even' : 'Odd';
  * });
-    // === [
+	// === [
  *              'Even' => [2]
  *              'Odd' => [1,3]
  *        ]
@@ -43,10 +43,11 @@ $grouped = group($records, 'id');
  *   ];
  *
  */
-function group($list, $prop) {
-    return reduce($list,function($grouped, $item) use($prop) {
-        $key = get($item,$prop);
-        $grouped[$key][] = $item;
-        return $grouped;
-    }, []);
+function group($list, $prop)
+{
+	return reduce($list, function ($grouped, $item) use ($prop) {
+		$key = get($item, $prop);
+		$grouped[$key][] = $item;
+		return $grouped;
+	}, []);
 }

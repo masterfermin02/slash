@@ -14,8 +14,9 @@ namespace Slash;
  * Slash\flatten([[1,2],[3,4]]) // === [1,2,3,4]
  *
  */
-function flatten($list) {
-    return reduce($list,function($items,$item) {
-        return is_array($item) ? array_merge($items, $item) : $item;
-    },[]);
+function flatten($list)
+{
+	return reduce($list, function ($items, $item) {
+		return is_array($item) ? array_merge($items, $item) : $item;
+	}, []);
 }

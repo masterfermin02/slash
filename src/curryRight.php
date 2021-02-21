@@ -9,7 +9,7 @@ namespace Slash;
  * determine how many arguments to curry, or `n` if passed.
  *
  * @param $callable
- * @param $outerArguments
+ * @param ...$outerArguments
  * @return \Closure
  *
  * @example
@@ -25,7 +25,7 @@ namespace Slash;
  */
 function curryRight($callable, ...$outerArguments)
 {
-    return function() use ($callable, $outerArguments) {
-        return call_user_func_array($callable, array_merge(func_get_args(), $outerArguments));
-    };
+	return function () use ($callable, $outerArguments) {
+		return call_user_func_array($callable, array_merge(func_get_args(), $outerArguments));
+	};
 }

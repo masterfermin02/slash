@@ -14,5 +14,5 @@ namespace Slash;
  */
 function mapWith($fn)
 {
-    return curryRight('Slash\map',$fn);
+	return curryRight('Slash\map', $fn);
 }

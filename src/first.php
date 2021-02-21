@@ -15,18 +15,20 @@ namespace Slash;
  * Slash\first([1,2,3],function($number) { return $number === 2; }); // === 2
  *
  */
-function first($array, $predicate) {
+function first($array, $predicate)
+{
+	if (is_null($array)) {
+		return null;
+	}
 
-    if (is_null($array)) {
-        return null;
-    }
+	if (is_object($array)) {
+		$array = (array) $array;
+	}
 
-    if (is_object($array)) {
-        $array = (array) $array;
-    }
-
-    foreach($array as $v)
-        if(call_user_func($predicate,$v))
-            return $v;
-    return null;
+	foreach ($array as $v) {
+		if (call_user_func($predicate, $v)) {
+			return $v;
+		}
+	}
+	return null;
 }

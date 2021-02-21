@@ -15,15 +15,15 @@ namespace Slash;
  * Slash\last([1,2,3],function($number) { return $number === 2; }); // === 2
  *
  */
-function last($array, $test) {
+function last($array, $test)
+{
+	if (is_null($array)) {
+		return null;
+	}
 
-    if (is_null($array)) {
-        return null;
-    }
+	if (is_object($array)) {
+		$array = (array) $array;
+	}
 
-    if (is_object($array)) {
-        $array = (array) $array;
-    }
-
-    return first(array_reverse($array), $test);
+	return first(array_reverse($array), $test);
 }

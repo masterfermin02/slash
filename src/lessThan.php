@@ -7,4 +7,6 @@ namespace Slash;
  * @param $b
  * @return bool
  */
-function lessThan($a, $b) { return $a < $b; }
+function lessThan($a, $b)
+{
+	return $a < $b; }
