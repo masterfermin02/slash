@@ -121,44 +121,59 @@ function mapReturn($line) {
     ];
 }
 
-function parseDocblock($docblock)
-{
+function getDescription($lines) {
+    return pipeLine(
+        filterWith(fn($line) => strpos($line, '@') === false),
+          joinWith("\n")
+      )($lines);
+}
 
-    $op = (object) [];
-    $lines = explode("\n", $docblock);
-
-    // Incomplete
-    $op->isIncomplete = any($lines, fn ($line) => strpos($line, '@incomplete') === 0);
-
-    // Description
-    $op->description = pipeLine(
-      filterWith(fn($line) => strpos($line, '@') === false),
-        joinWith("\n")
-    )($lines);
-
-    // Related
-    $op->related = pipeLine(
+function getRelated($lines) {
+    return pipeLine(
         filterWith(fn ($line) => strpos($line, '@see') === 0),
         mapWith('mapSee'),
         Slash\reduceWith(fn ($flattened, $related) => array_merge($flattened, $related)),
         mapWith(fn ($opName) => str_replace('()', '', $opName))
     )($lines);
+}
 
-    // Alias
-    $op->aliases = pipeLine(
+function getAlias($lines) {
+    return pipeLine(
         filterWith(fn ($line) => strpos($line, '@alias') === 0),
         firstWith(fn () => true),
         'filterAlias'
     )($lines);
+}
 
-    // Return value
-    $op->return = pipeLine(
+function getReturn($lines) {
+    return pipeLine(
         filterWith(fn ($line) => strpos($line, '@return') === 0),
         mapWith('mapReturn'),
         firstWith(fn () => true)
     )($lines);
+}
 
-    // Parameters
+function getExamples($lines, &$op) {
+    $allExampleLines = filterWith(fn ($line) => strpos($line, '@example') !== 0)($lines);
+    for ($op->examples = []; $allExampleLines;) {
+        $description = str_replace('@example', '', array_shift($allExampleLines));
+        $description = trim($description);
+
+        $exampleLines = [];
+        while ($allExampleLines && strpos($allExampleLines[0], '@example') !== 0) {
+            $exampleLine = array_shift($allExampleLines);
+            $exampleLine = preg_replace('/^\t/', '', $exampleLine);
+            $exampleLines[] = $exampleLine;
+        }
+
+        $op->examples[] = (object) [
+            'description' => $description,
+            'content' => implode("\n", $exampleLines),
+        ];
+    }
+}
+
+function getParameters($lines, $op) {
     $allParamLines = filterWith(fn ($line) => strpos($line, '@param') !== 0)($lines);
 
     for ($op->params = []; $allParamLines;) {
@@ -183,26 +198,34 @@ function parseDocblock($docblock)
             'description' => implode(' ', $descriptionLines),
         ];
     }
+}
+
+function parseDocblock($docblock)
+{
+
+    $op = (object) [];
+    $lines = explode("\n", $docblock);
+
+    // Incomplete
+    $op->isIncomplete = any($lines, fn ($line) => strpos($line, '@incomplete') === 0);
+
+    // Description
+    $op->description = getDescription($lines);
+
+    // Related
+    $op->related = getRelated($lines);
+
+    // Alias
+    $op->aliases = getAlias($lines);
+
+    // Return value
+    $op->return = getReturn($lines);
+
+    // Parameters
+    getParameters($lines, $op);
 
     // Examples
-    $allExampleLines = filterWith(fn ($line) => strpos($line, '@example') !== 0)($lines);
-
-    for ($op->examples = []; $allExampleLines;) {
-        $description = str_replace('@example', '', array_shift($allExampleLines));
-        $description = trim($description);
-
-        $exampleLines = [];
-        while ($allExampleLines && strpos($allExampleLines[0], '@example') !== 0) {
-            $exampleLine = array_shift($allExampleLines);
-            $exampleLine = preg_replace('/^\t/', '', $exampleLine);
-            $exampleLines[] = $exampleLine;
-        }
-
-        $op->examples[] = (object) [
-            'description' => $description,
-            'content' => implode("\n", $exampleLines),
-        ];
-    }
+    getExamples($lines, $op);
 
     return $op;
 }
