@@ -7,32 +7,6 @@
 
 A functional library for PHP programmers, similar to Ramdajs.
 
-## Why Slash?
-
-There are already several excellent libraries with a functional flavor. Typically, they are meant to be general-purpose toolkits, suitable 
-for working in multiple paradigms. Slash has a more focused goal. We wanted a library designed specifically for a functional programming style, 
-one that makes it easy to create functional pipelines, one that never mutates user data.
-
-## What's Different?
-The primary distinguishing features of slash are:
-
-Slash emphasizes a purer functional style. Immutability and side-effect free functions are at the heart of its design philosophy. This can help you get the job done with simple, elegant code.
-
-Slash functions are automatically curried. This allows you to easily build up new functions from old ones simply by not supplying the final parameters.
-
-The parameters to Slash functions are arranged to make it convenient for currying. The data to be operated on is generally supplied last.
-
-The last two points together make it very easy to build functions as sequences of simpler functions, each of which transforms the data and passes it along to the next. Slash is designed to support this style of coding.
-
-## Install
-Requires PHP 7.4+
-```bash
-composer require masterfermin02/slash
-```
-
-## Usage
-Slash operations are pure functions that can be used alone.
-
 ## Functionality
 A small usage example for the groupBy function:
 ```php
@@ -84,6 +58,31 @@ Slash::flatten([1, [2, [3]]]) // => [1, 2, 3]
 Slash::last([1, 2, 3], 2) // => [2, 3]
 
 ```
+## Why Slash?
+
+There are already several excellent libraries with a functional flavor. Typically, they are meant to be general-purpose toolkits, suitable 
+for working in multiple paradigms. Slash has a more focused goal. We wanted a library designed specifically for a functional programming style, 
+one that makes it easy to create functional pipelines, one that never mutates user data.
+
+## What's Different?
+The primary distinguishing features of slash are:
+
+Slash emphasizes a purer functional style. Immutability and side-effect free functions are at the heart of its design philosophy. This can help you get the job done with simple, elegant code.
+
+Slash functions are automatically curried. This allows you to easily build up new functions from old ones simply by not supplying the final parameters.
+
+The parameters to Slash functions are arranged to make it convenient for currying. The data to be operated on is generally supplied last.
+
+The last two points together make it very easy to build functions as sequences of simpler functions, each of which transforms the data and passes it along to the next. Slash is designed to support this style of coding.
+
+## Install
+Requires PHP 7.4+
+```bash
+composer require masterfermin02/slash
+```
+
+## Usage
+Slash operations are pure functions that can be used alone.
 
 # What It Offers
 - 60+ useful functions that you can use in your projects.
