@@ -39,7 +39,7 @@ Operation | Signature | Curried
 [sort](#sort) | `: mixed` | 
 [sortBy](#sortby) | `sortBy($fn): \Closure` | 
 [sum](#sum) | `: float\|int` | 
-[unique](#unique) | `unique($collection, callable $callback = null, $strict = true)` | 
+[unique](#unique) | `unique($collection, callable $callback = null, $strict = true): array` | 
 [useWith](#usewith) | `: \Closure` | 
 [walk](#walk) | `` | 
 
@@ -993,16 +993,22 @@ unique
 ---
 
 ```php
-unique($collection, callable $callback = null, $strict = true)
+unique($collection, callable $callback = null, $strict = true): array
 ```
+Returns an array of unique elements
 
 
-**Example:** @package   Functional-php
+Slash\unique([1, 3, 5,1,4,6,2,7]); // === [1,2,3,4,5,6,7]
+**Returns** | `array` |
+**Example:** Returns an array of unique elements
 ```php
-@author    Lars Strojny <lstrojny@php.net>
-@copyright 2011-2017 Lars Strojny
-@license   https://opensource.org/licenses/MIT MIT
-@link      https://github.com/lstrojny/functional-php
+
+@param Traversable|array $collection
+@param callable $callback
+@param bool $strict
+@return array
+
+Slash\unique([1, 3, 5,1,4,6,2,7]); // === [1,2,3,4,5,6,7]
 ```
 [↑ Top](#operations)
 useWith

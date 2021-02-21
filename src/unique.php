@@ -1,13 +1,5 @@
 <?php
 
-/**
- * @package   Functional-php
- * @author    Lars Strojny <lstrojny@php.net>
- * @copyright 2011-2017 Lars Strojny
- * @license   https://opensource.org/licenses/MIT MIT
- * @link      https://github.com/lstrojny/functional-php
- */
-
 namespace Slash;
 
 use Slash\Exceptions\InvalidArgumentException;
@@ -20,6 +12,9 @@ use Traversable;
  * @param callable $callback
  * @param bool $strict
  * @return array
+ * 
+ * @example
+ *  Slash\unique([1, 3, 5,1,4,6,2,7]); // === [1,2,3,4,5,6,7]
  */
 function unique($collection, callable $callback = null, $strict = true)
 {
