@@ -69,7 +69,7 @@ Map usage :
 
 use Slash\Slash;
 
-Slash\map([1, 2, 3], fun ($n) => $n * 2);  // === [2, 4, 6]
+Slash\map([1, 2, 3], fn ($n) => $n * 2);  // === [2, 4, 6]
 ```
 
 Example with slash object:
