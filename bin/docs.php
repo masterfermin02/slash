@@ -319,7 +319,7 @@ function renderTableOfContents($ops)
     return <<<END
 Operations
 ===
-Is there an operation you'd like to see? [Open an issue](https://github.com/mpetrovich/dash/issues/new?labels=enhancement) or vote on an existing one.
+Is there an operation you'd like to see? [Open an issue](https://github.com/masterfermin02/slash/issues/new?labels=enhancement) or vote on an existing one.
 Operation | Signature | Curried
 :--- | :--- | :---
 $opSummaries
