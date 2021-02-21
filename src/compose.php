@@ -9,7 +9,7 @@ namespace Slash;
  * that will compose those functions passing its input to the
  * right-most, inner function.
  * ie., compose(f,g,h) == f(g(h()))
- *
+ * @param $args
  * @return \Closure|mixed
  *
  * @example:
@@ -24,8 +24,7 @@ namespace Slash;
  *
  *
  */
-function compose() {
-    $args = func_get_args();
+function compose(...$args) {
     $fn = array_shift($args);
     $gn = array_shift($args);
     // if have more that one args create a new function from two functions passed

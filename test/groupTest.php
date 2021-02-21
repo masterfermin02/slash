@@ -16,7 +16,8 @@ class groupTest extends TestCase {
 
     public function testGroupByID()
     {
-        $grouped = $this->groupById($this->records);
+        $groupById = groupBy('id');
+        $grouped = $groupById($this->records);
         $expected = [
             1 => [ [ "id" => 1, "value1" => 5, "value2" => 10 ], [ "id" => 1, "value1" => 1, "value2" => 2 ] ],
             2 => [ [ "id" => 2, "value1" => 50, "value2" => 100 ], [ "id" => 2, "value1" => 15, "value2" => 20 ] ],
@@ -24,10 +25,5 @@ class groupTest extends TestCase {
         ];
 
         $this->assertEquals($expected[3], $grouped[3]);
-    }
-
-    public function groupById($list)
-    {
-        return groupBy('id')($list);
     }
 }

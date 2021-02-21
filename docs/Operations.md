@@ -14,8 +14,10 @@ Operation | Signature | Curried
 [average](#average) | `: float\|int\|null` | 
 [comparator](#comparator) | `: \Closure` | 
 [compose](#compose) | `: \Closure\|mixed` | 
-[curryLeft](#curryleft) | `curryLeft($callable): \Closure` | 
-[curryRight](#curryright) | `curryRight($callable): \Closure` | 
+[curryLeft](#curryleft) | `curryLeft($callable, ...$outerArguments): \Closure` | 
+[curryRight](#curryright) | `curryRight($callable, ...$outerArguments): \Closure` | 
+[equal](#equal) | `: bool` | 
+[equalTo](#equalto) | `: \Closure` | 
 [filter](#filter) | `: array` | 
 [filterWith](#filterwith) | `filterWith($fn): \Closure` | 
 [first](#first) | `: mixed\|null` | 
@@ -37,6 +39,7 @@ Operation | Signature | Curried
 [sort](#sort) | `: mixed` | 
 [sortBy](#sortby) | `sortBy($fn): \Closure` | 
 [sum](#sum) | `: float\|int` | 
+[unique](#unique) | `unique($collection, callable $callback = null, $strict = true)` | 
 [useWith](#usewith) | `: \Closure` | 
 [walk](#walk) | `` | 
 
@@ -267,7 +270,6 @@ right-most, inner function.
 ie., compose(f,g,h) == f(g(h()))
 
 
-
 $pipelines = compose(
 cleanString,
 turnFirstLetterUp,
@@ -283,7 +285,7 @@ Takes two or more functions as arguments and returns a function
 that will compose those functions passing its input to the
 right-most, inner function.
 ie., compose(f,g,h) == f(g(h()))
-
+@param $args
 @return \Closure|mixed
 
 
@@ -300,7 +302,7 @@ curryLeft
 ---
 
 ```php
-curryLeft($callable): \Closure
+curryLeft($callable, ...$outerArguments): \Closure
 ```
 Returns a curried version of the function `fn`, with arguments
 curried from left -> right.  Uses the natural arity of `fn` to
@@ -322,6 +324,7 @@ curried from left -> right.  Uses the natural arity of `fn` to
 determine how many arguments to curry, or `n` if passed.
 
 @param $callable
+@param $outerArguments
 @return \Closure
 
 
@@ -338,7 +341,7 @@ curryRight
 ---
 
 ```php
-curryRight($callable): \Closure
+curryRight($callable, ...$outerArguments): \Closure
 ```
 Returns a curried version of the function `fn`, with arguments
 curried from right -> left.  Uses the natural arity of `fn` to
@@ -360,6 +363,7 @@ curried from right -> left.  Uses the natural arity of `fn` to
 determine how many arguments to curry, or `n` if passed.
 
 @param $callable
+@param $outerArguments
 @return \Closure
 
 
@@ -370,6 +374,55 @@ return $number > 3;
 $filterGreaterThan3 = Slash\curryRight('Slash\filter', $greaterThan3);
 
 $filteredNumber = $filterGreaterThan3([1, 2, 3, 4, ,5]) ; // === [4, 5]
+```
+[↑ Top](#operations)
+equal
+---
+
+```php
+: bool
+```
+Compare if value $a is equal to $b
+
+
+equal(1, 2); // false
+equal(1,1); // true
+**Returns** | `bool` |
+**Example:** Compare if value $a is equal to $b
+```php
+@param $a
+@param $b
+@return bool
+
+
+equal(1, 2); // false
+equal(1,1); // true
+```
+[↑ Top](#operations)
+equalTo
+---
+
+```php
+: \Closure
+```
+Returns a curried version of the function of equal function
+
+
+
+$equalToFive = equalTo(5);
+$isEqualTo5 = $equalToFive(5); // true
+$isEqualTo5 = $equalToFive(4); // false
+**Returns** | `\Closure` |
+**Example:** Returns a curried version of the function of equal function
+```php
+
+@param $to
+@return \Closure
+
+
+$equalToFive = equalTo(5);
+$isEqualTo5 = $equalToFive(5); // true
+$isEqualTo5 = $equalToFive(4); // false
 ```
 [↑ Top](#operations)
 filter
@@ -934,6 +987,22 @@ sum
 **Example:** @param $list
 ```php
 @return float|int
+```
+[↑ Top](#operations)
+unique
+---
+
+```php
+unique($collection, callable $callback = null, $strict = true)
+```
+
+
+**Example:** @package   Functional-php
+```php
+@author    Lars Strojny <lstrojny@php.net>
+@copyright 2011-2017 Lars Strojny
+@license   https://opensource.org/licenses/MIT MIT
+@link      https://github.com/lstrojny/functional-php
 ```
 [↑ Top](#operations)
 useWith

@@ -1,1 +1,1 @@
-vendor/bin/phpdoc -d ./src -t ./docs/api
+php bin/docs.php src/ docs/Operations.md

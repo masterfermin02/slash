@@ -48,12 +48,9 @@ $records = [
      ['id' => 3, 'value1' => 15, 'value2' => 20],
 ];
 
-function groupById($list)
-{
-    return groupBy('id')($list);
-}
+$groupById = groupBy('id');
 
-$grouped = groupById($records);
+$grouped = $groupById($records);
 
 /*
  * resultado :    [
@@ -66,11 +63,18 @@ $grouped = groupById($records);
 ```
 
 Map usage :
-```php 
-Slash\map([1, 2, 3], function ($n) { return $n * 2; });  // === [2, 4, 6]
+
+```php
+<?php 
+
+use Slash\Slash;
+
+Slash\map([1, 2, 3], fun ($n) => $n * 2);  // === [2, 4, 6]
 ```
+
 Example with slash object:
 ```php
+<?php
 use Slash\Slash;
 
 Slash::max([1, 2, 3]) // => 3

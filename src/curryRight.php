@@ -9,6 +9,7 @@ namespace Slash;
  * determine how many arguments to curry, or `n` if passed.
  *
  * @param $callable
+ * @param $outerArguments
  * @return \Closure
  *
  * @example
@@ -22,11 +23,8 @@ namespace Slash;
  * $filteredNumber = $filterGreaterThan3([1, 2, 3, 4, ,5]) ; // === [4, 5]
  *
  */
-function curryRight($callable)
+function curryRight($callable, ...$outerArguments)
 {
-    $outerArguments = func_get_args();
-    array_shift($outerArguments);
-
     return function() use ($callable, $outerArguments) {
         return call_user_func_array($callable, array_merge(func_get_args(), $outerArguments));
     };

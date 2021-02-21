@@ -6,11 +6,10 @@ require_once 'vendor/autoload.php';
 use function Slash\mapWith;
 use function Slash\pipeLine;
 use function Slash\filterWith;
-use function Slash\rejectWith;
 use function Slash\sortBy;
 use function Slash\getWith;
 use function Slash\useWith;
-use function Slash\curryRight;
+use function Slash\curryLeft;
 use function Slash\any;
 use function Slash\firstWith;
 
@@ -18,24 +17,26 @@ $sourceDir = $argv[1];
 $destFilepath = $argv[2];
 makeDocs($sourceDir, $destFilepath);
 
-function nameSorted()
+function sortFileByName()
 {
     return useWith('strnatcmp',getWith('name'), getWith('name'));
 }
 
+function getFiles($sourceDir) {
+    return iterator_to_array(new FilesystemIterator($sourceDir, FilesystemIterator::SKIP_DOTS));
+}
+
 function makeDocs($sourceDir, $destFilepath)
 {
-    $files = iterator_to_array(new FilesystemIterator($sourceDir, FilesystemIterator::SKIP_DOTS));
-    $nameFilter = nameSorted();
     $ops = pipeLine(
-        filterWith(function ($fileinfo) { return !$fileinfo->isDir(); }),
-        mapWith(function ($fileinfo) { return pathinfo($fileinfo)['filename']; }),
-        mapWith(function ($name) { return "src/$name.php"; }),
-        filterWith(function ($filepath) { return file_exists($filepath); }),
+        filterWith(fn($fileInfo) => !$fileInfo->isDir()),
+        mapWith(fn($fileinfo) => pathinfo($fileinfo)['filename']),
+        mapWith(fn($name) => "src/$name.php"),
+        filterWith(fn($filepath) => file_exists($filepath)),
         mapWith('createOp'),
-        filterWith(function ($op) { return !$op->isIncomplete; }),
-        sortBy($nameFilter)
-    )($files);
+        filterWith(fn($op) => !$op->isIncomplete),
+        sortBy(sortFileByName())
+    )(getFiles($sourceDir));
 
     $opDocs = pipeLine(
         mapWith('renderOp'),
@@ -45,6 +46,10 @@ function makeDocs($sourceDir, $destFilepath)
     $tableOfContents = renderTableOfContents($ops);
 
     file_put_contents($destFilepath, "$tableOfContents\n\n$opDocs");
+}
+
+function joinWith($join) {
+    return curryLeft('implode', $join);
 }
 
 function createOp($filepath)
@@ -65,10 +70,6 @@ function createOp($filepath)
     )(array_merge([$op->name], $op->aliases));
 
     return $op;
-}
-
-function joinWith($func) {
-    return curryRight('join', $func);
 }
 
 function extractDocblockString($filepath)
@@ -95,6 +96,31 @@ function extractFunctionSignature($filepath)
     return $signature;
 }
 
+function mapSee($line) {
+    $matches = [];
+    preg_match('/^@see\s+(.*)$/', $line, $matches);
+    $related = explode(', ', $matches[1]);
+    return $related;
+}
+
+function filterAlias($line) {
+    $matches = [];
+    preg_match('/^@alias\s+(.*)$/', $line, $matches);
+    $aliases = isset($matches[1]) ? $matches[1] : false;
+    return $aliases ? explode(', ', $aliases) : [];
+}
+
+function mapReturn($line) {
+    $matches = [];
+    preg_match('/^@return\s+([\S]+)\s*(.*)?/', $line, $matches);
+    $type = $matches[1];
+    $description = $matches[2];
+    return (object) [
+        'type' => $type,
+        'description' => $description,
+    ];
+}
+
 function parseDocblock($docblock)
 {
 
@@ -102,63 +128,38 @@ function parseDocblock($docblock)
     $lines = explode("\n", $docblock);
 
     // Incomplete
-    $op->isIncomplete = any($lines, function ($line) { return strpos($line, '@incomplete') === 0; });
+    $op->isIncomplete = any($lines, fn ($line) => strpos($line, '@incomplete') === 0);
 
     // Description
     $op->description = pipeLine(
-      filterWith(function ($line) { return strpos($line, '@') === false; }) ,
+      filterWith(fn($line) => strpos($line, '@') === false),
         joinWith("\n")
     )($lines);
 
     // Related
     $op->related = pipeLine(
-        filterWith(function ($line) { return strpos($line, '@see') === 0; }),
-        mapWith(function ($line) {
-            $matches = [];
-            preg_match('/^@see\s+(.*)$/', $line, $matches);
-            $related = explode(', ', $matches[1]);
-            return $related;
-        }),
-        Slash\reduceWith(function ($flattened, $related) {
-            return array_merge($flattened, $related);
-        }),
-        mapWith(function ($opName) {
-            return str_replace('()', '', $opName);
-        })
+        filterWith(fn ($line) => strpos($line, '@see') === 0),
+        mapWith('mapSee'),
+        Slash\reduceWith(fn ($flattened, $related) => array_merge($flattened, $related)),
+        mapWith(fn ($opName) => str_replace('()', '', $opName))
     )($lines);
 
     // Alias
     $op->aliases = pipeLine(
-        filterWith(function ($line) { return strpos($line, '@alias') === 0; }),
-        firstWith(function () { return true;}),
-        function ($line) {
-            $matches = [];
-            preg_match('/^@alias\s+(.*)$/', $line, $matches);
-            $aliases = isset($matches[1]) ? $matches[1] : false;
-            return $aliases ? explode(', ', $aliases) : [];
-        }
+        filterWith(fn ($line) => strpos($line, '@alias') === 0),
+        firstWith(fn () => true),
+        'filterAlias'
     )($lines);
 
     // Return value
     $op->return = pipeLine(
-        filterWith(function ($line) { return strpos($line, '@return') === 0; }),
-        mapWith(function ($line) {
-            $matches = [];
-            preg_match('/^@return\s+([\S]+)\s*(.*)?/', $line, $matches);
-            $type = $matches[1];
-            $description = $matches[2];
-            return (object) [
-                'type' => $type,
-                'description' => $description,
-            ];
-        }),
-        firstWith(function () { return true;})
+        filterWith(fn ($line) => strpos($line, '@return') === 0),
+        mapWith('mapReturn'),
+        firstWith(fn () => true)
     )($lines);
 
     // Parameters
-    $allParamLines = filterWith(function ($line) {
-        return strpos($line, '@param') !== 0;
-    })($lines);
+    $allParamLines = filterWith(fn ($line) => strpos($line, '@param') !== 0)($lines);
 
     for ($op->params = []; $allParamLines;) {
         $matches = [];
@@ -184,9 +185,7 @@ function parseDocblock($docblock)
     }
 
     // Examples
-    $allExampleLines = filterWith(function ($line) {
-        return strpos($line, '@example') !== 0;
-    })($lines);
+    $allExampleLines = filterWith(fn ($line) => strpos($line, '@example') !== 0)($lines);
 
     for ($op->examples = []; $allExampleLines;) {
         $description = str_replace('@example', '', array_shift($allExampleLines));
@@ -208,27 +207,36 @@ function parseDocblock($docblock)
     return $op;
 }
 
+function buildDescription ($example) {
+    $description = $example->description ? " {$example->description}" : '';
+    return <<<END
+**Example:**{$description}
+```php
+{$example->content}
+```
+END;
+}
+
 function renderOp($op)
 {
     $aliases = $op->aliases ? sprintf(' / %s', implode(' / ', $op->aliases)) : '';
 
     $related = pipeLine(
-        mapWith(function ($opName) {
-            return "`$opName()`";
-        }),
+        mapWith(fn ($opName) => "`$opName()`"),
         joinWith(',')
-
     )((array) $op->related);
 
     $related = $related ? "See also: $related" : '';
 
     if ($op->params) {
-        $paramsTable = Slash\reduce($op->params, function ($output, $param) {
-            $type = str_replace('|', '\|', $param->type);
-            return $output . rtrim("`$param->name` | `$type` | $param->description") . "\n";
-        }, "Parameter | Type | Description\n--- | --- | :---\n");
-    }
-    else {
+        $paramsTable = Slash\reduce($op->params, 
+        fn ($output, $param) => $output 
+        . rtrim("`$param->name` | `" 
+        . str_replace('|', '\|', $param->type) 
+        . "` | $param->description") 
+        . "\n"
+        , "Parameter | Type | Description\n--- | --- | :---\n");
+    } else {
         $paramsTable = '';
     }
 
@@ -238,21 +246,12 @@ function renderOp($op)
         $returnTable = <<<END
 **Returns** | `$type` |$description
 END;
-    }
-    else {
+    } else {
         $returnTable = '';
     }
 
     $examples = pipeLine(
-            mapWith(function ($example) {
-                $description = $example->description ? " {$example->description}" : '';
-                return <<<END
-**Example:**{$description}
-```php
-{$example->content}
-```
-END;
-            }),
+        mapWith('buildDescription'),
         joinWith("\n\n")
     )($op->examples);
 
@@ -288,7 +287,7 @@ function renderTableOfContents($ops)
             $returnType = isset($op->return->type) ? ": {$op->return->type}" : '';
             $returnType = str_replace('|', '\\|', $returnType);
             $aliases = $op->aliases ? ' / ' . implode(' / ', $op->aliases) : '';
-            $curried = function_exists("\\Dash\\Curry\\{$op->name}") ? "`Curry\\{$op->name}`" : '';
+            $curried = function_exists("\\Slash\\curryRight\\{$op->name}") ? "`curryRight\\{$op->name}`" : '';
             return "[$op->name](#$op->slug)$aliases | `{$op->signature}{$returnType}` | $curried";
         }),
         joinWith("\n")
