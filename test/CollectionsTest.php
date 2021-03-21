@@ -118,10 +118,20 @@ class CollectionsTest extends TestCase {
                 'method' => 'min',
                 'experted' => 1,
             ],
+            'With array [1000, 2, 50, 1, 30, 40, 500] min method should return 1' => [
+                'list' => [1000, 2, 50, 1, 30, 40, 500],
+                'method' => 'min',
+                'experted' => 1,
+            ],
             'With array [1, 2] max method should return 2' => [
                 'list' => [1,2],
                 'method' => 'max',
                 'experted' => 2,
+            ],
+            'With array [1000, 2, 50, 1, 30, 40, 500] min method should return 1' => [
+                'list' => [1000, 2, 50, 1, 5000, 30, 40, 500],
+                'method' => 'max',
+                'experted' => 5000,
             ],
         ];
     }

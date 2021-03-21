@@ -4,6 +4,8 @@ namespace Slash;
 
 use Closure;
 use Countable;
+use function sort;
+use function Slash\last;
 
 class Collections
 {
@@ -15,7 +17,7 @@ class Collections
 	 * @param Closure $iterator
 	 * @return void
 	 */
-	public function each(array $collection, Closure $iterator)
+	public function each(array $collection, Closure $iterator): void
 	{
 		walk($collection, $iterator);
 	}
@@ -27,7 +29,7 @@ class Collections
 	 * @param Closure $iterator
 	 * @return array
 	 */
-	public function map(array $collection, Closure $iterator)
+	public function map(array $collection, Closure $iterator): array
 	{
 		return map($collection, $iterator);
 	}
@@ -38,7 +40,7 @@ class Collections
 	 * @param mixed $value
 	 * @return array
 	 */
-	public function toArray($value)
+	public function toArray($value): array
 	{
 		return (array) $value;
 	}
@@ -49,7 +51,7 @@ class Collections
 	 * @param array|Countable $value
 	 * @return null|integer
 	 */
-	public function size($value)
+	public function size($value): null|int
 	{
 		if (is_array($value) or ($value instanceof Countable)) {
 			return count($value);
@@ -64,7 +66,7 @@ class Collections
 	 * @param array $collection
 	 * @return array
 	 */
-	public function shuffle(array $collection)
+	public function shuffle(array $collection): array
 	{
 		shuffle($collection);
 
@@ -78,7 +80,7 @@ class Collections
 	 * @param Closure $iterator
 	 * @return boolean
 	 */
-	public function any(array $collection, Closure $iterator)
+	public function any(array $collection, Closure $iterator): bool
 	{
 		return any($collection, $iterator);
 	}
@@ -90,7 +92,7 @@ class Collections
 	 * @param Closure $iterator
 	 * @return boolean
 	 */
-	public function all(array $collection, Closure $iterator)
+	public function all(array $collection, Closure $iterator): bool
 	{
 		return all($collection, $iterator);
 	}
@@ -102,7 +104,7 @@ class Collections
 	 * @param Closure $iterator
 	 * @return array
 	 */
-	public function reject(array $collection, Closure $iterator)
+	public function reject(array $collection, Closure $iterator): array
 	{
 		return array_values(reject($collection, $iterator));
 	}
@@ -114,7 +116,7 @@ class Collections
 	 * @param string $key
 	 * @return array
 	 */
-	public function pluck(array $collection, $key)
+	public function pluck(array $collection, $key): array
 	{
 		return pluck($collection, $key);
 	}
@@ -126,7 +128,7 @@ class Collections
 	 * @param mixed $value
 	 * @return boolean
 	 */
-	public function contains(array $collection, $value)
+	public function contains(array $collection, $value): bool
 	{
 		return in_array($value, $collection, true);
 	}
@@ -138,7 +140,7 @@ class Collections
 	 * @param string $function
 	 * @return array
 	 */
-	public function invoke(array $collection, $function)
+	public function invoke(array $collection, $function): array
 	{
 		return map($collection, $function);
 	}
@@ -151,7 +153,7 @@ class Collections
 	 * @param mixed $initial
 	 * @return mixed
 	 */
-	public function reduce(array $collection, Closure $iterator, $initial = 0)
+	public function reduce(array $collection, Closure $iterator, $initial = 0): mixed
 	{
 		return reduce($collection, $iterator, $initial);
 	}
@@ -163,7 +165,7 @@ class Collections
 	 * @param Closure $iterator
 	 * @return array
 	 */
-	public function sortBy(array $collection, Closure $iterator)
+	public function sortBy(array $collection, Closure $iterator): array
 	{
 		return sortBy($iterator)($collection);
 	}
@@ -175,7 +177,7 @@ class Collections
 	 * @param Closure $iterator
 	 * @return array
 	 */
-	public function groupBy(array $collection, $iterator)
+	public function groupBy(array $collection, $iterator): array
 	{
 		return groupBy($iterator)($collection);
 	}
@@ -186,11 +188,9 @@ class Collections
 	 * @param array $collection
 	 * @return mixed
 	 */
-	public function max(array $collection)
+	public function max(array $collection): mixed
 	{
-		\sort($collection);
-
-		return end($collection);
+		return first(sortByDesc($collection));
 	}
 
 	/**
@@ -199,10 +199,8 @@ class Collections
 	 * @param array $collection
 	 * @return mixed
 	 */
-	public function min(array $collection)
+	public function min(array $collection): mixed
 	{
-		\sort($collection);
-
-		return reset($collection);
+		return first(sortByAsc($collection));
 	}
 }

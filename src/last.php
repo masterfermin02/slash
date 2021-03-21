@@ -15,7 +15,7 @@ namespace Slash;
  * Slash\last([1,2,3],function($number) { return $number === 2; }); // === 2
  *
  */
-function last($array, $test)
+function last($array, $test = null)
 {
 	if (is_null($array)) {
 		return null;
@@ -23,6 +23,10 @@ function last($array, $test)
 
 	if (is_object($array)) {
 		$array = (array) $array;
+	}
+
+	if (is_null($test)) {
+		return first(array_reverse($array));
 	}
 
 	return first(array_reverse($array), $test);

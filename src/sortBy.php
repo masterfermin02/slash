@@ -21,3 +21,12 @@ function sortBy($fn)
 {
 	return curryRight('Slash\sort', $fn);
 }
+
+
+function sortByDesc($array) {
+	return sortBy(comparator('Slash\greaterThan'))($array);
+}
+
+function sortByAsc($array) {
+	return sortBy(comparator('Slash\lessThan'))($array);
+}

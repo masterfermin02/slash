@@ -15,7 +15,7 @@ namespace Slash;
  * Slash\first([1,2,3],function($number) { return $number === 2; }); // === 2
  *
  */
-function first($array, $predicate)
+function first($array, $predicate = null)
 {
 	if (is_null($array)) {
 		return null;
@@ -23,6 +23,10 @@ function first($array, $predicate)
 
 	if (is_object($array)) {
 		$array = (array) $array;
+	}
+
+	if (is_null($predicate)) {
+		return $array[0];
 	}
 
 	foreach ($array as $v) {
