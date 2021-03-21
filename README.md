@@ -76,10 +76,12 @@ The parameters to Slash functions are arranged to make it convenient for curryin
 The last two points together make it very easy to build functions as sequences of simpler functions, each of which transforms the data and passes it along to the next. Slash is designed to support this style of coding.
 
 ## Install
-Requires PHP 7.4+
+Requires PHP 8+
 ```bash
 composer require masterfermin02/slash
 ```
+
+For php 7 use version 1.4.0
 
 ## Usage
 Slash operations are pure functions that can be used alone.

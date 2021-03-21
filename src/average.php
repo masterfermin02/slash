@@ -10,7 +10,7 @@ namespace Slash;
  * @return float|int|null
  *
  * @example
-	Slash\average([1, 3, 5]); // === 3
+ *	Slash\average([1, 3, 5]); // === 3
  */
 function average($list)
 {
