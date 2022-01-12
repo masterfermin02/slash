@@ -23,9 +23,7 @@ namespace Slash;
  * $filteredNumber = $filterGreaterThan3([1, 2, 3, 4, ,5]) ; // === [4, 5]
  *
  */
-function curryRight($callable, ...$outerArguments)
+function curryRight($callable, ...$outerArguments): \Closure
 {
-	return function () use ($callable, $outerArguments) {
-		return call_user_func_array($callable, array_merge(func_get_args(), $outerArguments));
-	};
+	return fn () => call_user_func_array($callable, [...func_get_args(), ...$outerArguments]);
 }

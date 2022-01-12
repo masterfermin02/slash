@@ -113,7 +113,7 @@ class Slash
 	 */
 	public function getInstance($module)
 	{
-		if (! $this->isLoaded($module)) {
+		if (!$this->isLoaded($module)) {
 			$this->load($module);
 		}
 

@@ -7,7 +7,7 @@ namespace Slash;
  * @param $prop
  * @return mixed
  */
-function get($input, $prop)
+function get($input, $prop): mixed
 {
 	if (is_null($input) || is_null($prop)) {
 		return $prop;
@@ -18,7 +18,7 @@ function get($input, $prop)
 	}
 
 	if (is_object($input)) {
-		return isset($input->{ $prop }) ? $input->{ $prop } : $prop;
+		return $input->{ $prop } ?? $prop;
 	}
 
 	if (isset($input[$prop])) {

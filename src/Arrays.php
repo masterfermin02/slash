@@ -12,9 +12,9 @@ class Arrays
 	 *
 	 * @param array $elements
 	 * @param integer $amount
-	 * @return mixed|array
+	 * @return array|int
 	 */
-	public function first(array $elements, $amount = 1)
+	public function first(array $elements, int $amount = 1): array|int
 	{
 		$elements = array_slice($elements, 0, $amount);
 
@@ -28,7 +28,7 @@ class Arrays
 	 * @param integer $amount
 	 * @return array
 	 */
-	public function initial(array $elements, $amount = 1)
+	public function initial(array $elements, int $amount = 1): array
 	{
 		return array_slice($elements, 0, count($elements) - $amount);
 	}
@@ -40,7 +40,7 @@ class Arrays
 	 * @param integer $index
 	 * @return array
 	 */
-	public function rest(array $elements, $index = 1)
+	public function rest(array $elements, int $index = 1): array
 	{
 		return array_slice($elements, $index);
 	}
@@ -50,9 +50,9 @@ class Arrays
 	 *
 	 * @param array $elements
 	 * @param integer $amount
-	 * @return mixed|array
+	 * @return array|int
 	 */
-	public function last(array $elements, $amount = 1)
+	public function last(array $elements,int $amount = 1): array|int
 	{
 		$elements = array_slice($elements, count($elements) - $amount);
 
@@ -65,7 +65,7 @@ class Arrays
 	 * @param array $elements
 	 * @return array
 	 */
-	public function pack(array $elements)
+	public function pack(array $elements): array
 	{
 		return array_values(array_filter($elements));
 	}
@@ -76,15 +76,14 @@ class Arrays
 	 * @param array $elements
 	 * @return array
 	 */
-	public function flatten(array $elements)
+	public function flatten(array $elements): array
 	{
 		$level = [];
 
 		foreach ($elements as $node) {
 			if (is_array($node)) {
-				$level = array_merge($level, $this->flatten($node));
-			}
-			else {
+				$level = [...$level, ...$this->flatten($node)];
+			} else {
 				$level[] = $node;
 			}
 		}
@@ -100,7 +99,7 @@ class Arrays
 	 * @param integer $step
 	 * @return array
 	 */
-	public function range($to, $from = 0, $step = 1)
+	public function range(int $to, int $from = 0, int $step = 1): array
 	{
 		return range($from, $to, $step);
 	}
@@ -112,7 +111,7 @@ class Arrays
 	 * @param array $another
 	 * @return array
 	 */
-	public function difference(array $one, array $another)
+	public function difference(array $one, array $another): array
 	{
 		return array_values(array_diff($one, $another));
 	}
@@ -124,16 +123,13 @@ class Arrays
 	 * @param Closure|null $iterator
 	 * @return array
 	 */
-	public function unique(array $elements, Closure $iterator = null)
+	public function unique(array $elements, Closure $iterator = null): array
 	{
-		if (! is_null($iterator)) {
-			$elements = filter($elements, $iterator);
-		}
-		else {
-			$elements = array_unique($elements);
+		if (!is_null($iterator)) {
+			return array_values(filter($elements, $iterator));
 		}
 
-		return array_values($elements);;
+		return array_values(array_unique($elements));
 	}
 
 	/**
@@ -143,7 +139,7 @@ class Arrays
 	 * @param array $ignore
 	 * @return array
 	 */
-	public function without(array $elements, array $ignore)
+	public function without(array $elements, array $ignore): array
 	{
 		return array_values(filter($elements, function ($node) use ($ignore) {
 			return !in_array($node, $ignore, true);
@@ -157,9 +153,9 @@ class Arrays
 	 * @param array $another
 	 * @return array
 	 */
-	public function zip(array $one, array $another)
+	public function zip(array $one, array $another): array
 	{
-		return array_merge($one, $another);
+		return [...$one, ...$another];
 	}
 
 	/**
@@ -169,7 +165,7 @@ class Arrays
 	 * @param mixed $element
 	 * @return integer
 	 */
-	public function indexOf(array $elements, $element)
+	public function indexOf(array $elements, mixed $element): int
 	{
 		return array_search($element, $elements, true);
 	}
@@ -181,7 +177,7 @@ class Arrays
 	 * @param array $another
 	 * @return array
 	 */
-	public function intersection(array $one, array $another)
+	public function intersection(array $one, array $another): array
 	{
 		return array_values(array_intersect($one, $another));
 	}
@@ -193,7 +189,7 @@ class Arrays
 	 * @param array $another
 	 * @return array
 	 */
-	public function union(array $one, array $another)
+	public function union(array $one, array $another): array
 	{
 		return $this->unique($this->zip($one, $another));
 	}

@@ -12,7 +12,7 @@ namespace Slash;
  * @example
  *	Slash\average([1, 3, 5]); // === 3
  */
-function average($list)
+function average($list): float|int|null
 {
 	$size = count($list);
 

@@ -12,21 +12,21 @@ class Functions
 	 *
 	 * @var array
 	 */
-	protected $cached = [];
+	protected array $cached = [];
 
 	/**
 	 * The called closures.
 	 *
 	 * @var array
 	 */
-	protected $called = [];
+	protected array $called = [];
 
 	/**
 	 * The delayed closures.
 	 *
 	 * @var array
 	 */
-	protected $delayed = [];
+	protected array $delayed = [];
 
 	/**
 	 * Execute $closure and cache its output.
@@ -34,7 +34,7 @@ class Functions
 	 * @param Closure $closure
 	 * @return mixed
 	 */
-	public function cache(Closure $closure)
+	public function cache(Closure $closure): mixed
 	{
 		$hash = spl_object_hash((object) $closure);
 
@@ -52,7 +52,7 @@ class Functions
 	 * @param Closure $wrapper
 	 * @return mixed
 	 */
-	public function wrap(Closure $closure, Closure $wrapper)
+	public function wrap(Closure $closure, Closure $wrapper): mixed
 	{
 		return $wrapper($closure);
 	}
@@ -64,11 +64,15 @@ class Functions
 	 * @param array $arguments
 	 * @return mixed
 	 */
-	public function compose(array $closures, array $arguments = [])
+	public function compose(array $closures, array $arguments = []): mixed
 	{
-		$composed = call_user_func_array(curryRight('Slash\compose'), $closures);
-
-		return call_user_func_array($composed, $arguments);
+		return call_user_func_array(
+            call_user_func_array(
+                curryRight('Slash\compose'),
+                $closures
+            ),
+            $arguments
+        );
 	}
 
 	/**
@@ -77,7 +81,7 @@ class Functions
 	 * @param Closure $closure
 	 * @return void
 	 */
-	public function once(Closure $closure)
+	public function once(Closure $closure): void
 	{
 		$hash = spl_object_hash((object) $closure);
 
@@ -95,7 +99,7 @@ class Functions
 	 * @param Closure $closure
 	 * @return mixed
 	 */
-	public function after($number, Closure $closure)
+	public function after(int $number, Closure $closure): mixed
 	{
 		$hash = spl_object_hash((object) $closure);
 

@@ -6,17 +6,15 @@ namespace Slash;
  *
  * Return a copy of the array 'list' flattened by one level, ie [[1,2],[3,4]] = [1,2,3,4]
  *
- * @param $list
- * @return mixed
+ * @param array $list
+ * @return array
  *
  * @example
  *
  * Slash\flatten([[1,2],[3,4]]) // === [1,2,3,4]
  *
  */
-function flatten($list)
+function flatten(array $list): array
 {
-	return reduce($list, function ($items, $item) {
-		return is_array($item) ? array_merge($items, $item) : $item;
-	}, []);
+	return reduce($list, fn ($items, $item) => is_array($item) ? [...$items, ...$item] : $item, []);
 }

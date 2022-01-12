@@ -18,7 +18,7 @@ namespace Slash;
  *
  *	Slash\all((object) ['a' => 1, 'b' => 3, 'c' => 5], 'Slash\isOdd'); // === true
  */
-function all($array, $predicate)
+function all($array, $predicate): bool
 {
 	if (is_null($array)) {
 		return true;

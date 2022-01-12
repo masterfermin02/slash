@@ -15,7 +15,7 @@ namespace Slash;
  * Slash\filter([1,2,3],function($number) { return $number === 2; }); // === [2]
  *
  */
-function filter($list, $fn)
+function filter($list, $fn): array
 {
 	if (is_null($list)) {
 		return [];

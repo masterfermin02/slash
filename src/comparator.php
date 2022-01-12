@@ -15,7 +15,7 @@ namespace Slash;
  *
  *  Slash\comparator(Slash\greaterThan([1, 0])) // === -1
  */
-function comparator($fn)
+function comparator($fn): \Closure
 {
 	return function ($a, $b) use ($fn) {
 		if (call_user_func($fn, $a, $b)) {

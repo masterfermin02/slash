@@ -8,14 +8,14 @@ namespace Slash;
  *
  * @param $array
  * @param $predicate
- * @return mixed|null
+ * @return mixed
  *
  * @example
  *
  * Slash\first([1,2,3],function($number) { return $number === 2; }); // === 2
  *
  */
-function first($array, $predicate = null)
+function first($array, $predicate = null): mixed
 {
 	if (is_null($array)) {
 		return null;

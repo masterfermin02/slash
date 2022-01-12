@@ -40,7 +40,7 @@ class Collections
 	 * @param mixed $value
 	 * @return array
 	 */
-	public function toArray($value): array
+	public function toArray(mixed $value): array
 	{
 		return (array) $value;
 	}
@@ -49,15 +49,11 @@ class Collections
 	 * Calculate the size of $value.
 	 *
 	 * @param array|Countable $value
-	 * @return null|integer
+	 * @return integer
 	 */
-	public function size($value): null|int
+	public function size(array|Countable $value): int
 	{
-		if (is_array($value) or ($value instanceof Countable)) {
-			return count($value);
-		}
-
-		return null;
+        return count($value);
 	}
 
 	/**
@@ -116,7 +112,7 @@ class Collections
 	 * @param string $key
 	 * @return array
 	 */
-	public function pluck(array $collection, $key): array
+	public function pluck(array $collection, string $key): array
 	{
 		return pluck($collection, $key);
 	}
@@ -128,7 +124,7 @@ class Collections
 	 * @param mixed $value
 	 * @return boolean
 	 */
-	public function contains(array $collection, $value): bool
+	public function contains(array $collection, mixed $value): bool
 	{
 		return in_array($value, $collection, true);
 	}
@@ -137,10 +133,10 @@ class Collections
 	 * Run $function across all elements in $collection.
 	 *
 	 * @param array $collection
-	 * @param string $function
+	 * @param Closure $function
 	 * @return array
 	 */
-	public function invoke(array $collection, $function): array
+	public function invoke(array $collection, Closure $function): array
 	{
 		return map($collection, $function);
 	}
@@ -153,7 +149,7 @@ class Collections
 	 * @param mixed $initial
 	 * @return mixed
 	 */
-	public function reduce(array $collection, Closure $iterator, $initial = 0): mixed
+	public function reduce(array $collection, Closure $iterator, int $initial = 0): mixed
 	{
 		return reduce($collection, $iterator, $initial);
 	}
@@ -174,10 +170,10 @@ class Collections
 	 * Group values in $collection by $iterator's return value.
 	 *
 	 * @param array $collection
-	 * @param Closure $iterator
+	 * @param Closure|string $iterator
 	 * @return array
 	 */
-	public function groupBy(array $collection, $iterator): array
+	public function groupBy(array $collection, Closure|string $iterator): array
 	{
 		return groupBy($iterator)($collection);
 	}

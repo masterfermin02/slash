@@ -2,6 +2,13 @@
 
 namespace Slash;
 
-function greaterThan($a, $b)
+/**
+ * @param $a
+ * @param $b
+ *
+ * @return bool
+ */
+function greaterThan($a, $b): bool
 {
-	return $a > $b; }
+	return $a > $b;
+}
