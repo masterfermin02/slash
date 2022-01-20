@@ -2,7 +2,7 @@
 
 namespace Slash;
 
-function greaterThanOrEqualTo($to)
+function greaterThanOrEqualTo(mixed $to): \Closure
 {
 	return curryRight('Slash\greaterThanOrEqual', $to);
 }

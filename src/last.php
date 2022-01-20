@@ -8,14 +8,14 @@ namespace Slash;
  *
  * @param $array
  * @param $test
- * @return mixed|null
+ * @return mixed
  *
  * @example
  *
  * Slash\last([1,2,3],function($number) { return $number === 2; }); // === 2
  *
  */
-function last($array, $test = null)
+function last($array, $test = null): mixed
 {
 	if (is_null($array)) {
 		return null;

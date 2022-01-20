@@ -30,6 +30,25 @@ class flatMapTest extends TestCase {
             },
                 'experted' => [3,4,5,6]
             ],
+            'With [[1,2],[3,4], []]' => [
+                'list' => [[1,2],[3,4], []],
+                'func' => function ($item) {
+                    return !empty($item) ? [
+                        $item[0] + 2,
+                        $item[1] + 2
+                    ] : [];
+                },
+                'experted' => [3,4,5,6]
+            ],
+            'With [[1,2,3,4]] > 2' => [
+                'list' => [1,2,3,4],
+                'func' => function ($item) {
+                    return $item > 2 ? [
+                        $item
+                    ] : [];
+                },
+                'experted' => [3,4]
+            ],
         ];
     }
 }

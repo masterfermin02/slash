@@ -46,7 +46,7 @@ namespace Slash;
  * 		3 => [ [ "id" => 3, "value1" => 15, "value2" => 20 ] ]
  * ];
  */
-function groupBy($fn)
+function groupBy($fn): \Closure
 {
 	return curryRight('Slash\group', $fn);
 }

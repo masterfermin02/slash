@@ -13,7 +13,7 @@ namespace Slash;
  *
  * $greaterThanOrEqualFive = greaterThanOrEqual(5, 5); // === true
  * */
-function greaterThanOrEqual($a, $b)
+function greaterThanOrEqual($a, $b): bool
 {
 	return $a >= $b;
 }
