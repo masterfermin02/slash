@@ -20,7 +20,7 @@ Operation | Signature | Curried
 [equalTo](#equalto) | `equalTo($to): \Closure` | 
 [filter](#filter) | `filter($list, $fn): array` | 
 [filterWith](#filterwith) | `filterWith($fn): \Closure` | 
-[first](#first) | `first($array, $predicate): mixed\|null` | 
+[first](#first) | `first($array, $predicate = null): mixed\|null` | 
 [flatMap](#flatmap) | `flatMap($list, $fn): mixed` | 
 [flatten](#flatten) | `flatten($list): mixed` | 
 [flip](#flip) | `flip($fn): \Closure` | 
@@ -28,7 +28,7 @@ Operation | Signature | Curried
 [greaterThanOrEqual](#greaterthanorequal) | `greaterThanOrEqual($a, $b): bool` | 
 [group](#group) | `group($list, $prop): mixed` | 
 [groupBy](#groupby) | `groupBy($fn): \Closure` | 
-[last](#last) | `last($array, $test): mixed\|null` | 
+[last](#last) | `last($array, $test = null): mixed\|null` | 
 [lessThan](#lessthan) | `lessThan($a, $b): bool` | 
 [map](#map) | `map($list, $fn): array` | 
 [mapWith](#mapwith) | `mapWith($fn): \Closure` | 
@@ -466,7 +466,7 @@ first
 ---
 
 ```php
-first($array, $predicate): mixed|null
+first($array, $predicate = null): mixed|null
 ```
 Return the first / last element matching a predicate
 
@@ -770,7 +770,7 @@ last
 ---
 
 ```php
-last($array, $test): mixed|null
+last($array, $test = null): mixed|null
 ```
 return the last element of the array that match the predicate
 

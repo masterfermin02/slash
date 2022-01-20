@@ -2,6 +2,8 @@
 
 use PHPUnit\Framework\TestCase;
 
+use function Slash\greaterThanOrEqual;
+
 class flatMapTest extends TestCase {
 
     /**
@@ -40,10 +42,10 @@ class flatMapTest extends TestCase {
                 },
                 'experted' => [3,4,5,6]
             ],
-            'With [[1,2,3,4]] > 2' => [
+            'With [[1,2,3,4]] greaterThanOrEqual' => [
                 'list' => [1,2,3,4],
                 'func' => function ($item) {
-                    return $item > 2 ? [
+                    return greaterThanOrEqual($item, 3) ? [
                         $item
                     ] : [];
                 },
