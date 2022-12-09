@@ -25,9 +25,9 @@ class CollectionsTest extends TestCase {
     /**
      * @dataProvider cases
      */
-    public function testFunctionMethods($list, $func, $method, $experted)
+    public function testFunctionMethods($list, $func, $method, $expected)
     {
-        $this->assertEquals($experted, call_user_func([$this->collections, $method], $list, $func));
+        $this->assertEquals($expected, call_user_func([$this->collections, $method], $list, $func));
     }
 
     /**

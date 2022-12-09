@@ -8,9 +8,9 @@ class averageTest extends TestCase {
     /**
      * @dataProvider cases
      */
-    public function testAverage($list, $experted)
+    public function testAverage($list, $expected)
     {
-        $this->assertEquals($experted, average($list));
+        $this->assertEquals($expected, average($list));
     }
 
     public function cases()

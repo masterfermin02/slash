@@ -9,9 +9,9 @@ class getTest extends TestCase {
     /**
      * @dataProvider cases
      */
-    public function testGet($input, $prop, $experted)
+    public function testGet($input, $prop, $expected)
     {
-        $this->assertEquals($experted, Slash\get($input, $prop));
+        $this->assertEquals($expected, Slash\get($input, $prop));
     }
 
     public function cases()

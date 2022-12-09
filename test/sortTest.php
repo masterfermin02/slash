@@ -22,9 +22,9 @@ class sortTest extends TestCase {
     /**
      * @dataProvider cases
      */
-    public function testSort($list, $func, $experted)
+    public function testSort($list, $func, $expected)
     {
-        $this->assertEquals(array_values($experted), array_values(Slash\sortBy($func)($list)));
+        $this->assertEquals(array_values($expected), array_values(Slash\sortBy($func)($list)));
     }
 
     public function cases()

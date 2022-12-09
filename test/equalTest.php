@@ -7,9 +7,9 @@ class equalTest extends TestCase {
     /**
      * @dataProvider cases
      */
-    public function testComparator($list, $experted)
+    public function testComparator($list, $expected)
     {
-        $this->assertEquals($experted, Slash\equal($list[0],$list[1]));
+        $this->assertEquals($expected, Slash\equal($list[0],$list[1]));
     }
 
     public function cases()

@@ -7,17 +7,17 @@ class rejectTest extends TestCase {
     /**
      * @dataProvider cases
      */
-    public function testFilter($list, $func, $experted)
+    public function testFilter($list, $func, $expected)
     {
-        $this->assertEquals(array_values($experted), array_values(Slash\reject($list, $func)));
+        $this->assertEquals(array_values($expected), array_values(Slash\reject($list, $func)));
     }
 
     /**
      * @dataProvider cases
      */
-    public function testFilterWith($list, $func, $experted)
+    public function testFilterWith($list, $func, $expected)
     {
-        $this->assertEquals(array_values($experted), array_values(Slash\rejectWith($func)($list)));
+        $this->assertEquals(array_values($expected), array_values(Slash\rejectWith($func)($list)));
     }
 
     public function cases()

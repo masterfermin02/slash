@@ -7,9 +7,9 @@ class lastTest extends TestCase {
     /**
      * @dataProvider cases
      */
-    public function testAll($list, $func, $experted)
+    public function testAll($list, $func, $expected)
     {
-        $this->assertEquals($experted, Slash\last($list, $func));
+        $this->assertEquals($expected, Slash\last($list, $func));
     }
 
     public function cases()

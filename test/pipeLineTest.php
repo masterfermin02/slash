@@ -16,8 +16,8 @@ class pipeLineTest extends TestCase {
         $composed = pipeLine(
             Slash\filterWith('Slash\isEven')
         );
-        $experted = [2,4];
-        $this->assertEquals(array_values($experted), array_values($composed([1,2,3,4])));
+        $expected = [2,4];
+        $this->assertEquals(array_values($expected), array_values($composed([1,2,3,4])));
     }
 
 
@@ -30,8 +30,8 @@ class pipeLineTest extends TestCase {
             filterWith('Slash\isEven'),
             reduceWith($sum)
         );
-        $experted = 6;
-        $this->assertEquals($experted, $pipelines([1,2,3,4]));
+        $expected = 6;
+        $this->assertEquals($expected, $pipelines([1,2,3,4]));
     }
 
     public function testComposeRunMoreThanTwoFunctions()
@@ -44,8 +44,8 @@ class pipeLineTest extends TestCase {
             reduceWith($sum),
             function ($sum) { return $sum * 5; }
         );
-        $experted = 6 * 5;
-        $this->assertEquals($experted, $pipelines([1,2,3,4]));
+        $expected = 6 * 5;
+        $this->assertEquals($expected, $pipelines([1,2,3,4]));
     }
 
     public function testComposeRunMoreThanThreeFunctions()
@@ -59,8 +59,8 @@ class pipeLineTest extends TestCase {
             function ($sum) { return $sum * 5; },
             function ($sum) { return $sum * 5; }
         );
-        $experted = 6 * 5 * 5;
-        $this->assertEquals($experted, $pipelines([1,2,3,4]));
+        $expected = 6 * 5 * 5;
+        $this->assertEquals($expected, $pipelines([1,2,3,4]));
     }
 
     public function testAverageCaculation()
@@ -80,7 +80,7 @@ class pipeLineTest extends TestCase {
             ['name' => 'Mary', 'age' => 42, 'gender' => 'female'],
         ];
         $avgMaleAge = $caculateAverageMaleAge($data);
-        $experted = (12 + 23 + 11) / 3;
-        $this->assertEquals($experted, $avgMaleAge);
+        $expected = (12 + 23 + 11) / 3;
+        $this->assertEquals($expected, $avgMaleAge);
     }
 }

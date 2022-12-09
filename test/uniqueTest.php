@@ -7,9 +7,9 @@ class uniqueTest extends TestCase {
     /**
      * @dataProvider cases
      */
-    public function testFilter($list, $func, $experted)
+    public function testFilter($list, $func, $expected)
     {
-        $this->assertEquals(array_values($experted), array_values(unique($list, $func)));
+        $this->assertEquals(array_values($expected), array_values(unique($list, $func)));
     }
 
     public function testNullCollectionThrowException()

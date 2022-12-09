@@ -7,9 +7,9 @@ class mapTest extends TestCase {
     /**
      * @dataProvider cases
      */
-    public function testMap($list, $func, $experted)
+    public function testMap($list, $func, $expected)
     {
-        $this->assertEquals(array_values($experted), array_values(Slash\map($list, $func)));
+        $this->assertEquals(array_values($expected), array_values(Slash\map($list, $func)));
     }
 
     public function cases()

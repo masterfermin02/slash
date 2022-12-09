@@ -4,8 +4,6 @@ namespace Slash;
 
 use Closure;
 use Countable;
-use function sort;
-use function Slash\last;
 
 class Collections
 {

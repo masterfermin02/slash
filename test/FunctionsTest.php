@@ -22,9 +22,9 @@ class FunctionsTest extends TestCase {
     /**
      * @dataProvider valueCases
      */
-    public function testArrayMethods($list, $method, $experted)
+    public function testArrayMethods($list, $method, $expected)
     {
-        $this->assertEquals($experted, call_user_func([$this->functions, $method], $list));
+        $this->assertEquals($expected, call_user_func([$this->functions, $method], $list));
     }
 
     public function valueCases()

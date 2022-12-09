@@ -7,9 +7,9 @@ class flattenTest extends TestCase {
     /**
      * @dataProvider cases
      */
-    public function testFlatMap($list, $experted)
+    public function testFlatMap($list, $expected)
     {
-        $this->assertEquals($experted, Slash\flatten($list));
+        $this->assertEquals($expected, Slash\flatten($list));
     }
 
     public function cases()

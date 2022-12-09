@@ -7,9 +7,9 @@ class firstWithTest extends TestCase {
     /**
      * @dataProvider cases
      */
-    public function testAll($list, $func, $experted)
+    public function testAll($list, $func, $expected)
     {
-        $this->assertEquals($experted, Slash\firstWith($func)($list));
+        $this->assertEquals($expected, Slash\firstWith($func)($list));
     }
 
     public function cases()

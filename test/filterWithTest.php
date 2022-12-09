@@ -8,9 +8,9 @@ class filterWithTest extends TestCase {
     /**
      * @dataProvider cases
      */
-    public function testAll($list, $func, $experted)
+    public function testAll($list, $func, $expected)
     {
-        $this->assertEquals(array_values($experted), array_values(Slash\filterWith($func)($list)));
+        $this->assertEquals(array_values($expected), array_values(Slash\filterWith($func)($list)));
     }
 
     public function cases()

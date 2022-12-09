@@ -22,17 +22,17 @@ class ObjectsTest extends TestCase {
     /**
      * @dataProvider cases
      */
-    public function testFunctionMethods($list, $func, $method, $experted)
+    public function testFunctionMethods($list, $func, $method, $expected)
     {
-        $this->assertEquals($experted, call_user_func([$this->objects, $method], $list, $func));
+        $this->assertEquals($expected, call_user_func([$this->objects, $method], $list, $func));
     }
 
     /**
      * @dataProvider valueCases
      */
-    public function testArrayMethods($list, $method, $experted)
+    public function testArrayMethods($list, $method, $expected)
     {
-        $this->assertEquals($experted, call_user_func([$this->objects, $method], $list));
+        $this->assertEquals($expected, call_user_func([$this->objects, $method], $list));
     }
 
     public function cases()

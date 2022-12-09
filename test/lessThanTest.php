@@ -7,9 +7,9 @@ class lessThanTest extends TestCase {
     /**
      * @dataProvider cases
      */
-    public function testComparator($list, $experted)
+    public function testComparator($list, $expected)
     {
-        $this->assertEquals($experted, Slash\lessThan($list[0],$list[1]));
+        $this->assertEquals($expected, Slash\lessThan($list[0],$list[1]));
     }
 
     public function cases()

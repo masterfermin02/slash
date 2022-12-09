@@ -20,7 +20,7 @@ namespace Slash;
  *
  *	Slash\any((object) ['a' => 1, 'b' => 3, 'c' => 5], 'Slash\isOdd'); // === true
  */
-function any($array, $predicate): bool
+function any(array|\ArrayObject $array, $predicate): bool
 {
 	if (is_null($array)) {
 		return false;

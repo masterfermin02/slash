@@ -7,9 +7,9 @@ class flatMapWithTest extends TestCase {
     /**
      * @dataProvider cases
      */
-    public function testFlatMap($list, $func, $experted)
+    public function testFlatMap($list, $func, $expected)
     {
-        $this->assertEquals($experted, Slash\flatMapWith($func)($list));
+        $this->assertEquals($expected, Slash\flatMapWith($func)($list));
     }
 
     public function cases()

@@ -8,17 +8,17 @@ class pairTest extends TestCase {
     /**
      * @dataProvider cases
      */
-    public function testPair($list, $experted)
+    public function testPair($list, $expected)
     {
-        $this->assertEquals($experted, Slash\pair($list[0],$list[1]));
+        $this->assertEquals($expected, Slash\pair($list[0],$list[1]));
     }
 
     /**
      * @dataProvider cases
      */
-    public function testPairWith($list, $experted)
+    public function testPairWith($list, $expected)
     {
-        $this->assertEquals($experted, Slash\pairWith(function($item){ return $item; })($list[0],$list[1]));
+        $this->assertEquals($expected, Slash\pairWith(function($item){ return $item; })($list[0],$list[1]));
     }
 
     public function cases()

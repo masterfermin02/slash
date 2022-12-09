@@ -10,7 +10,7 @@ class curryRightTest extends TestCase {
         $isEven = curryRight(
             Slash\filterWith('Slash\isEven')
         );
-        $experted = [2,4];
-        $this->assertEquals(array_values($experted), array_values($isEven([1,2,3,4])));
+        $expected = [2,4];
+        $this->assertEquals(array_values($expected), array_values($isEven([1,2,3,4])));
     }
 }

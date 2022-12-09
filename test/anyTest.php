@@ -7,19 +7,54 @@ class anyTest extends TestCase {
     /**
      * @dataProvider cases
      */
-    public function testAny($list, $func, $experted)
+    public function testAny($list, $func, $expected): void
     {
-        $this->assertEquals($experted, Slash\any($list, $func));
+        $this->assertEquals($expected, Slash\any($list, $func));
     }
 
-    public function cases()
+    /**
+     * @dataProvider invalidArgs
+     */
+    public function testInvalidArgs($list, $func): void
+    {
+        $this->expectException(TypeError::class);
+        Slash\any($list, $func);
+    }
+
+    public function invalidArgs(): array
     {
         return [
             'With null' => [
                 'list' => null,
                 'func' => 'Slash\isEven',
-                'experted' => false,
             ],
+            'With an empty stdClass' => [
+                'list' => (object) [],
+                'func' => 'Slash\isOdd',
+            ],
+            'With an stdClass with no elements that satisfy the predicate' => [
+                'list' => (object) ['a' => 2, 'b' => 4, 'c' => 6],
+                'func' => 'Slash\isOdd',
+            ],
+            'With an stdClass with one element that satisfies the predicate' => [
+                'list' => (object) ['a' => 2, 'b' => 3, 'c' => 6],
+                'func' => 'Slash\isOdd',
+            ],
+            'With an stdClass with several elements that satisfy the predicate' => [
+                'list' => (object) ['a' => 1, 'b' => 4, 'c' => 5],
+                'func' => 'Slash\isOdd',
+            ],
+            'With an stdClass with all elements that satisfy the predicate' => [
+                'list' => (object) ['a' => 1, 'b' => 3, 'c' => 5],
+                'func' => 'Slash\isOdd',
+            ],
+        ];
+    }
+
+    public function cases(): array
+    {
+        return [
+
             'With a empty list' => [
                 'list' => [],
                 'func' => 'Slash\isEven',
@@ -60,36 +95,9 @@ class anyTest extends TestCase {
                 'func' => 'Slash\isOdd',
                 'expected' => true,
             ],
-            'With an empty stdClass' => [
-                'list' => (object) [],
-                'func' => 'Slash\isOdd',
-                'expected' => false,
-            ],
-            'With an stdClass with no elements that satisfy the predicate' => [
-                'list' => (object) ['a' => 2, 'b' => 4, 'c' => 6],
-                'func' => 'Slash\isOdd',
-                'expected' => false,
-            ],
-            'With an stdClass with one element that satisfies the predicate' => [
-                'list' => (object) ['a' => 2, 'b' => 3, 'c' => 6],
-                'func' => 'Slash\isOdd',
-                'expected' => true,
-            ],
-            'With an stdClass with several elements that satisfy the predicate' => [
-                'list' => (object) ['a' => 1, 'b' => 4, 'c' => 5],
-                'func' => 'Slash\isOdd',
-                'expected' => true,
-            ],
-            'With an stdClass with all elements that satisfy the predicate' => [
-                'list' => (object) ['a' => 1, 'b' => 3, 'c' => 5],
-                'func' => 'Slash\isOdd',
-                'expected' => true,
-            ],
-
             /*
                 With ArrayObject
              */
-
             'With an empty ArrayObject' => [
                 'list' => new ArrayObject([]),
                 'func' => 'Slash\isOdd',
@@ -115,7 +123,6 @@ class anyTest extends TestCase {
                 'func' => 'Slash\isOdd',
                 'expected' => true,
             ],
-
         ];
     }
 }

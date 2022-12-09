@@ -12,8 +12,8 @@ class composeTest extends TestCase {
         $pipelines = compose(
             Slash\filterWith('Slash\isEven')
         );
-        $experted = [2,4];
-        $this->assertEquals(array_values($experted), array_values($pipelines([1,2,3,4])));
+        $expected = [2,4];
+        $this->assertEquals(array_values($expected), array_values($pipelines([1,2,3,4])));
     }
 
 
@@ -26,8 +26,8 @@ class composeTest extends TestCase {
            Slash\reduceWith($sum),
             Slash\filterWith('Slash\isEven')
         );
-        $experted = 6;
-        $this->assertEquals($experted, $pipelines([1,2,3,4]));
+        $expected = 6;
+        $this->assertEquals($expected, $pipelines([1,2,3,4]));
     }
 
     public function testComposeRunMoreThanTwoFunctions()
@@ -40,8 +40,8 @@ class composeTest extends TestCase {
             Slash\reduceWith($sum),
             Slash\filterWith('Slash\isEven')
         );
-        $experted = 6 * 5;
-        $this->assertEquals($experted, $pipelines([1,2,3,4]));
+        $expected = 6 * 5;
+        $this->assertEquals($expected, $pipelines([1,2,3,4]));
     }
 
     public function testComposeRunMoreThanThreeFunctions()
@@ -55,7 +55,7 @@ class composeTest extends TestCase {
             Slash\reduceWith($sum),
             Slash\filterWith('Slash\isEven')
         );
-        $experted = 6 * 5 * 5;
-        $this->assertEquals($experted, $pipelines([1,2,3,4]));
+        $expected = 6 * 5 * 5;
+        $this->assertEquals($expected, $pipelines([1,2,3,4]));
     }
 }
