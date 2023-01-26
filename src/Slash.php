@@ -18,9 +18,9 @@ class Slash
 	/**
 	 * The instance of Slash.
 	 *
-	 * @var TValue
+	 * @var object
 	 */
-	protected static $instance;
+	protected static object $instance;
 
 	/**
 	 * The modules you want to use.
@@ -38,20 +38,19 @@ class Slash
 	/**
 	 * The loaded module instances.
 	 *
-	 * @var array<string, TValue>
+	 * @var array<string, object>
 	 */
 	protected array $instances = [];
 
 	/**
 	 * Load a module.
 	 *
-     * @template TType
 	 * @throws UnexpectedValueException
 	 * @param string $module
-	 * @param TType|null $instance
-	 * @return TType
+	 * @param ?object $instance
+	 * @return object
 	 */
-	public function load(string $module, $instance = null)
+	public function load(string $module,  ?object $instance = null)
 	{
 		if (!is_null($instance)) {
 			if (!$this->hasModule($module)) {
@@ -115,9 +114,9 @@ class Slash
 	 * Load a module (if not yet) and return its instance.
 	 *
 	 * @param string $module
-	 * @return TValue
+	 * @return object
 	 */
-	public function getInstance(string $module)
+	public function getInstance(string $module): object
 	{
 		if (!$this->isLoaded($module)) {
 			$this->load($module);
@@ -130,12 +129,11 @@ class Slash
 	/**
 	 * Determine whether the given object has a method.
 	 *
-	 * @param TValue $object
+	 * @param object $object
 	 * @param string $method
 	 * @return bool
-	 * @throws ReflectionException
-	 */
-	public function hasMethod($object, string $method): bool
+     */
+	public function hasMethod(object $object, string $method): bool
 	{
 		return (new ReflectionClass($object))->hasMethod($method);
 	}
@@ -147,15 +145,17 @@ class Slash
 	 * @param string $name
 	 * @param array<TKey, TValue> $arguments
 	 * @return TValue
-	 * @throws ReflectionException
-	 */
+     */
 	public function run(string $name, array $arguments = [])
 	{
 		foreach ($this->getModules() as $module) {
 			$instance = $this->getInstance($module);
 
 			if ($this->hasMethod($instance, $name)) {
-				return call_user_func_array([$instance, $name], $arguments);
+                $fn = [$instance, $name];
+                if (is_callable($fn)) {
+                    return call_user_func_array($fn, $arguments);
+                }
 			}
 		}
 
@@ -183,10 +183,16 @@ class Slash
 	 */
 	public static function __callStatic(string $method, array $arguments = [])
 	{
-		if (! (self::$instance instanceof self)) {
+		if (!isset(self::$instance)) {
 			self::$instance = new self;
 		}
 
-		return call_user_func_array([self::$instance, $method], $arguments);
+        $fn = [self::$instance, $method];
+
+        if (!is_callable($fn)) {
+            throw new BadMethodCallException("Method {$method} does not exist");
+        }
+
+		return call_user_func_array($fn, $arguments);
 	}
 }

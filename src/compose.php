@@ -10,10 +10,7 @@ namespace Slash;
  * right-most, inner function.
  * ie., compose(f,g,h) == f(g(h()))
  *
- * @template TKey
- * @template TValue
- * @param array<TKey, TValue> ...$args
- * @return TValue
+ * @return mixed
  *
  * @example:
  *
@@ -27,16 +24,16 @@ namespace Slash;
  *
  *
  */
-function compose(...$args)
+function compose()
 {
+    $args = func_get_args();
 	$fn = array_shift($args);
 	$gn = array_shift($args);
 	// If it has more than one args create a new function from two functions passed
 	// If it has one args will return it as fun
-	$fog = $gn ? fn () => call_user_func(
+	$fog = is_callable($gn) && is_callable($fn) ? fn () => call_user_func(
 			$fn,
-			call_user_func_array($gn, func_get_args()
-            )
+			call_user_func_array($gn, func_get_args())
     ) : $fn;
 
 	// If it has more than 2 args will call compose again pass the new function as args with the reminders args

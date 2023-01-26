@@ -10,7 +10,7 @@ namespace Slash;
  * @template TValue
  * @param array<TKey, TValue> $list
  * @param ?callable $predicate
- * @return TValue
+ * @return TValue|null
  *
  * @example
  *

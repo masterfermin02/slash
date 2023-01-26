@@ -23,7 +23,7 @@ class ArraysTest extends TestCase {
     {
         $elements = [2, 3, 4, 5, 6, 7];
 
-        $this->assertEquals($this->arrays->first($elements), 2);
+        $this->assertEquals($this->arrays->first($elements), [2]);
         $this->assertEquals($this->arrays->first($elements, 3), [2, 3, 4]);
     }
 
@@ -47,7 +47,7 @@ class ArraysTest extends TestCase {
     {
         $elements = [2, 3, 4, 5, 6, 7];
 
-        $this->assertEquals(7, $this->arrays->last($elements));
+        $this->assertEquals([7], $this->arrays->last($elements));
         $this->assertEquals([5, 6, 7], $this->arrays->last($elements, 3));
     }
 

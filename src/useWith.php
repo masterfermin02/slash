@@ -2,6 +2,8 @@
 
 namespace Slash;
 
+use http\Exception\InvalidArgumentException;
+
 /**
  *
  * Similar to Ramda's useWith(fn,...) which allows you to supply
@@ -23,8 +25,15 @@ function useWith()
 {
     $transforms = func_get_args();
     $fn = array_shift($transforms);
+    if (!is_callable($fn)) {
+        throw new InvalidArgumentException('Function not found');
+    }
+
     $_transform = function($args) use($transforms) {
         return array_map(function($arg,$i) use($transforms) {
+            if (!is_callable($transforms[$i])) {
+                throw new InvalidArgumentException('Function not found');
+            }
             return $transforms[$i]($arg);
         },$args,array_keys($args));
     };
@@ -33,10 +42,10 @@ function useWith()
         $transformsLen = count($transforms);
         $targs = array_slice($args,0,$transformsLen);
         $remaining = array_slice($args,$transformsLen);
-
-        return call_user_func_array($fn, array_merge(
-            call_user_func($_transform,$targs),
-            $remaining)
+        $result = call_user_func($_transform,$targs);
+        return call_user_func_array($fn,is_array($result)
+            ? array_merge($result, $remaining)
+            : $remaining
         );
     };
 }

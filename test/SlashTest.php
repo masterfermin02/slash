@@ -10,7 +10,7 @@ class SlashTest extends TestCase {
      *
      * @var Slash
      */
-    protected $slash;
+    protected Slash $slash;
 
     public function setUp(): void
     {

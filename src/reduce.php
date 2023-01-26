@@ -5,17 +5,15 @@ namespace Slash;
 /**
  *
  * @template TReduceValue
- * @template TCarry
- * @template TItem
  * @template TKey
  * @template TValue
  * @param array<TKey,TValue> $list
- * @param callable(TCarry,TItem): TReduceValue $fn
- * @param TValue $initial
+ * @param callable(TReduceValue,TValue): TReduceValue $fn
+ * @param TReduceValue $initial
  *
- * @return TReduceValue
+ * @return TReduceValue|TValue
  */
-function reduce(array $list, callable $fn, $initial = null)
+function reduce(array $list, $fn, $initial = null)
 {
 	return array_reduce($list, $fn, $initial);
 }

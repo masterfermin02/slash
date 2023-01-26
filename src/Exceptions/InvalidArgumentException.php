@@ -329,12 +329,12 @@ class InvalidArgumentException extends \InvalidArgumentException
 	}
 
     /**
-     * @param TValue $value
+     * @param  bool|float|int|string|null $value
      * @param string $callee
      *
      * @return void
      */
-	public static function assertNonZeroInteger($value, string $callee): void
+	public static function assertNonZeroInteger( bool|float|int|string|null $value, string $callee): void
 	{
 		if (!is_int($value) || $value == 0) {
 			throw new InvalidArgumentException(sprintf('%s expected parameter %d to be non-zero', $callee, $value));

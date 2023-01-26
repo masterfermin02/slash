@@ -3,6 +3,7 @@
 namespace Slash;
 
 use Closure;
+use http\Exception\InvalidArgumentException;
 
 /**
  * @template TKey
@@ -14,21 +15,21 @@ class Functions
 	/**
 	 * The cached closures.
 	 *
-	 * @var array<TKey, TValue>
+	 * @var array<string, TValue>
 	 */
 	protected array $cached = [];
 
 	/**
 	 * The called closures.
 	 *
-	 * @var array<TKey, TValue>
+	 * @var array<string, bool>
 	 */
 	protected array $called = [];
 
 	/**
 	 * The delayed closures.
 	 *
-	 * @var array<TKey, TValue>
+	 * @var array<string, Closure>
 	 */
 	protected array $delayed = [];
 
@@ -36,13 +37,13 @@ class Functions
 	 * Execute $closure and cache its output.
 	 *
 	 * @param Closure $closure
-	 * @return TValue
+	 * @return string
 	 */
 	public function cache(Closure $closure)
 	{
 		$hash = spl_object_hash($closure);
 
-		if (! isset($this->cached[$hash])) {
+		if (!isset($this->cached[$hash])) {
 			$this->cached[$hash] = $closure();
 		}
 
@@ -70,11 +71,17 @@ class Functions
 	 */
 	public function compose(array $closures, array $arguments = [])
 	{
+        $fn = call_user_func_array(
+            curryRight('Slash\compose'),
+            $closures
+        );
+
+        if (!is_callable($fn)) {
+            throw new InvalidArgumentException('Function not found');
+        }
+
 		return call_user_func_array(
-            call_user_func_array(
-                curryRight('Slash\compose'),
-                $closures
-            ),
+            $fn,
             $arguments
         );
 	}
@@ -99,13 +106,13 @@ class Functions
 	/**
 	 * Only execute $closure after the exact $number of failed tries.
 	 *
-	 * @param integer $number
+	 * @param int $number
 	 * @param Closure $closure
-	 * @return TValue
+	 * @return TValue|null
 	 */
 	public function after(int $number, Closure $closure)
 	{
-		$hash = spl_object_hash((object) $closure);
+		$hash = spl_object_hash($closure);
 
 		if (isset($this->delayed[$hash])) {
 			$closure = $this->delayed[$hash];

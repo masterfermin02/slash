@@ -30,7 +30,7 @@ class Collections
 	 *
 	 * @param array<TKey, TValue> $collection
 	 * @param Closure $iterator
-	 * @return array<TKey, TValue>
+	 * @return array<int|string, TValue>
      */
 	public function map(array $collection, Closure $iterator): array
 	{
@@ -112,9 +112,9 @@ class Collections
 	 *
 	 * @param array<TKey, TValue> $collection
 	 * @param string $key
-	 * @return array<TKey, TValue>
+	 * @return mixed
      */
-	public function pluck(array $collection, string $key): array
+	public function pluck(array $collection, string $key): mixed
 	{
 		return pluck($collection, $key);
 	}
@@ -136,7 +136,7 @@ class Collections
 	 *
 	 * @param array<TKey, TValue> $collection
 	 * @param callable $function
-	 * @return array<TKey, TValue>
+	 * @return array<int|string, TValue>
      */
 	public function invoke(array $collection, callable $function): array
 	{
@@ -147,12 +147,10 @@ class Collections
 	 * Reduce $collection into a single value using $iterator.
 	 *
      * @template TReduceValue
-     * @template TCarry
-     * @template TItem
 	 * @param array<TKey,TValue> $collection
-	 * @param callable(TCarry,TItem): TReduceValue $iterator
-	 * @param TValue $initial
-	 * @return TReduceValue
+	 * @param callable(TReduceValue,TValue): TReduceValue $iterator
+	 * @param TReduceValue $initial
+	 * @return TReduceValue|TValue
 	 */
 	public function reduce(array $collection, callable $iterator, $initial = null)
 	{
@@ -175,10 +173,10 @@ class Collections
 	 * Group values in $collection by $iterator's return value.
 	 *
 	 * @param array<TKey, TValue> $collection
-	 * @param callable|string $iterator
+	 * @param mixed $iterator
 	 * @return array<TKey, TValue>
      */
-	public function groupBy(array $collection, callable|string $iterator): array
+	public function groupBy(array $collection, mixed $iterator): array
 	{
 		return groupBy($iterator)($collection);
 	}
@@ -187,7 +185,7 @@ class Collections
 	 * Return the maximum value from $collection.
 	 *
 	 * @param array<TKey, TValue> $collection
-	 * @return TValue
+	 * @return TValue|null
 	 */
 	public function max(array $collection)
 	{
@@ -198,7 +196,7 @@ class Collections
 	 * Return the minimum value from $collection.
 	 *
 	 * @param array<TKey, TValue> $collection
-	 * @return TValue
+	 * @return TValue|null
 	 */
 	public function min(array $collection)
 	{

@@ -47,7 +47,7 @@ class Objects
 	 * Get the keys.
 	 *
 	 * @param TType $object
-	 * @return array<TKey, TValue>
+	 * @return array<int, (int|string)>
 	 */
 	public function keys($object): array
 	{
@@ -58,7 +58,7 @@ class Objects
 	 * Get the values.
 	 *
 	 * @param TType $object
-	 * @return array<TKey, TValue>
+	 * @return array<int, mixed>
 	 */
 	public function values($object): array
 	{
@@ -84,9 +84,9 @@ class Objects
 	/**
 	 * Fill in any missing values using $defaults.
 	 *
-	 * @param TType $object
-	 * @param TType $defaults
-	 * @return TType
+	 * @param object $object
+	 * @param mixed $defaults
+	 * @return object
 	 */
 	public function defaults($object, $defaults)
 	{
@@ -98,11 +98,13 @@ class Objects
 			return $object;
 		}
 
-		foreach ($defaults as $key => $value) {
-			if (! property_exists($object, $key)) {
-				$object->{$key} = $value;
-			}
-		}
+        if (is_iterable($defaults)) {
+            foreach ($defaults as $key => $value) {
+                if (!property_exists($object, $key)) {
+                    $object->{$key} = $value;
+                }
+            }
+        }
 
 		return $object;
 	}
@@ -122,9 +124,8 @@ class Objects
 	/**
 	 * Get the names of all public methods.
 	 *
-	 * @param TType $object
-	 * @return array<TKey, TValue>
-	 * @throws ReflectionException
+	 * @param object $object
+	 * @return array<int, ReflectionMethod>
 	 */
 	public function methods($object): array
 	{

@@ -22,7 +22,7 @@ class ObjectsTest extends TestCase {
     /**
      * @dataProvider cases
      */
-    public function testFunctionMethods($list, $func, $method, $expected)
+    public function testFunctionMethods($list, $func, $method, $expected): void
     {
         $this->assertEquals($expected, call_user_func([$this->objects, $method], $list, $func));
     }
@@ -64,13 +64,13 @@ class ObjectsTest extends TestCase {
                 'list' => (object) ['a' => 1, 'b' => 2],
                 'func' => (object) ['c' => 3, 'd' => 4],
                 'method' => 'defaults',
-                'experted' => (object) ['c' => 3, 'd' => 4, 'a' => 1, 'b' => 2],
+                'experted' => (object) ['a' => 1, 'b' => 2],
             ],
             'With array defaults' => [
                 'list' => (object) ['a' => 1, 'b' => 2],
                 'func' => [(object) ['c' => 3], (object) ['d' => 4]],
                 'method' => 'defaults',
-                'experted' => (object) ['c' => 3, 'd' => 4, 'a' => 1, 'b' => 2],
+                'experted' => (object) ['a' => 1, 'b' => 2],
             ],
             'With isEqual' => [
                 'list' => 1,

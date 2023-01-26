@@ -15,14 +15,12 @@ class Arrays
 	 * Get the first n elements.
 	 *
 	 * @param array<TKey, TValue> $elements
-	 * @param integer $amount
-	 * @return array<TKey, TValue>|int
+	 * @param int $amount
+	 * @return array<TKey, TValue>
 	 */
-	public function first(array $elements, int $amount = 1): array|int
+	public function first(array $elements, int $amount = 1): array
 	{
-		$elements = array_slice($elements, 0, $amount);
-
-		return count($elements) == 1 ? reset($elements) : $elements;
+		return array_slice($elements, 0, $amount);
 	}
 
 	/**
@@ -54,13 +52,11 @@ class Arrays
 	 *
 	 * @param array<TKey, TValue> $elements
 	 * @param integer $amount
-	 * @return array<TKey, TValue>|int
+	 * @return array<TKey, TValue>
 	 */
-	public function last(array $elements,int $amount = 1): array|int
+	public function last(array $elements,int $amount = 1): array
 	{
-		$elements = array_slice($elements, count($elements) - $amount);
-
-		return count($elements) == 1 ? reset($elements) : $elements;
+		return array_slice($elements, count($elements) - $amount);
 	}
 
 	/**
@@ -101,7 +97,7 @@ class Arrays
 	 * @param integer $to
 	 * @param integer $from
 	 * @param integer $step
-	 * @return array<TKey, TValue>
+	 * @return array<int, int>
      */
 	public function range(int $to, int $from = 0, int $step = 1): array
 	{
@@ -168,9 +164,9 @@ class Arrays
      * @template TType
 	 * @param array<TKey, TValue> $elements
 	 * @param TType $element
-	 * @return integer
+	 * @return int|string|false
 	 */
-	public function indexOf(array $elements, $element): int
+	public function indexOf(array $elements, $element):  int|string|false
 	{
 		return array_search($element, $elements, true);
 	}

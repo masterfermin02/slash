@@ -3,12 +3,13 @@
 namespace Slash;
 
 /**
- * @template TList
- * @param TList &$list
+ * @template TKey
+ * @template TValue
+ * @param array<TKey, TValue>|object &$list
  * @param callable $fn
  * @return void
  */
-function walk(&$list, callable $fn)
+function walk(array|object &$list, callable $fn): void
 {
-	array_walk($list, $fn);
+	array_walk( $list, $fn);
 }
