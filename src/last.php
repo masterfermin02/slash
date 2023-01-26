@@ -6,28 +6,22 @@ namespace Slash;
  *
  * return the last element of the array that match the predicate
  *
- * @param $array
- * @param $test
- * @return mixed
+ * @template TKey
+ * @template TValue
+ * @param array<TKey, TValue> $list
+ * @param ?callable $fn
+ * @return TValue
  *
  * @example
  *
  * Slash\last([1,2,3],function($number) { return $number === 2; }); // === 2
  *
  */
-function last($array, $test = null): mixed
+function last(array $list, ?callable $fn = null)
 {
-	if (is_null($array)) {
-		return null;
+	if (is_null($fn)) {
+		return first(array_reverse($list));
 	}
 
-	if (is_object($array)) {
-		$array = (array) $array;
-	}
-
-	if (is_null($test)) {
-		return first(array_reverse($array));
-	}
-
-	return first(array_reverse($array), $test);
+	return first(array_reverse($list), $fn);
 }

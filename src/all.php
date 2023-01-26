@@ -5,8 +5,10 @@ namespace Slash;
 /**
  *  Return true only If all the element of the list pass the predicate
  *
- * @param $array
- * @param $predicate
+ * @template TKey
+ * @template TValue
+ * @param array<TKey, TValue> $array
+ * @param callable $predicate
  * @return bool
  *
  * @example
@@ -18,7 +20,7 @@ namespace Slash;
  *
  *	Slash\all((object) ['a' => 1, 'b' => 3, 'c' => 5], 'Slash\isOdd'); // === true
  */
-function all(array|\ArrayObject $array, $predicate): bool
+function all(array $array, callable $predicate): bool
 {
 	foreach ($array as $v) {
 		if (!call_user_func($predicate, $v)) {

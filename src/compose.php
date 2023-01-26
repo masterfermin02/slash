@@ -9,8 +9,11 @@ namespace Slash;
  * that will compose those functions passing its input to the
  * right-most, inner function.
  * ie., compose(f,g,h) == f(g(h()))
- * @param ...$args
- * @return mixed
+ *
+ * @template TKey
+ * @template TValue
+ * @param array<TKey, TValue> ...$args
+ * @return TValue
  *
  * @example:
  *
@@ -24,7 +27,7 @@ namespace Slash;
  *
  *
  */
-function compose(...$args): mixed
+function compose(...$args)
 {
 	$fn = array_shift($args);
 	$gn = array_shift($args);

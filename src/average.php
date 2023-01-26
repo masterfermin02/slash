@@ -6,7 +6,9 @@ namespace Slash;
  *
  * Return the average of an array
  *
- * @param $list
+ * @template TKey
+ * @template TValue
+ * @param array<TKey, TValue> $list
  * @return float|int|null
  *
  * @example

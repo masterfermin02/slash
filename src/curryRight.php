@@ -8,8 +8,10 @@ namespace Slash;
  * curried from right -> left.  Uses the natural arity of `fn` to
  * determine how many arguments to curry, or `n` if passed.
  *
- * @param $callable
- * @param ...$outerArguments
+ * @template TKey
+ * @template TValue
+ * @param callable $callable
+ * @param array<TKey, TValue> ...$outerArguments
  * @return \Closure
  *
  * @example
@@ -23,7 +25,7 @@ namespace Slash;
  * $filteredNumber = $filterGreaterThan3([1, 2, 3, 4, ,5]) ; // === [4, 5]
  *
  */
-function curryRight($callable, ...$outerArguments): \Closure
+function curryRight(callable $callable, ...$outerArguments): callable
 {
 	return fn () => call_user_func_array($callable, [...func_get_args(), ...$outerArguments]);
 }

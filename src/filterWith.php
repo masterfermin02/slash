@@ -3,10 +3,10 @@
 namespace Slash;
 
 /**
- * @param $fn
- * @return \Closure
+ * @param callable $fn
+ * @return callable
  */
-function filterWith($fn): \Closure
+function filterWith(callable $fn): callable
 {
 	return curryRight('Slash\filter', $fn);
 }

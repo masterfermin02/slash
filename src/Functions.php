@@ -4,27 +4,31 @@ namespace Slash;
 
 use Closure;
 
+/**
+ * @template TKey
+ * @template TValue
+ */
 class Functions
 {
 
 	/**
 	 * The cached closures.
 	 *
-	 * @var array
+	 * @var array<TKey, TValue>
 	 */
 	protected array $cached = [];
 
 	/**
 	 * The called closures.
 	 *
-	 * @var array
+	 * @var array<TKey, TValue>
 	 */
 	protected array $called = [];
 
 	/**
 	 * The delayed closures.
 	 *
-	 * @var array
+	 * @var array<TKey, TValue>
 	 */
 	protected array $delayed = [];
 
@@ -32,11 +36,11 @@ class Functions
 	 * Execute $closure and cache its output.
 	 *
 	 * @param Closure $closure
-	 * @return mixed
+	 * @return TValue
 	 */
-	public function cache(Closure $closure): mixed
+	public function cache(Closure $closure)
 	{
-		$hash = spl_object_hash((object) $closure);
+		$hash = spl_object_hash($closure);
 
 		if (! isset($this->cached[$hash])) {
 			$this->cached[$hash] = $closure();
@@ -50,9 +54,9 @@ class Functions
 	 *
 	 * @param Closure $closure
 	 * @param Closure $wrapper
-	 * @return mixed
+	 * @return TValue
 	 */
-	public function wrap(Closure $closure, Closure $wrapper): mixed
+	public function wrap(Closure $closure, Closure $wrapper)
 	{
 		return $wrapper($closure);
 	}
@@ -60,11 +64,11 @@ class Functions
 	/**
 	 * Compose $closures.
 	 *
-	 * @param array $closures
-	 * @param array $arguments
-	 * @return mixed
+	 * @param array<TKey, TValue> $closures
+	 * @param array<TKey, TValue> $arguments
+	 * @return TValue
 	 */
-	public function compose(array $closures, array $arguments = []): mixed
+	public function compose(array $closures, array $arguments = [])
 	{
 		return call_user_func_array(
             call_user_func_array(
@@ -83,9 +87,9 @@ class Functions
 	 */
 	public function once(Closure $closure): void
 	{
-		$hash = spl_object_hash((object) $closure);
+		$hash = spl_object_hash($closure);
 
-		if (! isset($this->called[$hash])) {
+		if (!isset($this->called[$hash])) {
 			$closure();
 
 			$this->called[$hash] = true;
@@ -97,9 +101,9 @@ class Functions
 	 *
 	 * @param integer $number
 	 * @param Closure $closure
-	 * @return mixed
+	 * @return TValue
 	 */
-	public function after(int $number, Closure $closure): mixed
+	public function after(int $number, Closure $closure)
 	{
 		$hash = spl_object_hash((object) $closure);
 

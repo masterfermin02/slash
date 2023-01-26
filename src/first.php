@@ -6,33 +6,28 @@ namespace Slash;
  *
  * Return the first / last element matching a predicate
  *
- * @param $array
- * @param $predicate
- * @return mixed
+ * @template TKey
+ * @template TValue
+ * @param array<TKey, TValue> $list
+ * @param ?callable $predicate
+ * @return TValue
  *
  * @example
  *
  * Slash\first([1,2,3],function($number) { return $number === 2; }); // === 2
  *
  */
-function first($array, $predicate = null): mixed
+function first(array $list, ?callable $predicate = null)
 {
-	if (is_null($array)) {
-		return null;
-	}
-
-	if (is_object($array)) {
-		$array = (array) $array;
-	}
-
 	if (is_null($predicate)) {
-		return $array[0];
+		return !empty($list) ? $list[0] : null;
 	}
 
-	foreach ($array as $v) {
+	foreach ($list as $v) {
 		if (call_user_func($predicate, $v)) {
 			return $v;
 		}
 	}
+
 	return null;
 }

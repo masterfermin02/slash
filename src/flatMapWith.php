@@ -6,12 +6,11 @@ use JetBrains\PhpStorm\Pure;
 
 /**
  * Return a curry version of the flatMap
- * @param \Closure $fn
+ * @param callable $fn
  *
- * @return \Closure
+ * @return callable
  */
-#[Pure]
-function flatMapWith(\Closure $fn): \Closure
+function flatMapWith(callable $fn): callable
 {
 	return curryRight('Slash\flatMap', $fn);
 }

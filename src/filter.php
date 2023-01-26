@@ -6,24 +6,18 @@ namespace Slash;
  *
  * Filter `list` using the predicate function `fn`
  *
- * @param $list
- * @param $fn
- * @return array
+ * @template TKey
+ * @template TValue
+ * @param array<TKey, TValue> $list
+ * @param callable $fn
+ * @return array<TKey, TValue>
  *
  * @example
  *
  * Slash\filter([1,2,3],function($number) { return $number === 2; }); // === [2]
  *
  */
-function filter($list, $fn): array
+function filter(array $list, callable $fn): array
 {
-	if (is_null($list)) {
-		return [];
-	}
-
-	if (is_object($list)) {
-		$list = (array) $list;
-	}
-
 	return array_filter($list, $fn);
 }

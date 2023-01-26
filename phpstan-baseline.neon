@@ -1,0 +1,2196 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Method Slash\\\\Arrays\\:\\:difference\\(\\) has parameter \\$another with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Arrays.php
+
+		-
+			message: "#^Method Slash\\\\Arrays\\:\\:difference\\(\\) has parameter \\$one with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Arrays.php
+
+		-
+			message: "#^Method Slash\\\\Arrays\\:\\:difference\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Arrays.php
+
+		-
+			message: "#^Method Slash\\\\Arrays\\:\\:first\\(\\) has parameter \\$elements with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Arrays.php
+
+		-
+			message: "#^Method Slash\\\\Arrays\\:\\:first\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Arrays.php
+
+		-
+			message: "#^Method Slash\\\\Arrays\\:\\:flatten\\(\\) has parameter \\$elements with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Arrays.php
+
+		-
+			message: "#^Method Slash\\\\Arrays\\:\\:flatten\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Arrays.php
+
+		-
+			message: "#^Method Slash\\\\Arrays\\:\\:indexOf\\(\\) has parameter \\$elements with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Arrays.php
+
+		-
+			message: "#^Method Slash\\\\Arrays\\:\\:indexOf\\(\\) should return int but returns int\\|string\\|false\\.$#"
+			count: 1
+			path: src/Arrays.php
+
+		-
+			message: "#^Method Slash\\\\Arrays\\:\\:initial\\(\\) has parameter \\$elements with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Arrays.php
+
+		-
+			message: "#^Method Slash\\\\Arrays\\:\\:initial\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Arrays.php
+
+		-
+			message: "#^Method Slash\\\\Arrays\\:\\:intersection\\(\\) has parameter \\$another with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Arrays.php
+
+		-
+			message: "#^Method Slash\\\\Arrays\\:\\:intersection\\(\\) has parameter \\$one with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Arrays.php
+
+		-
+			message: "#^Method Slash\\\\Arrays\\:\\:intersection\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Arrays.php
+
+		-
+			message: "#^Method Slash\\\\Arrays\\:\\:last\\(\\) has parameter \\$elements with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Arrays.php
+
+		-
+			message: "#^Method Slash\\\\Arrays\\:\\:last\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Arrays.php
+
+		-
+			message: "#^Method Slash\\\\Arrays\\:\\:pack\\(\\) has parameter \\$elements with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Arrays.php
+
+		-
+			message: "#^Method Slash\\\\Arrays\\:\\:pack\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Arrays.php
+
+		-
+			message: "#^Method Slash\\\\Arrays\\:\\:range\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Arrays.php
+
+		-
+			message: "#^Method Slash\\\\Arrays\\:\\:rest\\(\\) has parameter \\$elements with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Arrays.php
+
+		-
+			message: "#^Method Slash\\\\Arrays\\:\\:rest\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Arrays.php
+
+		-
+			message: "#^Method Slash\\\\Arrays\\:\\:union\\(\\) has parameter \\$another with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Arrays.php
+
+		-
+			message: "#^Method Slash\\\\Arrays\\:\\:union\\(\\) has parameter \\$one with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Arrays.php
+
+		-
+			message: "#^Method Slash\\\\Arrays\\:\\:union\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Arrays.php
+
+		-
+			message: "#^Method Slash\\\\Arrays\\:\\:unique\\(\\) has parameter \\$elements with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Arrays.php
+
+		-
+			message: "#^Method Slash\\\\Arrays\\:\\:unique\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Arrays.php
+
+		-
+			message: "#^Method Slash\\\\Arrays\\:\\:without\\(\\) has parameter \\$elements with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Arrays.php
+
+		-
+			message: "#^Method Slash\\\\Arrays\\:\\:without\\(\\) has parameter \\$ignore with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Arrays.php
+
+		-
+			message: "#^Method Slash\\\\Arrays\\:\\:without\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Arrays.php
+
+		-
+			message: "#^Method Slash\\\\Arrays\\:\\:zip\\(\\) has parameter \\$another with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Arrays.php
+
+		-
+			message: "#^Method Slash\\\\Arrays\\:\\:zip\\(\\) has parameter \\$one with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Arrays.php
+
+		-
+			message: "#^Method Slash\\\\Arrays\\:\\:zip\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Arrays.php
+
+		-
+			message: "#^Method Slash\\\\Collections\\:\\:all\\(\\) has parameter \\$collection with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Collections.php
+
+		-
+			message: "#^Method Slash\\\\Collections\\:\\:any\\(\\) has parameter \\$collection with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Collections.php
+
+		-
+			message: "#^Method Slash\\\\Collections\\:\\:contains\\(\\) has parameter \\$collection with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Collections.php
+
+		-
+			message: "#^Method Slash\\\\Collections\\:\\:each\\(\\) has parameter \\$collection with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Collections.php
+
+		-
+			message: "#^Method Slash\\\\Collections\\:\\:groupBy\\(\\) has parameter \\$collection with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Collections.php
+
+		-
+			message: "#^Method Slash\\\\Collections\\:\\:groupBy\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Collections.php
+
+		-
+			message: "#^Method Slash\\\\Collections\\:\\:invoke\\(\\) has parameter \\$collection with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Collections.php
+
+		-
+			message: "#^Method Slash\\\\Collections\\:\\:invoke\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Collections.php
+
+		-
+			message: "#^Method Slash\\\\Collections\\:\\:map\\(\\) has parameter \\$collection with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Collections.php
+
+		-
+			message: "#^Method Slash\\\\Collections\\:\\:map\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Collections.php
+
+		-
+			message: "#^Method Slash\\\\Collections\\:\\:max\\(\\) has parameter \\$collection with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Collections.php
+
+		-
+			message: "#^Method Slash\\\\Collections\\:\\:min\\(\\) has parameter \\$collection with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Collections.php
+
+		-
+			message: "#^Method Slash\\\\Collections\\:\\:pluck\\(\\) has parameter \\$collection with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Collections.php
+
+		-
+			message: "#^Method Slash\\\\Collections\\:\\:pluck\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Collections.php
+
+		-
+			message: "#^Method Slash\\\\Collections\\:\\:reduce\\(\\) has parameter \\$collection with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Collections.php
+
+		-
+			message: "#^Method Slash\\\\Collections\\:\\:reject\\(\\) has parameter \\$collection with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Collections.php
+
+		-
+			message: "#^Method Slash\\\\Collections\\:\\:reject\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Collections.php
+
+		-
+			message: "#^Method Slash\\\\Collections\\:\\:shuffle\\(\\) has parameter \\$collection with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Collections.php
+
+		-
+			message: "#^Method Slash\\\\Collections\\:\\:shuffle\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Collections.php
+
+		-
+			message: "#^Method Slash\\\\Collections\\:\\:size\\(\\) has parameter \\$value with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Collections.php
+
+		-
+			message: "#^Method Slash\\\\Collections\\:\\:sortBy\\(\\) has parameter \\$collection with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Collections.php
+
+		-
+			message: "#^Method Slash\\\\Collections\\:\\:sortBy\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Collections.php
+
+		-
+			message: "#^Method Slash\\\\Collections\\:\\:toArray\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Collections.php
+
+		-
+			message: "#^PHPDoc tag @param for parameter \\$initial with type mixed is not subtype of native type int\\.$#"
+			count: 1
+			path: src/Collections.php
+
+		-
+			message: "#^Method Slash\\\\Exceptions\\\\InvalidArgumentException\\:\\:assertArrayAccess\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Exceptions/InvalidArgumentException.php
+
+		-
+			message: "#^Method Slash\\\\Exceptions\\\\InvalidArgumentException\\:\\:assertArrayAccess\\(\\) has parameter \\$callee with no type specified\\.$#"
+			count: 1
+			path: src/Exceptions/InvalidArgumentException.php
+
+		-
+			message: "#^Method Slash\\\\Exceptions\\\\InvalidArgumentException\\:\\:assertArrayAccess\\(\\) has parameter \\$collection with no type specified\\.$#"
+			count: 1
+			path: src/Exceptions/InvalidArgumentException.php
+
+		-
+			message: "#^Method Slash\\\\Exceptions\\\\InvalidArgumentException\\:\\:assertArrayAccess\\(\\) has parameter \\$parameterPosition with no type specified\\.$#"
+			count: 1
+			path: src/Exceptions/InvalidArgumentException.php
+
+		-
+			message: "#^Method Slash\\\\Exceptions\\\\InvalidArgumentException\\:\\:assertArrayKeyExists\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Exceptions/InvalidArgumentException.php
+
+		-
+			message: "#^Method Slash\\\\Exceptions\\\\InvalidArgumentException\\:\\:assertArrayKeyExists\\(\\) has parameter \\$callee with no type specified\\.$#"
+			count: 1
+			path: src/Exceptions/InvalidArgumentException.php
+
+		-
+			message: "#^Method Slash\\\\Exceptions\\\\InvalidArgumentException\\:\\:assertArrayKeyExists\\(\\) has parameter \\$collection with no type specified\\.$#"
+			count: 1
+			path: src/Exceptions/InvalidArgumentException.php
+
+		-
+			message: "#^Method Slash\\\\Exceptions\\\\InvalidArgumentException\\:\\:assertArrayKeyExists\\(\\) has parameter \\$key with no type specified\\.$#"
+			count: 1
+			path: src/Exceptions/InvalidArgumentException.php
+
+		-
+			message: "#^Method Slash\\\\Exceptions\\\\InvalidArgumentException\\:\\:assertBoolean\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Exceptions/InvalidArgumentException.php
+
+		-
+			message: "#^Method Slash\\\\Exceptions\\\\InvalidArgumentException\\:\\:assertCollection\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Exceptions/InvalidArgumentException.php
+
+		-
+			message: "#^Method Slash\\\\Exceptions\\\\InvalidArgumentException\\:\\:assertCollection\\(\\) has parameter \\$callee with no type specified\\.$#"
+			count: 1
+			path: src/Exceptions/InvalidArgumentException.php
+
+		-
+			message: "#^Method Slash\\\\Exceptions\\\\InvalidArgumentException\\:\\:assertCollection\\(\\) has parameter \\$collection with no type specified\\.$#"
+			count: 1
+			path: src/Exceptions/InvalidArgumentException.php
+
+		-
+			message: "#^Method Slash\\\\Exceptions\\\\InvalidArgumentException\\:\\:assertCollection\\(\\) has parameter \\$parameterPosition with no type specified\\.$#"
+			count: 1
+			path: src/Exceptions/InvalidArgumentException.php
+
+		-
+			message: "#^Method Slash\\\\Exceptions\\\\InvalidArgumentException\\:\\:assertCollectionAlike\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Exceptions/InvalidArgumentException.php
+
+		-
+			message: "#^Method Slash\\\\Exceptions\\\\InvalidArgumentException\\:\\:assertInteger\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Exceptions/InvalidArgumentException.php
+
+		-
+			message: "#^Method Slash\\\\Exceptions\\\\InvalidArgumentException\\:\\:assertIntegerGreaterThanOrEqual\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Exceptions/InvalidArgumentException.php
+
+		-
+			message: "#^Method Slash\\\\Exceptions\\\\InvalidArgumentException\\:\\:assertIntegerLessThanOrEqual\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Exceptions/InvalidArgumentException.php
+
+		-
+			message: "#^Method Slash\\\\Exceptions\\\\InvalidArgumentException\\:\\:assertMethodName\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Exceptions/InvalidArgumentException.php
+
+		-
+			message: "#^Method Slash\\\\Exceptions\\\\InvalidArgumentException\\:\\:assertMethodName\\(\\) has parameter \\$callee with no type specified\\.$#"
+			count: 1
+			path: src/Exceptions/InvalidArgumentException.php
+
+		-
+			message: "#^Method Slash\\\\Exceptions\\\\InvalidArgumentException\\:\\:assertMethodName\\(\\) has parameter \\$methodName with no type specified\\.$#"
+			count: 1
+			path: src/Exceptions/InvalidArgumentException.php
+
+		-
+			message: "#^Method Slash\\\\Exceptions\\\\InvalidArgumentException\\:\\:assertMethodName\\(\\) has parameter \\$parameterPosition with no type specified\\.$#"
+			count: 1
+			path: src/Exceptions/InvalidArgumentException.php
+
+		-
+			message: "#^Method Slash\\\\Exceptions\\\\InvalidArgumentException\\:\\:assertNonZeroInteger\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Exceptions/InvalidArgumentException.php
+
+		-
+			message: "#^Method Slash\\\\Exceptions\\\\InvalidArgumentException\\:\\:assertNonZeroInteger\\(\\) has parameter \\$callee with no type specified\\.$#"
+			count: 1
+			path: src/Exceptions/InvalidArgumentException.php
+
+		-
+			message: "#^Method Slash\\\\Exceptions\\\\InvalidArgumentException\\:\\:assertNonZeroInteger\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: src/Exceptions/InvalidArgumentException.php
+
+		-
+			message: "#^Method Slash\\\\Exceptions\\\\InvalidArgumentException\\:\\:assertPositiveInteger\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Exceptions/InvalidArgumentException.php
+
+		-
+			message: "#^Method Slash\\\\Exceptions\\\\InvalidArgumentException\\:\\:assertPositiveInteger\\(\\) has parameter \\$callee with no type specified\\.$#"
+			count: 1
+			path: src/Exceptions/InvalidArgumentException.php
+
+		-
+			message: "#^Method Slash\\\\Exceptions\\\\InvalidArgumentException\\:\\:assertPositiveInteger\\(\\) has parameter \\$parameterPosition with no type specified\\.$#"
+			count: 1
+			path: src/Exceptions/InvalidArgumentException.php
+
+		-
+			message: "#^Method Slash\\\\Exceptions\\\\InvalidArgumentException\\:\\:assertPositiveInteger\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: src/Exceptions/InvalidArgumentException.php
+
+		-
+			message: "#^Method Slash\\\\Exceptions\\\\InvalidArgumentException\\:\\:assertPropertyName\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Exceptions/InvalidArgumentException.php
+
+		-
+			message: "#^Method Slash\\\\Exceptions\\\\InvalidArgumentException\\:\\:assertResolvablePlaceholder\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Exceptions/InvalidArgumentException.php
+
+		-
+			message: "#^Method Slash\\\\Exceptions\\\\InvalidArgumentException\\:\\:assertResolvablePlaceholder\\(\\) has parameter \\$args with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Exceptions/InvalidArgumentException.php
+
+		-
+			message: "#^Method Slash\\\\Exceptions\\\\InvalidArgumentException\\:\\:assertResolvablePlaceholder\\(\\) has parameter \\$position with no type specified\\.$#"
+			count: 1
+			path: src/Exceptions/InvalidArgumentException.php
+
+		-
+			message: "#^Method Slash\\\\Exceptions\\\\InvalidArgumentException\\:\\:assertValidArrayKey\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Exceptions/InvalidArgumentException.php
+
+		-
+			message: "#^Method Slash\\\\Exceptions\\\\InvalidArgumentException\\:\\:getType\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Exceptions/InvalidArgumentException.php
+
+		-
+			message: "#^Method Slash\\\\Exceptions\\\\InvalidArgumentException\\:\\:getType\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: src/Exceptions/InvalidArgumentException.php
+
+		-
+			message: "#^Parameter \\#1 \\$array of function array_values expects array, array\\|string given\\.$#"
+			count: 1
+			path: src/Exceptions/InvalidArgumentException.php
+
+		-
+			message: "#^Parameter \\#5 \\.\\.\\.\\$values of function sprintf expects bool\\|float\\|int\\|string\\|null, array\\|string given\\.$#"
+			count: 1
+			path: src/Exceptions/InvalidArgumentException.php
+
+		-
+			message: "#^Unsafe usage of new static\\(\\)\\.$#"
+			count: 14
+			path: src/Exceptions/InvalidArgumentException.php
+
+		-
+			message: "#^Method Slash\\\\Functions\\:\\:compose\\(\\) has parameter \\$arguments with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Functions.php
+
+		-
+			message: "#^Method Slash\\\\Functions\\:\\:compose\\(\\) has parameter \\$closures with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Functions.php
+
+		-
+			message: "#^Property Slash\\\\Functions\\:\\:\\$cached type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Functions.php
+
+		-
+			message: "#^Property Slash\\\\Functions\\:\\:\\$called type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Functions.php
+
+		-
+			message: "#^Property Slash\\\\Functions\\:\\:\\$delayed type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Functions.php
+
+		-
+			message: "#^Method Slash\\\\Objects\\:\\:keys\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Objects.php
+
+		-
+			message: "#^Method Slash\\\\Objects\\:\\:methods\\(\\) has parameter \\$object with no type specified\\.$#"
+			count: 1
+			path: src/Objects.php
+
+		-
+			message: "#^Method Slash\\\\Objects\\:\\:methods\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Objects.php
+
+		-
+			message: "#^Method Slash\\\\Objects\\:\\:values\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Objects.php
+
+		-
+			message: "#^Method Slash\\\\Slash\\:\\:__call\\(\\) has parameter \\$arguments with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Slash.php
+
+		-
+			message: "#^Method Slash\\\\Slash\\:\\:__callStatic\\(\\) has parameter \\$arguments with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Slash.php
+
+		-
+			message: "#^Method Slash\\\\Slash\\:\\:getModules\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Slash.php
+
+		-
+			message: "#^Method Slash\\\\Slash\\:\\:hasMethod\\(\\) has parameter \\$method with no type specified\\.$#"
+			count: 1
+			path: src/Slash.php
+
+		-
+			message: "#^Method Slash\\\\Slash\\:\\:hasMethod\\(\\) has parameter \\$object with no type specified\\.$#"
+			count: 1
+			path: src/Slash.php
+
+		-
+			message: "#^Method Slash\\\\Slash\\:\\:run\\(\\) has parameter \\$arguments with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Slash.php
+
+		-
+			message: "#^Parameter \\#1 \\$callback of function call_user_func_array expects callable\\(\\)\\: mixed, array\\{Slash\\\\Slash, string\\} given\\.$#"
+			count: 1
+			path: src/Slash.php
+
+		-
+			message: "#^Parameter \\#1 \\$callback of function call_user_func_array expects callable\\(\\)\\: mixed, array\\{mixed, string\\} given\\.$#"
+			count: 1
+			path: src/Slash.php
+
+		-
+			message: "#^Property Slash\\\\Slash\\:\\:\\$instances type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Slash.php
+
+		-
+			message: "#^Property Slash\\\\Slash\\:\\:\\$modules type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Slash.php
+
+		-
+			message: "#^Function Slash\\\\all\\(\\) has parameter \\$array with generic class ArrayObject but does not specify its types\\: TKey, TValue$#"
+			count: 1
+			path: src/all.php
+
+		-
+			message: "#^Function Slash\\\\all\\(\\) has parameter \\$array with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/all.php
+
+		-
+			message: "#^Function Slash\\\\all\\(\\) has parameter \\$array with no value type specified in iterable type array\\|ArrayObject\\.$#"
+			count: 1
+			path: src/all.php
+
+		-
+			message: "#^Function Slash\\\\all\\(\\) has parameter \\$predicate with no type specified\\.$#"
+			count: 1
+			path: src/all.php
+
+		-
+			message: "#^Call to function is_null\\(\\) with array\\|ArrayObject will always evaluate to false\\.$#"
+			count: 1
+			path: src/any.php
+
+		-
+			message: "#^Function Slash\\\\any\\(\\) has parameter \\$array with generic class ArrayObject but does not specify its types\\: TKey, TValue$#"
+			count: 1
+			path: src/any.php
+
+		-
+			message: "#^Function Slash\\\\any\\(\\) has parameter \\$array with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/any.php
+
+		-
+			message: "#^Function Slash\\\\any\\(\\) has parameter \\$array with no value type specified in iterable type array\\|ArrayObject\\.$#"
+			count: 1
+			path: src/any.php
+
+		-
+			message: "#^Function Slash\\\\any\\(\\) has parameter \\$predicate with no type specified\\.$#"
+			count: 1
+			path: src/any.php
+
+		-
+			message: "#^Function Slash\\\\average\\(\\) has parameter \\$list with no type specified\\.$#"
+			count: 1
+			path: src/average.php
+
+		-
+			message: "#^Function Slash\\\\comparator\\(\\) has parameter \\$fn with no type specified\\.$#"
+			count: 1
+			path: src/comparator.php
+
+		-
+			message: "#^Function Slash\\\\compose\\(\\) has parameter \\$args with no type specified\\.$#"
+			count: 1
+			path: src/compose.php
+
+		-
+			message: "#^Function Slash\\\\curryLeft\\(\\) has parameter \\$callable with no type specified\\.$#"
+			count: 1
+			path: src/curryLeft.php
+
+		-
+			message: "#^Function Slash\\\\curryLeft\\(\\) has parameter \\$outerArguments with no type specified\\.$#"
+			count: 1
+			path: src/curryLeft.php
+
+		-
+			message: "#^Function Slash\\\\curryRight\\(\\) has parameter \\$callable with no type specified\\.$#"
+			count: 1
+			path: src/curryRight.php
+
+		-
+			message: "#^Function Slash\\\\curryRight\\(\\) has parameter \\$outerArguments with no type specified\\.$#"
+			count: 1
+			path: src/curryRight.php
+
+		-
+			message: "#^Function Slash\\\\equal\\(\\) has parameter \\$a with no type specified\\.$#"
+			count: 1
+			path: src/equal.php
+
+		-
+			message: "#^Function Slash\\\\equal\\(\\) has parameter \\$b with no type specified\\.$#"
+			count: 1
+			path: src/equal.php
+
+		-
+			message: "#^Function Slash\\\\equalTo\\(\\) has parameter \\$to with no type specified\\.$#"
+			count: 1
+			path: src/equalTo.php
+
+		-
+			message: "#^Function Slash\\\\filter\\(\\) has parameter \\$fn with no type specified\\.$#"
+			count: 1
+			path: src/filter.php
+
+		-
+			message: "#^Function Slash\\\\filter\\(\\) has parameter \\$list with no type specified\\.$#"
+			count: 1
+			path: src/filter.php
+
+		-
+			message: "#^Function Slash\\\\filter\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/filter.php
+
+		-
+			message: "#^Function Slash\\\\filterWith\\(\\) has parameter \\$fn with no type specified\\.$#"
+			count: 1
+			path: src/filterWith.php
+
+		-
+			message: "#^Function Slash\\\\first\\(\\) has parameter \\$array with no type specified\\.$#"
+			count: 1
+			path: src/first.php
+
+		-
+			message: "#^Function Slash\\\\first\\(\\) has parameter \\$predicate with no type specified\\.$#"
+			count: 1
+			path: src/first.php
+
+		-
+			message: "#^Attribute class JetBrains\\\\PhpStorm\\\\Pure does not exist\\.$#"
+			count: 1
+			path: src/firstWith.php
+
+		-
+			message: "#^Function Slash\\\\flatMap\\(\\) has parameter \\$list with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/flatMap.php
+
+		-
+			message: "#^Function Slash\\\\flatMap\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/flatMap.php
+
+		-
+			message: "#^Attribute class JetBrains\\\\PhpStorm\\\\Pure does not exist\\.$#"
+			count: 1
+			path: src/flatMapWith.php
+
+		-
+			message: "#^Function Slash\\\\flatten\\(\\) has parameter \\$list with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/flatten.php
+
+		-
+			message: "#^Function Slash\\\\flatten\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/flatten.php
+
+		-
+			message: "#^Function Slash\\\\flip\\(\\) has parameter \\$fn with no type specified\\.$#"
+			count: 1
+			path: src/flip.php
+
+		-
+			message: "#^Function Slash\\\\get\\(\\) has parameter \\$input with no type specified\\.$#"
+			count: 1
+			path: src/get.php
+
+		-
+			message: "#^Function Slash\\\\get\\(\\) has parameter \\$prop with no type specified\\.$#"
+			count: 1
+			path: src/get.php
+
+		-
+			message: "#^Function Slash\\\\greaterThan\\(\\) has parameter \\$a with no type specified\\.$#"
+			count: 1
+			path: src/greaterThan.php
+
+		-
+			message: "#^Function Slash\\\\greaterThan\\(\\) has parameter \\$b with no type specified\\.$#"
+			count: 1
+			path: src/greaterThan.php
+
+		-
+			message: "#^Function Slash\\\\greaterThanOrEqual\\(\\) has parameter \\$a with no type specified\\.$#"
+			count: 1
+			path: src/greaterThanOrEqual.php
+
+		-
+			message: "#^Function Slash\\\\greaterThanOrEqual\\(\\) has parameter \\$b with no type specified\\.$#"
+			count: 1
+			path: src/greaterThanOrEqual.php
+
+		-
+			message: "#^Function Slash\\\\group\\(\\) has parameter \\$list with no type specified\\.$#"
+			count: 1
+			path: src/group.php
+
+		-
+			message: "#^Function Slash\\\\group\\(\\) has parameter \\$prop with no type specified\\.$#"
+			count: 1
+			path: src/group.php
+
+		-
+			message: "#^Function Slash\\\\group\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/group.php
+
+		-
+			message: "#^PHPDoc tag @return with type mixed is not subtype of native type array\\.$#"
+			count: 1
+			path: src/group.php
+
+		-
+			message: "#^Function Slash\\\\groupBy\\(\\) has parameter \\$fn with no type specified\\.$#"
+			count: 1
+			path: src/groupBy.php
+
+		-
+			message: "#^Function Slash\\\\isEven\\(\\) has parameter \\$number with no type specified\\.$#"
+			count: 1
+			path: src/isEven.php
+
+		-
+			message: "#^Function Slash\\\\isOdd\\(\\) has parameter \\$number with no type specified\\.$#"
+			count: 1
+			path: src/isOdd.php
+
+		-
+			message: "#^Function Slash\\\\last\\(\\) has parameter \\$array with no type specified\\.$#"
+			count: 1
+			path: src/last.php
+
+		-
+			message: "#^Function Slash\\\\last\\(\\) has parameter \\$test with no type specified\\.$#"
+			count: 1
+			path: src/last.php
+
+		-
+			message: "#^Function Slash\\\\lessThan\\(\\) has parameter \\$a with no type specified\\.$#"
+			count: 1
+			path: src/lessThan.php
+
+		-
+			message: "#^Function Slash\\\\lessThan\\(\\) has parameter \\$b with no type specified\\.$#"
+			count: 1
+			path: src/lessThan.php
+
+		-
+			message: "#^Function Slash\\\\map\\(\\) has parameter \\$fn with no type specified\\.$#"
+			count: 1
+			path: src/map.php
+
+		-
+			message: "#^Function Slash\\\\map\\(\\) has parameter \\$list with no type specified\\.$#"
+			count: 1
+			path: src/map.php
+
+		-
+			message: "#^Function Slash\\\\map\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/map.php
+
+		-
+			message: "#^Function Slash\\\\mapWith\\(\\) has parameter \\$fn with no type specified\\.$#"
+			count: 1
+			path: src/mapWith.php
+
+		-
+			message: "#^Function Slash\\\\pair\\(\\) has parameter \\$list with no type specified\\.$#"
+			count: 1
+			path: src/pair.php
+
+		-
+			message: "#^Function Slash\\\\pair\\(\\) has parameter \\$listFn with no type specified\\.$#"
+			count: 1
+			path: src/pair.php
+
+		-
+			message: "#^Function Slash\\\\pairWith\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/pairWith.php
+
+		-
+			message: "#^Function Slash\\\\pairWith\\(\\) has parameter \\$fn with no type specified\\.$#"
+			count: 1
+			path: src/pairWith.php
+
+		-
+			message: "#^Function Slash\\\\pluck\\(\\) has parameter \\$list with no type specified\\.$#"
+			count: 1
+			path: src/pluck.php
+
+		-
+			message: "#^Function Slash\\\\pluck\\(\\) has parameter \\$prop with no type specified\\.$#"
+			count: 1
+			path: src/pluck.php
+
+		-
+			message: "#^Function Slash\\\\pluckWith\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/pluckWith.php
+
+		-
+			message: "#^Function Slash\\\\pluckWith\\(\\) has parameter \\$fn with no type specified\\.$#"
+			count: 1
+			path: src/pluckWith.php
+
+		-
+			message: "#^Function Slash\\\\reduce\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/reduce.php
+
+		-
+			message: "#^Function Slash\\\\reduce\\(\\) has parameter \\$fn with no type specified\\.$#"
+			count: 1
+			path: src/reduce.php
+
+		-
+			message: "#^Function Slash\\\\reduce\\(\\) has parameter \\$initial with no type specified\\.$#"
+			count: 1
+			path: src/reduce.php
+
+		-
+			message: "#^Function Slash\\\\reduce\\(\\) has parameter \\$list with no type specified\\.$#"
+			count: 1
+			path: src/reduce.php
+
+		-
+			message: "#^Function Slash\\\\reduceWith\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/reduceWith.php
+
+		-
+			message: "#^Function Slash\\\\reduceWith\\(\\) has parameter \\$fn with no type specified\\.$#"
+			count: 1
+			path: src/reduceWith.php
+
+		-
+			message: "#^Function Slash\\\\reject\\(\\) has parameter \\$func with no type specified\\.$#"
+			count: 1
+			path: src/reject.php
+
+		-
+			message: "#^Function Slash\\\\reject\\(\\) has parameter \\$list with no type specified\\.$#"
+			count: 1
+			path: src/reject.php
+
+		-
+			message: "#^Function Slash\\\\rejectWith\\(\\) has parameter \\$fn with no type specified\\.$#"
+			count: 1
+			path: src/rejectWith.php
+
+		-
+			message: "#^Function Slash\\\\sort\\(\\) has parameter \\$fn with no type specified\\.$#"
+			count: 1
+			path: src/sort.php
+
+		-
+			message: "#^Function Slash\\\\sort\\(\\) has parameter \\$list with no type specified\\.$#"
+			count: 1
+			path: src/sort.php
+
+		-
+			message: "#^Function Slash\\\\sortBy\\(\\) has parameter \\$fn with no type specified\\.$#"
+			count: 1
+			path: src/sortBy.php
+
+		-
+			message: "#^Function Slash\\\\sortByAsc\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/sortBy.php
+
+		-
+			message: "#^Function Slash\\\\sortByAsc\\(\\) has parameter \\$array with no type specified\\.$#"
+			count: 1
+			path: src/sortBy.php
+
+		-
+			message: "#^Function Slash\\\\sortByDesc\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/sortBy.php
+
+		-
+			message: "#^Function Slash\\\\sortByDesc\\(\\) has parameter \\$array with no type specified\\.$#"
+			count: 1
+			path: src/sortBy.php
+
+		-
+			message: "#^Function Slash\\\\sum\\(\\) has parameter \\$list with no type specified\\.$#"
+			count: 1
+			path: src/sum.php
+
+		-
+			message: "#^Function Slash\\\\unique\\(\\) has parameter \\$collection with no value type specified in iterable type Traversable\\.$#"
+			count: 1
+			path: src/unique.php
+
+		-
+			message: "#^Function Slash\\\\unique\\(\\) has parameter \\$collection with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/unique.php
+
+		-
+			message: "#^Function Slash\\\\unique\\(\\) has parameter \\$collection with no value type specified in iterable type array\\|Traversable\\.$#"
+			count: 1
+			path: src/unique.php
+
+		-
+			message: "#^Function Slash\\\\unique\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/unique.php
+
+		-
+			message: "#^Function Slash\\\\useWith\\(\\) has parameter \\$fn with no type specified\\.$#"
+			count: 1
+			path: src/useWith.php
+
+		-
+			message: "#^Function Slash\\\\walk\\(\\) has parameter \\$fn with no type specified\\.$#"
+			count: 1
+			path: src/walk.php
+
+		-
+			message: "#^Function Slash\\\\walk\\(\\) has parameter \\$list with no type specified\\.$#"
+			count: 1
+			path: src/walk.php
+
+		-
+			message: "#^Method ArraysTest\\:\\:testComputesTheDifferenceBetweenTwoArrays\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/ArraysTest.php
+
+		-
+			message: "#^Method ArraysTest\\:\\:testComputesTheIntersectionOfTwoArrays\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/ArraysTest.php
+
+		-
+			message: "#^Method ArraysTest\\:\\:testCreatesAnArrayContainingARangeOfElements\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/ArraysTest.php
+
+		-
+			message: "#^Method ArraysTest\\:\\:testExcludesTheLastNElements\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/ArraysTest.php
+
+		-
+			message: "#^Method ArraysTest\\:\\:testFlattensAnArray\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/ArraysTest.php
+
+		-
+			message: "#^Method ArraysTest\\:\\:testMergesTwoArrays\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/ArraysTest.php
+
+		-
+			message: "#^Method ArraysTest\\:\\:testRemovesAllInstancesFromTheArray\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/ArraysTest.php
+
+		-
+			message: "#^Method ArraysTest\\:\\:testRemovesDuplicatedValues\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/ArraysTest.php
+
+		-
+			message: "#^Method ArraysTest\\:\\:testRemovesFalsyValues\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/ArraysTest.php
+
+		-
+			message: "#^Method ArraysTest\\:\\:testReturnsAnArrayContainingTheUniqueItems\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/ArraysTest.php
+
+		-
+			message: "#^Method ArraysTest\\:\\:testReturnsTheFirstNElements\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/ArraysTest.php
+
+		-
+			message: "#^Method ArraysTest\\:\\:testReturnsTheIndexOfTheFirstMatch\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/ArraysTest.php
+
+		-
+			message: "#^Method ArraysTest\\:\\:testReturnsTheLastNElements\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/ArraysTest.php
+
+		-
+			message: "#^Method ArraysTest\\:\\:testReturnsTheRestOfTheArrayElements\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/ArraysTest.php
+
+		-
+			message: "#^Attribute class JetBrains\\\\PhpStorm\\\\ArrayShape does not exist\\.$#"
+			count: 2
+			path: test/CollectionsTest.php
+
+		-
+			message: "#^Method CollectionsTest\\:\\:cases\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: test/CollectionsTest.php
+
+		-
+			message: "#^Method CollectionsTest\\:\\:testArrayMethods\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/CollectionsTest.php
+
+		-
+			message: "#^Method CollectionsTest\\:\\:testArrayMethods\\(\\) has parameter \\$expected with no type specified\\.$#"
+			count: 1
+			path: test/CollectionsTest.php
+
+		-
+			message: "#^Method CollectionsTest\\:\\:testArrayMethods\\(\\) has parameter \\$list with no type specified\\.$#"
+			count: 1
+			path: test/CollectionsTest.php
+
+		-
+			message: "#^Method CollectionsTest\\:\\:testArrayMethods\\(\\) has parameter \\$method with no type specified\\.$#"
+			count: 1
+			path: test/CollectionsTest.php
+
+		-
+			message: "#^Method CollectionsTest\\:\\:testEach\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/CollectionsTest.php
+
+		-
+			message: "#^Method CollectionsTest\\:\\:testFunctionMethods\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/CollectionsTest.php
+
+		-
+			message: "#^Method CollectionsTest\\:\\:testFunctionMethods\\(\\) has parameter \\$expected with no type specified\\.$#"
+			count: 1
+			path: test/CollectionsTest.php
+
+		-
+			message: "#^Method CollectionsTest\\:\\:testFunctionMethods\\(\\) has parameter \\$func with no type specified\\.$#"
+			count: 1
+			path: test/CollectionsTest.php
+
+		-
+			message: "#^Method CollectionsTest\\:\\:testFunctionMethods\\(\\) has parameter \\$list with no type specified\\.$#"
+			count: 1
+			path: test/CollectionsTest.php
+
+		-
+			message: "#^Method CollectionsTest\\:\\:testFunctionMethods\\(\\) has parameter \\$method with no type specified\\.$#"
+			count: 1
+			path: test/CollectionsTest.php
+
+		-
+			message: "#^Method CollectionsTest\\:\\:testGroupByID\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/CollectionsTest.php
+
+		-
+			message: "#^Method CollectionsTest\\:\\:testPluck\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/CollectionsTest.php
+
+		-
+			message: "#^Method CollectionsTest\\:\\:testShuffle\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/CollectionsTest.php
+
+		-
+			message: "#^Method CollectionsTest\\:\\:testSizeTypeErrorException\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/CollectionsTest.php
+
+		-
+			message: "#^Method CollectionsTest\\:\\:testSortBy\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/CollectionsTest.php
+
+		-
+			message: "#^Method CollectionsTest\\:\\:testToArray\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/CollectionsTest.php
+
+		-
+			message: "#^Method CollectionsTest\\:\\:valueCases\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: test/CollectionsTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$callback of function call_user_func expects callable\\(\\)\\: mixed, array\\{Slash\\\\Collections, mixed\\} given\\.$#"
+			count: 2
+			path: test/CollectionsTest.php
+
+		-
+			message: "#^Method InvalidArgumentExceptionTest\\:\\:testAssertArrayAccessValidCase\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/Exceptions/InvalidArgumentExceptionTest.php
+
+		-
+			message: "#^Method InvalidArgumentExceptionTest\\:\\:testAssertArrayAccessWithStandardClass\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/Exceptions/InvalidArgumentExceptionTest.php
+
+		-
+			message: "#^Method InvalidArgumentExceptionTest\\:\\:testAssertArrayAccessWithString\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/Exceptions/InvalidArgumentExceptionTest.php
+
+		-
+			message: "#^Method InvalidArgumentExceptionTest\\:\\:testCallbackExceptionWithIncorrectArrayIndex\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/Exceptions/InvalidArgumentExceptionTest.php
+
+		-
+			message: "#^Method InvalidArgumentExceptionTest\\:\\:testCallbackExceptionWithObject\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/Exceptions/InvalidArgumentExceptionTest.php
+
+		-
+			message: "#^Method InvalidArgumentExceptionTest\\:\\:testCallbackExceptionWithUndefinedFunction\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/Exceptions/InvalidArgumentExceptionTest.php
+
+		-
+			message: "#^Method InvalidArgumentExceptionTest\\:\\:testCallbackExceptionWithUndefinedMethod\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/Exceptions/InvalidArgumentExceptionTest.php
+
+		-
+			message: "#^Method InvalidArgumentExceptionTest\\:\\:testCallbackExceptionWithUndefinedStaticMethod\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/Exceptions/InvalidArgumentExceptionTest.php
+
+		-
+			message: "#^Method InvalidArgumentExceptionTest\\:\\:testExceptionIfArrayKeyExists\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/Exceptions/InvalidArgumentExceptionTest.php
+
+		-
+			message: "#^Method InvalidArgumentExceptionTest\\:\\:testExceptionIfBoolean\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/Exceptions/InvalidArgumentExceptionTest.php
+
+		-
+			message: "#^Method InvalidArgumentExceptionTest\\:\\:testExceptionIfIntegerGreaterThanOrEqual\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/Exceptions/InvalidArgumentExceptionTest.php
+
+		-
+			message: "#^Method InvalidArgumentExceptionTest\\:\\:testExceptionIfIntegerLessThanOrEqual\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/Exceptions/InvalidArgumentExceptionTest.php
+
+		-
+			message: "#^Method InvalidArgumentExceptionTest\\:\\:testExceptionIfInterger\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/Exceptions/InvalidArgumentExceptionTest.php
+
+		-
+			message: "#^Method InvalidArgumentExceptionTest\\:\\:testExceptionIfInvalidMethodName\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/Exceptions/InvalidArgumentExceptionTest.php
+
+		-
+			message: "#^Method InvalidArgumentExceptionTest\\:\\:testExceptionIfInvalidPropertyName\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/Exceptions/InvalidArgumentExceptionTest.php
+
+		-
+			message: "#^Method InvalidArgumentExceptionTest\\:\\:testExceptionIfNegativeIntegerInsteadOfPositiveInteger\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/Exceptions/InvalidArgumentExceptionTest.php
+
+		-
+			message: "#^Method InvalidArgumentExceptionTest\\:\\:testExceptionIfNonZeroInteger\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/Exceptions/InvalidArgumentExceptionTest.php
+
+		-
+			message: "#^Method InvalidArgumentExceptionTest\\:\\:testExceptionIfObjectIsPassedAsList\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/Exceptions/InvalidArgumentExceptionTest.php
+
+		-
+			message: "#^Method InvalidArgumentExceptionTest\\:\\:testExceptionIfResolvablePlaceholder\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/Exceptions/InvalidArgumentExceptionTest.php
+
+		-
+			message: "#^Method InvalidArgumentExceptionTest\\:\\:testExceptionIfStringInsteadOfPositiveInteger\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/Exceptions/InvalidArgumentExceptionTest.php
+
+		-
+			message: "#^Method InvalidArgumentExceptionTest\\:\\:testExceptionIfStringIsPassedAsList\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/Exceptions/InvalidArgumentExceptionTest.php
+
+		-
+			message: "#^Method InvalidArgumentExceptionTest\\:\\:testExceptionIfValidArrayKey\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/Exceptions/InvalidArgumentExceptionTest.php
+
+		-
+			message: "#^Method InvalidArgumentExceptionTest\\:\\:testNoExceptionThrownWithPositiveInteger\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/Exceptions/InvalidArgumentExceptionTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of static method Slash\\\\Exceptions\\\\InvalidArgumentException\\:\\:assertBoolean\\(\\) expects bool, string given\\.$#"
+			count: 1
+			path: test/Exceptions/InvalidArgumentExceptionTest.php
+
+		-
+			message: "#^Parameter \\#3 \\$parameterPosition of static method Slash\\\\Exceptions\\\\InvalidArgumentException\\:\\:assertBoolean\\(\\) expects int, string given\\.$#"
+			count: 1
+			path: test/Exceptions/InvalidArgumentExceptionTest.php
+
+		-
+			message: "#^Parameter \\#3 \\$parameterPosition of static method Slash\\\\Exceptions\\\\InvalidArgumentException\\:\\:assertInteger\\(\\) expects int, string given\\.$#"
+			count: 1
+			path: test/Exceptions/InvalidArgumentExceptionTest.php
+
+		-
+			message: "#^Method FunctionsTest\\:\\:testAfter\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/FunctionsTest.php
+
+		-
+			message: "#^Method FunctionsTest\\:\\:testArrayMethods\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/FunctionsTest.php
+
+		-
+			message: "#^Method FunctionsTest\\:\\:testArrayMethods\\(\\) has parameter \\$expected with no type specified\\.$#"
+			count: 1
+			path: test/FunctionsTest.php
+
+		-
+			message: "#^Method FunctionsTest\\:\\:testArrayMethods\\(\\) has parameter \\$list with no type specified\\.$#"
+			count: 1
+			path: test/FunctionsTest.php
+
+		-
+			message: "#^Method FunctionsTest\\:\\:testArrayMethods\\(\\) has parameter \\$method with no type specified\\.$#"
+			count: 1
+			path: test/FunctionsTest.php
+
+		-
+			message: "#^Method FunctionsTest\\:\\:testCompose\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/FunctionsTest.php
+
+		-
+			message: "#^Method FunctionsTest\\:\\:testWrap\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/FunctionsTest.php
+
+		-
+			message: "#^Method FunctionsTest\\:\\:valueCases\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/FunctionsTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$callback of function call_user_func expects callable\\(\\)\\: mixed, array\\{Slash\\\\Functions, mixed\\} given\\.$#"
+			count: 1
+			path: test/FunctionsTest.php
+
+		-
+			message: "#^Method DummyMethods3\\:\\:foo\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/ObjectsTest.php
+
+		-
+			message: "#^Method DummyMethods3\\:\\:foo\\(\\) has parameter \\$var with no type specified\\.$#"
+			count: 1
+			path: test/ObjectsTest.php
+
+		-
+			message: "#^Method ObjectsTest\\:\\:cases\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/ObjectsTest.php
+
+		-
+			message: "#^Method ObjectsTest\\:\\:testArrayMethods\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/ObjectsTest.php
+
+		-
+			message: "#^Method ObjectsTest\\:\\:testArrayMethods\\(\\) has parameter \\$expected with no type specified\\.$#"
+			count: 1
+			path: test/ObjectsTest.php
+
+		-
+			message: "#^Method ObjectsTest\\:\\:testArrayMethods\\(\\) has parameter \\$list with no type specified\\.$#"
+			count: 1
+			path: test/ObjectsTest.php
+
+		-
+			message: "#^Method ObjectsTest\\:\\:testArrayMethods\\(\\) has parameter \\$method with no type specified\\.$#"
+			count: 1
+			path: test/ObjectsTest.php
+
+		-
+			message: "#^Method ObjectsTest\\:\\:testFunctionMethods\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/ObjectsTest.php
+
+		-
+			message: "#^Method ObjectsTest\\:\\:testFunctionMethods\\(\\) has parameter \\$expected with no type specified\\.$#"
+			count: 1
+			path: test/ObjectsTest.php
+
+		-
+			message: "#^Method ObjectsTest\\:\\:testFunctionMethods\\(\\) has parameter \\$func with no type specified\\.$#"
+			count: 1
+			path: test/ObjectsTest.php
+
+		-
+			message: "#^Method ObjectsTest\\:\\:testFunctionMethods\\(\\) has parameter \\$list with no type specified\\.$#"
+			count: 1
+			path: test/ObjectsTest.php
+
+		-
+			message: "#^Method ObjectsTest\\:\\:testFunctionMethods\\(\\) has parameter \\$method with no type specified\\.$#"
+			count: 1
+			path: test/ObjectsTest.php
+
+		-
+			message: "#^Method ObjectsTest\\:\\:testMethods\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/ObjectsTest.php
+
+		-
+			message: "#^Method ObjectsTest\\:\\:valueCases\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/ObjectsTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$callback of function call_user_func expects callable\\(\\)\\: mixed, array\\{Slash\\\\Objects, mixed\\} given\\.$#"
+			count: 2
+			path: test/ObjectsTest.php
+
+		-
+			message: "#^Call to an undefined static method Slash\\\\Slash\\:\\:cache\\(\\)\\.$#"
+			count: 2
+			path: test/SlashTest.php
+
+		-
+			message: "#^Call to an undefined static method Slash\\\\Slash\\:\\:methods\\(\\)\\.$#"
+			count: 1
+			path: test/SlashTest.php
+
+		-
+			message: "#^Method DummyMethods2\\:\\:foo\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/SlashTest.php
+
+		-
+			message: "#^Method DummyMethods2\\:\\:foo\\(\\) has parameter \\$var with no type specified\\.$#"
+			count: 1
+			path: test/SlashTest.php
+
+		-
+			message: "#^Method SlashTest\\:\\:testDeterminesWhetherTheModuleExists\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/SlashTest.php
+
+		-
+			message: "#^Method SlashTest\\:\\:testDeterminesWhetherTheModuleWasLoaded\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/SlashTest.php
+
+		-
+			message: "#^Method SlashTest\\:\\:testDeterminesWhetherTheObjectHasTheMethod\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/SlashTest.php
+
+		-
+			message: "#^Method SlashTest\\:\\:testLoadsAModule\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/SlashTest.php
+
+		-
+			message: "#^Method SlashTest\\:\\:testLoadsAnInstanceAndReturnsIt\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/SlashTest.php
+
+		-
+			message: "#^Method SlashTest\\:\\:testProvidesYouSomeSyntacticSugar\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/SlashTest.php
+
+		-
+			message: "#^Method SlashTest\\:\\:testReturnsAllModules\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/SlashTest.php
+
+		-
+			message: "#^Method SlashTest\\:\\:testRunsAMethodAndReturnsTheOutput\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/SlashTest.php
+
+		-
+			message: "#^Method SlashTest\\:\\:testSavesItselfInAPropertyForFutureStaticCalls\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/SlashTest.php
+
+		-
+			message: "#^Method UtilitiesTest\\:\\:testArrayMethods\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/UtilitiesTest.php
+
+		-
+			message: "#^Method UtilitiesTest\\:\\:testArrayMethods\\(\\) has parameter \\$expected with no type specified\\.$#"
+			count: 1
+			path: test/UtilitiesTest.php
+
+		-
+			message: "#^Method UtilitiesTest\\:\\:testArrayMethods\\(\\) has parameter \\$list with no type specified\\.$#"
+			count: 1
+			path: test/UtilitiesTest.php
+
+		-
+			message: "#^Method UtilitiesTest\\:\\:testArrayMethods\\(\\) has parameter \\$method with no type specified\\.$#"
+			count: 1
+			path: test/UtilitiesTest.php
+
+		-
+			message: "#^Method UtilitiesTest\\:\\:testToArray\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/UtilitiesTest.php
+
+		-
+			message: "#^Method UtilitiesTest\\:\\:valueCases\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/UtilitiesTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$callback of function call_user_func expects callable\\(\\)\\: mixed, array\\{Slash\\\\Utilities, mixed\\} given\\.$#"
+			count: 1
+			path: test/UtilitiesTest.php
+
+		-
+			message: "#^Method allTest\\:\\:cases\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: test/allTest.php
+
+		-
+			message: "#^Method allTest\\:\\:invalidArgs\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: test/allTest.php
+
+		-
+			message: "#^Method allTest\\:\\:testAll\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/allTest.php
+
+		-
+			message: "#^Method allTest\\:\\:testAll\\(\\) has parameter \\$expected with no type specified\\.$#"
+			count: 1
+			path: test/allTest.php
+
+		-
+			message: "#^Method allTest\\:\\:testAll\\(\\) has parameter \\$func with no type specified\\.$#"
+			count: 1
+			path: test/allTest.php
+
+		-
+			message: "#^Method allTest\\:\\:testAll\\(\\) has parameter \\$list with no type specified\\.$#"
+			count: 1
+			path: test/allTest.php
+
+		-
+			message: "#^Method allTest\\:\\:testInvalidArgumentException\\(\\) has parameter \\$func with no type specified\\.$#"
+			count: 1
+			path: test/allTest.php
+
+		-
+			message: "#^Method allTest\\:\\:testInvalidArgumentException\\(\\) has parameter \\$list with no type specified\\.$#"
+			count: 1
+			path: test/allTest.php
+
+		-
+			message: "#^Method anyTest\\:\\:cases\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: test/anyTest.php
+
+		-
+			message: "#^Method anyTest\\:\\:invalidArgs\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: test/anyTest.php
+
+		-
+			message: "#^Method anyTest\\:\\:testAny\\(\\) has parameter \\$expected with no type specified\\.$#"
+			count: 1
+			path: test/anyTest.php
+
+		-
+			message: "#^Method anyTest\\:\\:testAny\\(\\) has parameter \\$func with no type specified\\.$#"
+			count: 1
+			path: test/anyTest.php
+
+		-
+			message: "#^Method anyTest\\:\\:testAny\\(\\) has parameter \\$list with no type specified\\.$#"
+			count: 1
+			path: test/anyTest.php
+
+		-
+			message: "#^Method anyTest\\:\\:testInvalidArgs\\(\\) has parameter \\$func with no type specified\\.$#"
+			count: 1
+			path: test/anyTest.php
+
+		-
+			message: "#^Method anyTest\\:\\:testInvalidArgs\\(\\) has parameter \\$list with no type specified\\.$#"
+			count: 1
+			path: test/anyTest.php
+
+		-
+			message: "#^Method averageTest\\:\\:cases\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/averageTest.php
+
+		-
+			message: "#^Method averageTest\\:\\:testAverage\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/averageTest.php
+
+		-
+			message: "#^Method averageTest\\:\\:testAverage\\(\\) has parameter \\$expected with no type specified\\.$#"
+			count: 1
+			path: test/averageTest.php
+
+		-
+			message: "#^Method averageTest\\:\\:testAverage\\(\\) has parameter \\$list with no type specified\\.$#"
+			count: 1
+			path: test/averageTest.php
+
+		-
+			message: "#^Method comparatorTest\\:\\:cases\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/comparatorTest.php
+
+		-
+			message: "#^Method comparatorTest\\:\\:testComparator\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/comparatorTest.php
+
+		-
+			message: "#^Method comparatorTest\\:\\:testComparator\\(\\) has parameter \\$expected with no type specified\\.$#"
+			count: 1
+			path: test/comparatorTest.php
+
+		-
+			message: "#^Method comparatorTest\\:\\:testComparator\\(\\) has parameter \\$func with no type specified\\.$#"
+			count: 1
+			path: test/comparatorTest.php
+
+		-
+			message: "#^Method comparatorTest\\:\\:testComparator\\(\\) has parameter \\$list with no type specified\\.$#"
+			count: 1
+			path: test/comparatorTest.php
+
+		-
+			message: "#^Method composeTest\\:\\:testComposeRunMoreThanOneFunction\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/composeTest.php
+
+		-
+			message: "#^Method composeTest\\:\\:testComposeRunMoreThanThreeFunctions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/composeTest.php
+
+		-
+			message: "#^Method composeTest\\:\\:testComposeRunMoreThanTwoFunctions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/composeTest.php
+
+		-
+			message: "#^Method composeTest\\:\\:testComposeRunOneFunction\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/composeTest.php
+
+		-
+			message: "#^Method curryLeftTest\\:\\:testCurryRunOneFunction\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/curryLeftTest.php
+
+		-
+			message: "#^Method curryRightTest\\:\\:testCurryRunOneFunction\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/curryRightTest.php
+
+		-
+			message: "#^Method equalTest\\:\\:cases\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/equalTest.php
+
+		-
+			message: "#^Method equalTest\\:\\:testComparator\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/equalTest.php
+
+		-
+			message: "#^Method equalTest\\:\\:testComparator\\(\\) has parameter \\$expected with no type specified\\.$#"
+			count: 1
+			path: test/equalTest.php
+
+		-
+			message: "#^Method equalTest\\:\\:testComparator\\(\\) has parameter \\$list with no type specified\\.$#"
+			count: 1
+			path: test/equalTest.php
+
+		-
+			message: "#^Method equalToTest\\:\\:cases\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/equalToTest.php
+
+		-
+			message: "#^Method equalToTest\\:\\:testComparator\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/equalToTest.php
+
+		-
+			message: "#^Method equalToTest\\:\\:testComparator\\(\\) has parameter \\$expected with no type specified\\.$#"
+			count: 1
+			path: test/equalToTest.php
+
+		-
+			message: "#^Method equalToTest\\:\\:testComparator\\(\\) has parameter \\$list with no type specified\\.$#"
+			count: 1
+			path: test/equalToTest.php
+
+		-
+			message: "#^Method equalToTest\\:\\:testGreaterOrEqual\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/equalToTest.php
+
+		-
+			message: "#^Method filterTest\\:\\:cases\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/filterTest.php
+
+		-
+			message: "#^Method filterTest\\:\\:testFilter\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/filterTest.php
+
+		-
+			message: "#^Method filterTest\\:\\:testFilter\\(\\) has parameter \\$expected with no type specified\\.$#"
+			count: 1
+			path: test/filterTest.php
+
+		-
+			message: "#^Method filterTest\\:\\:testFilter\\(\\) has parameter \\$func with no type specified\\.$#"
+			count: 1
+			path: test/filterTest.php
+
+		-
+			message: "#^Method filterTest\\:\\:testFilter\\(\\) has parameter \\$list with no type specified\\.$#"
+			count: 1
+			path: test/filterTest.php
+
+		-
+			message: "#^Property filterTest\\:\\:\\$evenExperted has no type specified\\.$#"
+			count: 1
+			path: test/filterTest.php
+
+		-
+			message: "#^Method filterWithTest\\:\\:cases\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/filterWithTest.php
+
+		-
+			message: "#^Method filterWithTest\\:\\:testAll\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/filterWithTest.php
+
+		-
+			message: "#^Method filterWithTest\\:\\:testAll\\(\\) has parameter \\$expected with no type specified\\.$#"
+			count: 1
+			path: test/filterWithTest.php
+
+		-
+			message: "#^Method filterWithTest\\:\\:testAll\\(\\) has parameter \\$func with no type specified\\.$#"
+			count: 1
+			path: test/filterWithTest.php
+
+		-
+			message: "#^Method filterWithTest\\:\\:testAll\\(\\) has parameter \\$list with no type specified\\.$#"
+			count: 1
+			path: test/filterWithTest.php
+
+		-
+			message: "#^Property filterWithTest\\:\\:\\$evenExperted has no type specified\\.$#"
+			count: 1
+			path: test/filterWithTest.php
+
+		-
+			message: "#^Method firstTest\\:\\:cases\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/firstTest.php
+
+		-
+			message: "#^Method firstTest\\:\\:testAll\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/firstTest.php
+
+		-
+			message: "#^Method firstTest\\:\\:testAll\\(\\) has parameter \\$expected with no type specified\\.$#"
+			count: 1
+			path: test/firstTest.php
+
+		-
+			message: "#^Method firstTest\\:\\:testAll\\(\\) has parameter \\$func with no type specified\\.$#"
+			count: 1
+			path: test/firstTest.php
+
+		-
+			message: "#^Method firstTest\\:\\:testAll\\(\\) has parameter \\$list with no type specified\\.$#"
+			count: 1
+			path: test/firstTest.php
+
+		-
+			message: "#^Method firstWithTest\\:\\:cases\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/firstWithTest.php
+
+		-
+			message: "#^Method firstWithTest\\:\\:testAll\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/firstWithTest.php
+
+		-
+			message: "#^Method firstWithTest\\:\\:testAll\\(\\) has parameter \\$expected with no type specified\\.$#"
+			count: 1
+			path: test/firstWithTest.php
+
+		-
+			message: "#^Method firstWithTest\\:\\:testAll\\(\\) has parameter \\$func with no type specified\\.$#"
+			count: 1
+			path: test/firstWithTest.php
+
+		-
+			message: "#^Method firstWithTest\\:\\:testAll\\(\\) has parameter \\$list with no type specified\\.$#"
+			count: 1
+			path: test/firstWithTest.php
+
+		-
+			message: "#^Method flatMapTest\\:\\:cases\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/flatMapTest.php
+
+		-
+			message: "#^Method flatMapTest\\:\\:testFlatMap\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/flatMapTest.php
+
+		-
+			message: "#^Method flatMapTest\\:\\:testFlatMap\\(\\) has parameter \\$expected with no type specified\\.$#"
+			count: 1
+			path: test/flatMapTest.php
+
+		-
+			message: "#^Method flatMapTest\\:\\:testFlatMap\\(\\) has parameter \\$func with no type specified\\.$#"
+			count: 1
+			path: test/flatMapTest.php
+
+		-
+			message: "#^Method flatMapTest\\:\\:testFlatMap\\(\\) has parameter \\$list with no type specified\\.$#"
+			count: 1
+			path: test/flatMapTest.php
+
+		-
+			message: "#^Method flatMapWithTest\\:\\:cases\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/flatMapWithTest.php
+
+		-
+			message: "#^Method flatMapWithTest\\:\\:testFlatMap\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/flatMapWithTest.php
+
+		-
+			message: "#^Method flatMapWithTest\\:\\:testFlatMap\\(\\) has parameter \\$expected with no type specified\\.$#"
+			count: 1
+			path: test/flatMapWithTest.php
+
+		-
+			message: "#^Method flatMapWithTest\\:\\:testFlatMap\\(\\) has parameter \\$func with no type specified\\.$#"
+			count: 1
+			path: test/flatMapWithTest.php
+
+		-
+			message: "#^Method flatMapWithTest\\:\\:testFlatMap\\(\\) has parameter \\$list with no type specified\\.$#"
+			count: 1
+			path: test/flatMapWithTest.php
+
+		-
+			message: "#^Method flattenTest\\:\\:cases\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/flattenTest.php
+
+		-
+			message: "#^Method flattenTest\\:\\:testFlatMap\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/flattenTest.php
+
+		-
+			message: "#^Method flattenTest\\:\\:testFlatMap\\(\\) has parameter \\$expected with no type specified\\.$#"
+			count: 1
+			path: test/flattenTest.php
+
+		-
+			message: "#^Method flattenTest\\:\\:testFlatMap\\(\\) has parameter \\$list with no type specified\\.$#"
+			count: 1
+			path: test/flattenTest.php
+
+		-
+			message: "#^Method getTest\\:\\:cases\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/getTest.php
+
+		-
+			message: "#^Method getTest\\:\\:getObject\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/getTest.php
+
+		-
+			message: "#^Method getTest\\:\\:testGet\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/getTest.php
+
+		-
+			message: "#^Method getTest\\:\\:testGet\\(\\) has parameter \\$expected with no type specified\\.$#"
+			count: 1
+			path: test/getTest.php
+
+		-
+			message: "#^Method getTest\\:\\:testGet\\(\\) has parameter \\$input with no type specified\\.$#"
+			count: 1
+			path: test/getTest.php
+
+		-
+			message: "#^Method getTest\\:\\:testGet\\(\\) has parameter \\$prop with no type specified\\.$#"
+			count: 1
+			path: test/getTest.php
+
+		-
+			message: "#^Method groupTest\\:\\:testGroupByID\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/groupTest.php
+
+		-
+			message: "#^Property groupTest\\:\\:\\$records has no type specified\\.$#"
+			count: 1
+			path: test/groupTest.php
+
+		-
+			message: "#^Method lastTest\\:\\:cases\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/lastTest.php
+
+		-
+			message: "#^Method lastTest\\:\\:testAll\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/lastTest.php
+
+		-
+			message: "#^Method lastTest\\:\\:testAll\\(\\) has parameter \\$expected with no type specified\\.$#"
+			count: 1
+			path: test/lastTest.php
+
+		-
+			message: "#^Method lastTest\\:\\:testAll\\(\\) has parameter \\$func with no type specified\\.$#"
+			count: 1
+			path: test/lastTest.php
+
+		-
+			message: "#^Method lastTest\\:\\:testAll\\(\\) has parameter \\$list with no type specified\\.$#"
+			count: 1
+			path: test/lastTest.php
+
+		-
+			message: "#^Method lessThanTest\\:\\:cases\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/lessThanTest.php
+
+		-
+			message: "#^Method lessThanTest\\:\\:testComparator\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/lessThanTest.php
+
+		-
+			message: "#^Method lessThanTest\\:\\:testComparator\\(\\) has parameter \\$expected with no type specified\\.$#"
+			count: 1
+			path: test/lessThanTest.php
+
+		-
+			message: "#^Method lessThanTest\\:\\:testComparator\\(\\) has parameter \\$list with no type specified\\.$#"
+			count: 1
+			path: test/lessThanTest.php
+
+		-
+			message: "#^Method mapTest\\:\\:cases\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/mapTest.php
+
+		-
+			message: "#^Method mapTest\\:\\:testMap\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/mapTest.php
+
+		-
+			message: "#^Method mapTest\\:\\:testMap\\(\\) has parameter \\$expected with no type specified\\.$#"
+			count: 1
+			path: test/mapTest.php
+
+		-
+			message: "#^Method mapTest\\:\\:testMap\\(\\) has parameter \\$func with no type specified\\.$#"
+			count: 1
+			path: test/mapTest.php
+
+		-
+			message: "#^Method mapTest\\:\\:testMap\\(\\) has parameter \\$list with no type specified\\.$#"
+			count: 1
+			path: test/mapTest.php
+
+		-
+			message: "#^Method pairTest\\:\\:cases\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/pairTest.php
+
+		-
+			message: "#^Method pairTest\\:\\:testPair\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/pairTest.php
+
+		-
+			message: "#^Method pairTest\\:\\:testPair\\(\\) has parameter \\$expected with no type specified\\.$#"
+			count: 1
+			path: test/pairTest.php
+
+		-
+			message: "#^Method pairTest\\:\\:testPair\\(\\) has parameter \\$list with no type specified\\.$#"
+			count: 1
+			path: test/pairTest.php
+
+		-
+			message: "#^Method pairTest\\:\\:testPairWith\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/pairTest.php
+
+		-
+			message: "#^Method pairTest\\:\\:testPairWith\\(\\) has parameter \\$expected with no type specified\\.$#"
+			count: 1
+			path: test/pairTest.php
+
+		-
+			message: "#^Method pairTest\\:\\:testPairWith\\(\\) has parameter \\$list with no type specified\\.$#"
+			count: 1
+			path: test/pairTest.php
+
+		-
+			message: "#^Method pipeLineTest\\:\\:testAverageCaculation\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/pipeLineTest.php
+
+		-
+			message: "#^Method pipeLineTest\\:\\:testComposeRunMoreThanOneFunction\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/pipeLineTest.php
+
+		-
+			message: "#^Method pipeLineTest\\:\\:testComposeRunMoreThanThreeFunctions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/pipeLineTest.php
+
+		-
+			message: "#^Method pipeLineTest\\:\\:testComposeRunMoreThanTwoFunctions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/pipeLineTest.php
+
+		-
+			message: "#^Method pipeLineTest\\:\\:testComposeRunOneFunction\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/pipeLineTest.php
+
+		-
+			message: "#^Method rejectTest\\:\\:cases\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/rejectTest.php
+
+		-
+			message: "#^Method rejectTest\\:\\:testFilter\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/rejectTest.php
+
+		-
+			message: "#^Method rejectTest\\:\\:testFilter\\(\\) has parameter \\$expected with no type specified\\.$#"
+			count: 1
+			path: test/rejectTest.php
+
+		-
+			message: "#^Method rejectTest\\:\\:testFilter\\(\\) has parameter \\$func with no type specified\\.$#"
+			count: 1
+			path: test/rejectTest.php
+
+		-
+			message: "#^Method rejectTest\\:\\:testFilter\\(\\) has parameter \\$list with no type specified\\.$#"
+			count: 1
+			path: test/rejectTest.php
+
+		-
+			message: "#^Method rejectTest\\:\\:testFilterWith\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/rejectTest.php
+
+		-
+			message: "#^Method rejectTest\\:\\:testFilterWith\\(\\) has parameter \\$expected with no type specified\\.$#"
+			count: 1
+			path: test/rejectTest.php
+
+		-
+			message: "#^Method rejectTest\\:\\:testFilterWith\\(\\) has parameter \\$func with no type specified\\.$#"
+			count: 1
+			path: test/rejectTest.php
+
+		-
+			message: "#^Method rejectTest\\:\\:testFilterWith\\(\\) has parameter \\$list with no type specified\\.$#"
+			count: 1
+			path: test/rejectTest.php
+
+		-
+			message: "#^Method sortTest\\:\\:__construct\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: test/sortTest.php
+
+		-
+			message: "#^Method sortTest\\:\\:__construct\\(\\) has parameter \\$name with no type specified\\.$#"
+			count: 1
+			path: test/sortTest.php
+
+		-
+			message: "#^Method sortTest\\:\\:cases\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/sortTest.php
+
+		-
+			message: "#^Method sortTest\\:\\:testSort\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/sortTest.php
+
+		-
+			message: "#^Method sortTest\\:\\:testSort\\(\\) has parameter \\$expected with no type specified\\.$#"
+			count: 1
+			path: test/sortTest.php
+
+		-
+			message: "#^Method sortTest\\:\\:testSort\\(\\) has parameter \\$func with no type specified\\.$#"
+			count: 1
+			path: test/sortTest.php
+
+		-
+			message: "#^Method sortTest\\:\\:testSort\\(\\) has parameter \\$list with no type specified\\.$#"
+			count: 1
+			path: test/sortTest.php
+
+		-
+			message: "#^Property sortTest\\:\\:\\$ascending has no type specified\\.$#"
+			count: 1
+			path: test/sortTest.php
+
+		-
+			message: "#^Property sortTest\\:\\:\\$desending has no type specified\\.$#"
+			count: 1
+			path: test/sortTest.php
+
+		-
+			message: "#^Property sortTest\\:\\:\\$evenExperted has no type specified\\.$#"
+			count: 1
+			path: test/sortTest.php
+
+		-
+			message: "#^Method uniqueTest\\:\\:cases\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/uniqueTest.php
+
+		-
+			message: "#^Method uniqueTest\\:\\:testFilter\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/uniqueTest.php
+
+		-
+			message: "#^Method uniqueTest\\:\\:testFilter\\(\\) has parameter \\$expected with no type specified\\.$#"
+			count: 1
+			path: test/uniqueTest.php
+
+		-
+			message: "#^Method uniqueTest\\:\\:testFilter\\(\\) has parameter \\$func with no type specified\\.$#"
+			count: 1
+			path: test/uniqueTest.php
+
+		-
+			message: "#^Method uniqueTest\\:\\:testFilter\\(\\) has parameter \\$list with no type specified\\.$#"
+			count: 1
+			path: test/uniqueTest.php
+
+		-
+			message: "#^Method uniqueTest\\:\\:testNullCollectionThrowException\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/uniqueTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$collection of function Slash\\\\unique expects array\\|Traversable, null given\\.$#"
+			count: 1
+			path: test/uniqueTest.php
+
+		-
+			message: "#^Anonymous function has an unused use \\$actual\\.$#"
+			count: 1
+			path: test/walkTest.php
+
+		-
+			message: "#^Method walkTest\\:\\:testWalk\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: test/walkTest.php

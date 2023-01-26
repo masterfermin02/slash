@@ -9,14 +9,17 @@ namespace Slash;
  * from the first list and should return an array to combine against for that
  * item. If either argument is not a list, it will be treated as a list.
  *
- * @param $list
- * @param $listFn
- * @return mixed
+ * @template TKey
+ * @template TValue
+ * @template TCallable
+ * @param array<TKey, TValue> $list
+ * @param TCallable $listFn
+ * @return array<TKey, TValue>
  *
  * @example
  * Ex.,   pair([a,b], [c,d]) => [[a,c],[a,d],[b,c],[b,d]]
  */
-function pair($list, $listFn)
+function pair(array $list, $listFn): array
 {
 	is_array($list) || ($list = [$list]);
 	(is_callable($listFn) || is_array($listFn)) || ($listFn = [$listFn]);

@@ -101,36 +101,6 @@ class allTest extends TestCase {
                 'func' => 'Slash\isOdd',
                 'expected' => true,
             ],
-
-            /*
-                With ArrayObject
-             */
-
-            'With an empty ArrayObject' => [
-                'list' => new ArrayObject([]),
-                'func' => 'Slash\isOdd',
-                'expected' => true,
-            ],
-            'With an ArrayObject with no elements that satisfy the predicate' => [
-                'list' => new ArrayObject(['a' => 2, 'b' => 4, 'c' => 6]),
-                'func' => 'Slash\isOdd',
-                'expected' => false,
-            ],
-            'With an ArrayObject with one element that satisfies the predicate' => [
-                'list' => new ArrayObject(['a' => 2, 'b' => 3, 'c' => 6]),
-                'func' => 'Slash\isOdd',
-                'expected' => false,
-            ],
-            'With an ArrayObject with several elements that satisfy the predicate' => [
-                'list' => new ArrayObject(['a' => 1, 'b' => 4, 'c' => 5]),
-                'func' => 'Slash\isOdd',
-                'expected' => false,
-            ],
-            'With an ArrayObject with all elements that satisfy the predicate' => [
-                'list' => new ArrayObject(['a' => 1, 'b' => 3, 'c' => 5]),
-                'func' => 'Slash\isOdd',
-                'expected' => true,
-            ],
         ];
     }
 }

@@ -3,11 +3,12 @@
 namespace Slash;
 
 /**
- * @param $input
- * @param $prop
- * @return mixed
+ * @template TValue
+ * @param TValue $input
+ * @param TValue $prop
+ * @return TValue
  */
-function get($input, $prop): mixed
+function get($input, $prop)
 {
 	if (is_null($input) || is_null($prop)) {
 		return $prop;

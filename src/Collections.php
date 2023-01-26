@@ -5,13 +5,18 @@ namespace Slash;
 use Closure;
 use Countable;
 
+/**
+ * @template TKey of array-key
+ * @template TValue
+ * @template TType
+ */
 class Collections
 {
 
 	/**
 	 * Iterate through $collection using $iterator.
 	 *
-	 * @param array $collection
+	 * @param array<TKey, TValue> $collection
 	 * @param Closure $iterator
 	 * @return void
 	 */
@@ -23,10 +28,10 @@ class Collections
 	/**
 	 * "Map" through $collection using $iterator.
 	 *
-	 * @param array $collection
+	 * @param array<TKey, TValue> $collection
 	 * @param Closure $iterator
-	 * @return array
-	 */
+	 * @return array<TKey, TValue>
+     */
 	public function map(array $collection, Closure $iterator): array
 	{
 		return map($collection, $iterator);
@@ -34,11 +39,10 @@ class Collections
 
 	/**
 	 * Convert $value to an array.
-	 *
-	 * @param mixed $value
-	 * @return array
-	 */
-	public function toArray(mixed $value): array
+	 * @param TType $value
+	 * @return array<TKey, TValue>
+     */
+	public function toArray($value): array
 	{
 		return (array) $value;
 	}
@@ -46,7 +50,7 @@ class Collections
 	/**
 	 * Calculate the size of $value.
 	 *
-	 * @param array|Countable $value
+	 * @param array<TKey, TValue>|Countable $value
 	 * @return integer
 	 */
 	public function size(array|Countable $value): int
@@ -57,9 +61,9 @@ class Collections
 	/**
 	 * "Shuffle" the given $collection.
 	 *
-	 * @param array $collection
-	 * @return array
-	 */
+	 * @param array<TKey, TValue> $collection
+	 * @return array<TKey, TValue>
+     */
 	public function shuffle(array $collection): array
 	{
 		shuffle($collection);
@@ -70,11 +74,11 @@ class Collections
 	/**
 	 * Check whether any values in $collection pass $iterator.
 	 *
-	 * @param array $collection
-	 * @param Closure $iterator
+	 * @param array<TKey, TValue> $collection
+	 * @param callable $iterator
 	 * @return boolean
 	 */
-	public function any(array $collection, Closure $iterator): bool
+	public function any(array $collection, callable $iterator): bool
 	{
 		return any($collection, $iterator);
 	}
@@ -82,11 +86,11 @@ class Collections
 	/**
 	 * Check whether all values in $collection pass $iterator.
 	 *
-	 * @param array $collection
-	 * @param Closure $iterator
+	 * @param array<TKey, TValue> $collection
+	 * @param callable $iterator
 	 * @return boolean
 	 */
-	public function all(array $collection, Closure $iterator): bool
+	public function all(array $collection, callable $iterator): bool
 	{
 		return all($collection, $iterator);
 	}
@@ -94,11 +98,11 @@ class Collections
 	/**
 	 * Run $iterator and remove all failing items in $collection.
 	 *
-	 * @param array $collection
-	 * @param Closure $iterator
-	 * @return array
-	 */
-	public function reject(array $collection, Closure $iterator): array
+	 * @param array<TKey, TValue> $collection
+	 * @param callable $iterator
+	 * @return array<TKey, TValue>
+     */
+	public function reject(array $collection, callable $iterator): array
 	{
 		return array_values(reject($collection, $iterator));
 	}
@@ -106,10 +110,10 @@ class Collections
 	/**
 	 * Extract an array of values associated with $key from $collection.
 	 *
-	 * @param array $collection
+	 * @param array<TKey, TValue> $collection
 	 * @param string $key
-	 * @return array
-	 */
+	 * @return array<TKey, TValue>
+     */
 	public function pluck(array $collection, string $key): array
 	{
 		return pluck($collection, $key);
@@ -118,11 +122,11 @@ class Collections
 	/**
 	 * Determine if $collection contains $value (=== is used).
 	 *
-	 * @param array $collection
-	 * @param mixed $value
+	 * @param array<TKey, TValue> $collection
+	 * @param TType $value
 	 * @return boolean
 	 */
-	public function contains(array $collection, mixed $value): bool
+	public function contains(array $collection, $value): bool
 	{
 		return in_array($value, $collection, true);
 	}
@@ -130,11 +134,11 @@ class Collections
 	/**
 	 * Run $function across all elements in $collection.
 	 *
-	 * @param array $collection
-	 * @param Closure $function
-	 * @return array
-	 */
-	public function invoke(array $collection, Closure $function): array
+	 * @param array<TKey, TValue> $collection
+	 * @param callable $function
+	 * @return array<TKey, TValue>
+     */
+	public function invoke(array $collection, callable $function): array
 	{
 		return map($collection, $function);
 	}
@@ -142,12 +146,15 @@ class Collections
 	/**
 	 * Reduce $collection into a single value using $iterator.
 	 *
-	 * @param array $collection
-	 * @param Closure $iterator
-	 * @param mixed $initial
-	 * @return mixed
+     * @template TReduceValue
+     * @template TCarry
+     * @template TItem
+	 * @param array<TKey,TValue> $collection
+	 * @param callable(TCarry,TItem): TReduceValue $iterator
+	 * @param TValue $initial
+	 * @return TReduceValue
 	 */
-	public function reduce(array $collection, Closure $iterator, int $initial = 0): mixed
+	public function reduce(array $collection, callable $iterator, $initial = null)
 	{
 		return reduce($collection, $iterator, $initial);
 	}
@@ -155,11 +162,11 @@ class Collections
 	/**
 	 * Return $collection sorted in ascending order based on $iterator results.
 	 *
-	 * @param array $collection
-	 * @param Closure $iterator
-	 * @return array
-	 */
-	public function sortBy(array $collection, Closure $iterator): array
+	 * @param array<TKey, TValue> $collection
+	 * @param callable $iterator
+	 * @return array<TKey, TValue>
+     */
+	public function sortBy(array $collection, callable $iterator): array
 	{
 		return sortBy($iterator)($collection);
 	}
@@ -167,11 +174,11 @@ class Collections
 	/**
 	 * Group values in $collection by $iterator's return value.
 	 *
-	 * @param array $collection
-	 * @param Closure|string $iterator
-	 * @return array
-	 */
-	public function groupBy(array $collection, Closure|string $iterator): array
+	 * @param array<TKey, TValue> $collection
+	 * @param callable|string $iterator
+	 * @return array<TKey, TValue>
+     */
+	public function groupBy(array $collection, callable|string $iterator): array
 	{
 		return groupBy($iterator)($collection);
 	}
@@ -179,10 +186,10 @@ class Collections
 	/**
 	 * Return the maximum value from $collection.
 	 *
-	 * @param array $collection
-	 * @return mixed
+	 * @param array<TKey, TValue> $collection
+	 * @return TValue
 	 */
-	public function max(array $collection): mixed
+	public function max(array $collection)
 	{
 		return first(sortByDesc($collection));
 	}
@@ -190,10 +197,10 @@ class Collections
 	/**
 	 * Return the minimum value from $collection.
 	 *
-	 * @param array $collection
-	 * @return mixed
+	 * @param array<TKey, TValue> $collection
+	 * @return TValue
 	 */
-	public function min(array $collection): mixed
+	public function min(array $collection)
 	{
 		return first(sortByAsc($collection));
 	}

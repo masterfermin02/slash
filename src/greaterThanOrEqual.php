@@ -5,8 +5,9 @@ namespace Slash;
 /**
  * Simple comparison for '>='
  *
- * @param $a
- * @param $b
+ * @template TValue
+ * @param TValue $a
+ * @param TValue $b
  * @return bool
  *
  * @example

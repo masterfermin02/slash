@@ -7,41 +7,31 @@ class InvalidArgumentExceptionTest extends TestCase
 {
     public function testCallbackExceptionWithUndefinedStaticMethod()
     {
-        $this->expectException('Slash\Exceptions\InvalidArgumentException');
-        $this->expectExceptionMessage("func() expects parameter 1 to be a valid callback, method 'stdClass::method' not found or invalid method name");
-
-        InvalidArgumentException::assertCallback(['stdClass', 'method'], 'func', 1);
+        $this->expectException(TypeError::class);
+        (new InvalidArgumentException)->assertCallback(['stdClass', 'method'], 'func', 1);
     }
 
     public function testCallbackExceptionWithUndefinedFunction()
     {
-        $this->expectException('Slash\Exceptions\InvalidArgumentException');
-        $this->expectExceptionMessage("func() expects parameter 1 to be a valid callback, function 'undefinedFunction' not found or invalid function name");
-
+        $this->expectException(TypeError::class);
         InvalidArgumentException::assertCallback('undefinedFunction', 'func', 1);
     }
 
     public function testCallbackExceptionWithUndefinedMethod()
     {
-        $this->expectException('Slash\Exceptions\InvalidArgumentException');
-        $this->expectExceptionMessage("func() expects parameter 2 to be a valid callback, method 'stdClass->method' not found or invalid method name");
-
+        $this->expectException(TypeError::class);
         InvalidArgumentException::assertCallback([new \stdClass(), 'method'], 'func', 2);
     }
 
     public function testCallbackExceptionWithIncorrectArrayIndex()
     {
-        $this->expectException('Slash\Exceptions\InvalidArgumentException');
-        $this->expectExceptionMessage("func() expects parameter 1 to be a valid callback, method 'stdClass->method' not found or invalid method name");
-
+        $this->expectException(TypeError::class);
         InvalidArgumentException::assertCallback([1 => new \stdClass(), 2 => 'method'], 'func', 1);
     }
 
     public function testCallbackExceptionWithObject()
     {
-        $this->expectException('Slash\Exceptions\InvalidArgumentException');
-        $this->expectExceptionMessage('func() expected parameter 1 to be a valid callback, no array, string, closure or functor given');
-
+        $this->expectException(TypeError::class);
         InvalidArgumentException::assertCallback(new \stdClass(), 'func', 1);
     }
 
@@ -136,15 +126,13 @@ class InvalidArgumentExceptionTest extends TestCase
 
     public function testExceptionIfBoolean()
     {
-        $this->expectException('Slash\Exceptions\InvalidArgumentException');
-        $this->expectExceptionMessage('foo() expects parameter 0 to be boolean, string given');
+        $this->expectException(TypeError::class);
         InvalidArgumentException::assertBoolean('str', 'foo', 'foo');
     }
 
     public function testExceptionIfInterger()
     {
-        $this->expectException('Slash\Exceptions\InvalidArgumentException');
-        $this->expectExceptionMessage('foo() expects parameter 0 to be integer, string given');
+        $this->expectException(TypeError::class);
         InvalidArgumentException::assertInteger('str', 'foo', 'foo');
     }
 

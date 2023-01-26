@@ -8,15 +8,18 @@ use Traversable;
 /**
  * Returns an array of unique elements
  *
- * @param Traversable|array $collection
+ * @template TKey array-key
+ * @template TValue
+ * @param iterable<TKey, TValue> $collection
  * @param callable $callback
- * @param bool $strict
- * @return array
+ * @param bool     $strict
+ *
+ * @return array<TKey, TValue>
  *
  * @example
  *  Slash\unique([1, 3, 5,1,4,6,2,7]); // === [1,2,3,4,5,6,7]
  */
-function unique($collection, callable $callback = null, $strict = true)
+function unique(iterable $collection, callable $callback = null, bool $strict = true): array
 {
 	InvalidArgumentException::assertCollection($collection, __FUNCTION__, 1);
 

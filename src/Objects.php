@@ -9,17 +9,22 @@ use ReflectionMethod;
 use DateTime;
 use ReflectionException;
 
+/**
+ * @template TKey
+ * @template TValue
+ * @template TType
+ */
 class Objects
 {
 
 	/**
 	 * Invoke $closure on $object, then return $object.
 	 *
-	 * @param mixed $object
-	 * @param Closure $closure
-	 * @return mixed
+	 * @param TType $object
+	 * @param callable $closure
+	 * @return TType
 	 */
-	public function apply($object, Closure $closure)
+	public function apply($object, callable $closure)
 	{
 		$closure($object);
 
@@ -29,11 +34,11 @@ class Objects
 	/**
 	 * Determine whether the given object has a key.
 	 *
-	 * @param mixed $object
+	 * @param TType $object
 	 * @param string $key
-	 * @return boolean
+	 * @return bool
 	 */
-	public function has($object, $key)
+	public function has($object, string $key): bool
 	{
 		return in_array($key, $this->keys($object));
 	}
@@ -41,10 +46,10 @@ class Objects
 	/**
 	 * Get the keys.
 	 *
-	 * @param mixed $object
-	 * @return array
+	 * @param TType $object
+	 * @return array<TKey, TValue>
 	 */
-	public function keys($object)
+	public function keys($object): array
 	{
 		return array_keys((array) $object);
 	}
@@ -52,10 +57,10 @@ class Objects
 	/**
 	 * Get the values.
 	 *
-	 * @param mixed $object
-	 * @return array
+	 * @param TType $object
+	 * @return array<TKey, TValue>
 	 */
-	public function values($object)
+	public function values($object): array
 	{
 		return array_values((array) $object);
 	}
@@ -63,9 +68,9 @@ class Objects
 	/**
 	 * Copy all properties from $source to $destination.
 	 *
-	 * @param mixed $source
-	 * @param mixed $destination
-	 * @return mixed
+	 * @param TType $source
+	 * @param TType $destination
+	 * @return TType
 	 */
 	public function extend($source, $destination)
 	{
@@ -79,9 +84,9 @@ class Objects
 	/**
 	 * Fill in any missing values using $defaults.
 	 *
-	 * @param mixed $object
-	 * @param mixed $defaults
-	 * @return mixed
+	 * @param TType $object
+	 * @param TType $defaults
+	 * @return TType
 	 */
 	public function defaults($object, $defaults)
 	{
@@ -105,8 +110,8 @@ class Objects
 	/**
 	 * Return a copy of $value.
 	 *
-	 * @param mixed $value
-	 * @return mixed
+	 * @param TType $value
+	 * @return TType
 	 */
 	public function copy($value)
 	{
@@ -117,11 +122,11 @@ class Objects
 	/**
 	 * Get the names of all public methods.
 	 *
-	 * @param $object
-	 * @return array
+	 * @param TType $object
+	 * @return array<TKey, TValue>
 	 * @throws ReflectionException
 	 */
-	public function methods($object)
+	public function methods($object): array
 	{
 		$methods = (new ReflectionClass($object))->getMethods(ReflectionMethod::IS_PUBLIC);
 
@@ -135,10 +140,10 @@ class Objects
 	/**
 	 * Determine whether the given value is null.
 	 *
-	 * @param mixed $value
-	 * @return boolean
+	 * @param TType $value
+	 * @return bool
 	 */
-	public function isNull($value)
+	public function isNull($value): bool
 	{
 		return is_null($value);
 	}
@@ -146,10 +151,10 @@ class Objects
 	/**
 	 * Determine whether the given value is traversable.
 	 *
-	 * @param mixed $value
-	 * @return boolean
+	 * @param TType $value
+	 * @return bool
 	 */
-	public function isTraversable($value)
+	public function isTraversable($value): bool
 	{
 		return is_array($value) or ($value instanceof Traversable);
 	}
@@ -157,10 +162,10 @@ class Objects
 	/**
 	 * Determine whether the given value is an array.
 	 *
-	 * @param mixed $value
-	 * @return boolean
+	 * @param TType $value
+	 * @return bool
 	 */
-	public function isArray($value)
+	public function isArray($value): bool
 	{
 		return is_array($value);
 	}
@@ -168,10 +173,10 @@ class Objects
 	/**
 	 * Determine whether the given value is an instance of \DateTime.
 	 *
-	 * @param mixed $value
-	 * @return boolean
+	 * @param TType $value
+	 * @return bool
 	 */
-	public function isDate($value)
+	public function isDate($value): bool
 	{
 		return ($value instanceof DateTime);
 	}
@@ -179,10 +184,10 @@ class Objects
 	/**
 	 * Determine whether the given value is a float or an integer.
 	 *
-	 * @param mixed $value
-	 * @return boolean
+	 * @param TType $value
+	 * @return bool
 	 */
-	public function isNumber($value)
+	public function isNumber($value): bool
 	{
 		return is_integer($value) or is_float($value);
 	}
@@ -190,10 +195,10 @@ class Objects
 	/**
 	 * Determine whether the given value is a boolean.
 	 *
-	 * @param mixed $value
-	 * @return boolean
+	 * @param TType $value
+	 * @return bool
 	 */
-	public function isBoolean($value)
+	public function isBoolean($value): bool
 	{
 		return is_bool($value);
 	}
@@ -201,10 +206,10 @@ class Objects
 	/**
 	 * Determine whether the given value is a string.
 	 *
-	 * @param mixed $value
-	 * @return boolean
+	 * @param TType $value
+	 * @return bool
 	 */
-	public function isString($value)
+	public function isString($value): bool
 	{
 		return is_string($value);
 	}
@@ -212,10 +217,10 @@ class Objects
 	/**
 	 * Determine whether the given value is an instance of \Closure.
 	 *
-	 * @param mixed $value
-	 * @return boolean
+	 * @param TType $value
+	 * @return bool
 	 */
-	public function isFunction($value)
+	public function isFunction($value): bool
 	{
 		return ($value instanceof Closure);
 	}
@@ -223,10 +228,10 @@ class Objects
 	/**
 	 * Determine whether the given value is an object.
 	 *
-	 * @param mixed $value
-	 * @return boolean
+	 * @param TType $value
+	 * @return bool
 	 */
-	public function isObject($value)
+	public function isObject($value): bool
 	{
 		return is_object($value);
 	}
@@ -234,11 +239,11 @@ class Objects
 	/**
 	 * Compare two values using === (strict mode).
 	 *
-	 * @param mixed $left
-	 * @param mixed $right
-	 * @return boolean
+	 * @param TType $left
+	 * @param TType $right
+	 * @return bool
 	 */
-	public function isEqual($left, $right)
+	public function isEqual($left, $right): bool
 	{
 		return ($left) === $right;
 	}
@@ -246,10 +251,10 @@ class Objects
 	/**
 	 * Determine whether the given value is empty.
 	 *
-	 * @param mixed $value
-	 * @return boolean
+	 * @param TType $value
+	 * @return bool
 	 */
-	public function isEmpty($value)
+	public function isEmpty($value): bool
 	{
 		return empty($value);
 	}

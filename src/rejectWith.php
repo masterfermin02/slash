@@ -3,10 +3,10 @@
 namespace Slash;
 
 /**
- * @param $fn
- * @return \Closure
+ * @param callable $fn
+ * @return callable
  */
-function rejectWith($fn)
+function rejectWith(callable $fn): callable
 {
 	return curryRight('Slash\reject', $fn);
 }

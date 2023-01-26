@@ -2,7 +2,13 @@
 
 namespace Slash;
 
-function greaterThanOrEqualTo(mixed $to): \Closure
+/**
+ * @template TValue
+ * @param TValue $to
+ *
+ * @return callable
+ */
+function greaterThanOrEqualTo($to): callable
 {
 	return curryRight('Slash\greaterThanOrEqual', $to);
 }

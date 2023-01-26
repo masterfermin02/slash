@@ -8,14 +8,14 @@ namespace Slash;
  * and returns a version that adhere's to the Array#sort
  * API of return -1, 0 or 1 for sorting.
  *
- * @param $fn
- * @return \Closure
+ * @param callable $fn
+ * @return callable
  *
  * @example
  *
  *  Slash\comparator(Slash\greaterThan([1, 0])) // === -1
  */
-function comparator($fn): \Closure
+function comparator(callable $fn): callable
 {
 	return function ($a, $b) use ($fn) {
 		if (call_user_func($fn, $a, $b)) {

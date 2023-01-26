@@ -6,14 +6,14 @@ namespace Slash;
  * Reverse of compose, taking it's arguments and chaining
  * them from left -> right
  *
- * @return \Closure
+ * @return callable
  *
  * @example
  *
  * ie., pipeline(f,g,h) = h(g(f()))
  *
  */
-function pipeLine()
+function pipeLine(): callable
 {
 	$args = func_get_args();
 	return function ($items) use ($args) {

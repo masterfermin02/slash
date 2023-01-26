@@ -14,7 +14,7 @@ class uniqueTest extends TestCase {
 
     public function testNullCollectionThrowException()
     {
-        $this->expectException("Slash\Exceptions\InvalidArgumentException");
+        $this->expectException(TypeError::class);
         unique(null);
     }
 

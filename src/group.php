@@ -8,9 +8,12 @@ namespace Slash;
  * `prop` is a function, will group the objects in list using the string returned
  * by passing each obj through `prop` function.
  *
- * @param $list
- * @param $prop
- * @return mixed
+ * @template TKey of array-key
+ * @template TValue
+ * @template TType
+ * @param array<TKey,TValue> $list
+ * @param TType $prop
+ * @return array<TKey,TValue>
  *
  * @example
  *

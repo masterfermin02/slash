@@ -4,15 +4,19 @@ namespace Slash;
 
 use Closure;
 
+/**
+ * @template TKey of array-key
+ * @template TValue
+ */
 class Arrays
 {
 
 	/**
 	 * Get the first n elements.
 	 *
-	 * @param array $elements
+	 * @param array<TKey, TValue> $elements
 	 * @param integer $amount
-	 * @return array|int
+	 * @return array<TKey, TValue>|int
 	 */
 	public function first(array $elements, int $amount = 1): array|int
 	{
@@ -24,10 +28,10 @@ class Arrays
 	/**
 	 * Exclude the last n elements.
 	 *
-	 * @param array $elements
+	 * @param array<TKey, TValue> $elements
 	 * @param integer $amount
-	 * @return array
-	 */
+	 * @return array<TKey, TValue>
+     */
 	public function initial(array $elements, int $amount = 1): array
 	{
 		return array_slice($elements, 0, count($elements) - $amount);
@@ -36,10 +40,10 @@ class Arrays
 	/**
 	 * Get the rest of the elements.
 	 *
-	 * @param array $elements
+	 * @param array<TKey, TValue> $elements
 	 * @param integer $index
-	 * @return array
-	 */
+	 * @return array<TKey, TValue>
+     */
 	public function rest(array $elements, int $index = 1): array
 	{
 		return array_slice($elements, $index);
@@ -48,9 +52,9 @@ class Arrays
 	/**
 	 * Get the last n elements.
 	 *
-	 * @param array $elements
+	 * @param array<TKey, TValue> $elements
 	 * @param integer $amount
-	 * @return array|int
+	 * @return array<TKey, TValue>|int
 	 */
 	public function last(array $elements,int $amount = 1): array|int
 	{
@@ -62,9 +66,9 @@ class Arrays
 	/**
 	 * Remove falsy values.
 	 *
-	 * @param array $elements
-	 * @return array
-	 */
+	 * @param array<TKey, TValue> $elements
+	 * @return array<TKey, TValue>
+     */
 	public function pack(array $elements): array
 	{
 		return array_values(array_filter($elements));
@@ -73,9 +77,9 @@ class Arrays
 	/**
 	 * "Flatten" an array.
 	 *
-	 * @param array $elements
-	 * @return array
-	 */
+	 * @param array<TKey, TValue> $elements
+	 * @return array<TKey, TValue>
+     */
 	public function flatten(array $elements): array
 	{
 		$level = [];
@@ -97,8 +101,8 @@ class Arrays
 	 * @param integer $to
 	 * @param integer $from
 	 * @param integer $step
-	 * @return array
-	 */
+	 * @return array<TKey, TValue>
+     */
 	public function range(int $to, int $from = 0, int $step = 1): array
 	{
 		return range($from, $to, $step);
@@ -107,10 +111,10 @@ class Arrays
 	/**
 	 * Compute the difference between the two.
 	 *
-	 * @param array $one
-	 * @param array $another
-	 * @return array
-	 */
+	 * @param array<TKey, TValue> $one
+	 * @param array<TKey, TValue> $another
+	 * @return array<TKey, TValue>
+     */
 	public function difference(array $one, array $another): array
 	{
 		return array_values(array_diff($one, $another));
@@ -119,11 +123,11 @@ class Arrays
 	/**
 	 * Remove duplicated values.
 	 *
-	 * @param array $elements
-	 * @param Closure|null $iterator
-	 * @return array
-	 */
-	public function unique(array $elements, Closure $iterator = null): array
+	 * @param array<TKey, TValue> $elements
+	 * @param ?callable $iterator
+	 * @return array<TKey, TValue>
+     */
+	public function unique(array $elements, ?callable $iterator = null): array
 	{
 		if (!is_null($iterator)) {
 			return array_values(filter($elements, $iterator));
@@ -135,10 +139,10 @@ class Arrays
 	/**
 	 * Remove all instances of $ignore found in $elements (=== is used).
 	 *
-	 * @param array $elements
-	 * @param array $ignore
-	 * @return array
-	 */
+	 * @param array<TKey, TValue> $elements
+	 * @param array<TKey, TValue> $ignore
+	 * @return array<TKey, TValue>
+     */
 	public function without(array $elements, array $ignore): array
 	{
 		return array_values(filter($elements, function ($node) use ($ignore) {
@@ -149,10 +153,10 @@ class Arrays
 	/**
 	 * Merge two arrays.
 	 *
-	 * @param array $one
-	 * @param array $another
-	 * @return array
-	 */
+	 * @param array<TKey, TValue> $one
+	 * @param array<TKey, TValue> $another
+	 * @return array<TKey, TValue>
+     */
 	public function zip(array $one, array $another): array
 	{
 		return [...$one, ...$another];
@@ -161,11 +165,12 @@ class Arrays
 	/**
 	 * Get the index of the first match.
 	 *
-	 * @param array $elements
-	 * @param mixed $element
+     * @template TType
+	 * @param array<TKey, TValue> $elements
+	 * @param TType $element
 	 * @return integer
 	 */
-	public function indexOf(array $elements, mixed $element): int
+	public function indexOf(array $elements, $element): int
 	{
 		return array_search($element, $elements, true);
 	}
@@ -173,10 +178,10 @@ class Arrays
 	/**
 	 * Return the intersection of two arrays.
 	 *
-	 * @param array $one
-	 * @param array $another
-	 * @return array
-	 */
+	 * @param array<TKey, TValue> $one
+	 * @param array<TKey, TValue> $another
+	 * @return array<TKey, TValue>
+     */
 	public function intersection(array $one, array $another): array
 	{
 		return array_values(array_intersect($one, $another));
@@ -185,10 +190,10 @@ class Arrays
 	/**
 	 * Returns an array containing the unique items in both arrays.
 	 *
-	 * @param array $one
-	 * @param array $another
-	 * @return array
-	 */
+	 * @param array<TKey, TValue> $one
+	 * @param array<TKey, TValue> $another
+	 * @return array<TKey, TValue>
+     */
 	public function union(array $one, array $another): array
 	{
 		return $this->unique($this->zip($one, $another));

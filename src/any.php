@@ -5,8 +5,10 @@ namespace Slash;
 /**
  * Return true if at least one element matches the predicate
  *
- * @param $array
- * @param $predicate
+ * @template TKey
+ * @template TValue
+ * @param array<TKey, TValue> $array
+ * @param callable $predicate
  * @return bool
  *
  * @example
@@ -20,12 +22,8 @@ namespace Slash;
  *
  *	Slash\any((object) ['a' => 1, 'b' => 3, 'c' => 5], 'Slash\isOdd'); // === true
  */
-function any(array|\ArrayObject $array, $predicate): bool
+function any(array $array, callable $predicate): bool
 {
-	if (is_null($array)) {
-		return false;
-	}
-
 	foreach ($array as $v) {
 		if (call_user_func($predicate, $v)) {
 			return true;

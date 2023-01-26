@@ -6,8 +6,9 @@ namespace Slash;
  *
  * Returns a curried version of the function of equal function
  *
- * @param $to
- * @return \Closure
+ * @template TValue
+ * @param TValue $to
+ * @return callable
  *
  * @example
  *
@@ -16,7 +17,7 @@ namespace Slash;
  * $isEqualTo5 = $equalToFive(4); // false
  *
  */
-function equalTo($to): \Closure
+function equalTo($to): callable
 {
 	return curryRight('Slash\equal', $to);
 }

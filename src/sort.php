@@ -7,9 +7,11 @@ namespace Slash;
  * Sort a list using comparator function `fn`,
  * returns new array (shallow copy) in sorted order.
  *
- * @param $list
- * @param $fn
- * @return mixed
+ * @template TKey
+ * @template TValue
+ * @param array<TKey, TValue> $list
+ * @param callable $fn
+ * @return array<TKey, TValue>
  *
  * @example
  *
@@ -18,7 +20,7 @@ namespace Slash;
  * Slash\sort([1,2,3,4,5], $descending); // === [5,4,3,2,1]
  *
  */
-function sort($list, $fn)
+function sort(array $list, callable $fn): array
 {
 	usort($list, $fn);
 	return $list;

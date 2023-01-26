@@ -8,8 +8,8 @@ namespace Slash;
  * `prop` is a function, will group the objects in list using the string returned
  * by passing each obj through `prop` function.
  *
- * @param $fn
- * @return \Closure
+ * @param callable $fn
+ * @return callable
  *
  * @example
  *
@@ -46,7 +46,7 @@ namespace Slash;
  * 		3 => [ [ "id" => 3, "value1" => 15, "value2" => 20 ] ]
  * ];
  */
-function groupBy($fn): \Closure
+function groupBy(callable|string $fn): callable
 {
 	return curryRight('Slash\group', $fn);
 }

@@ -6,8 +6,10 @@ namespace Slash;
  *
  * Return a copy of the array 'list' flattened by one level, ie [[1,2],[3,4]] = [1,2,3,4]
  *
- * @param array $list
- * @return array
+ * @template TKey
+ * @template TValue
+ * @param array<TKey, TValue> $list
+ * @return array<TKey, TValue>
  *
  * @example
  *

@@ -3,11 +3,12 @@
 namespace Slash;
 
 /**
- * @param $list
- * @param $fn
+ * @template TList
+ * @param TList &$list
+ * @param callable $fn
  * @return void
  */
-function walk(&$list, $fn)
+function walk(&$list, callable $fn)
 {
 	array_walk($list, $fn);
 }

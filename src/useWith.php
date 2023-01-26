@@ -10,8 +10,7 @@ namespace Slash;
  * using the correlating transform function - if there are more arguments
  * than transform functions, those arguments will be passed as is.
  *
- * @param $fn
- * @return \Closure
+ * @return callable
  *
  * @example
  *
@@ -20,21 +19,24 @@ namespace Slash;
  * Slash\useWith($sum, Slash\getWith('a'), Slash\getWith('b'))(['a' => 1, 'b' => 1]); // === 2
  *
  */
-function useWith($fn /*, txfn, ... */)
+function useWith()
 {
-	$transforms = func_get_args();
-	array_shift($transforms);
-	$_transform = function ($args) use ($transforms) {
-		return array_map(function ($arg, $i) use ($transforms) {
-			return $transforms[$i]($arg);
-		}, $args, array_keys($args));
-	};
-	return function () use ($_transform, $transforms, $fn) {
-		$args = func_get_args();
-		$transformsLen = count($transforms);
-		$targs = array_slice($args, 0, $transformsLen);
-		$remaining = array_slice($args, $transformsLen);
+    $transforms = func_get_args();
+    $fn = array_shift($transforms);
+    $_transform = function($args) use($transforms) {
+        return array_map(function($arg,$i) use($transforms) {
+            return $transforms[$i]($arg);
+        },$args,array_keys($args));
+    };
+    return function() use($_transform,$transforms,$fn) {
+        $args = func_get_args();
+        $transformsLen = count($transforms);
+        $targs = array_slice($args,0,$transformsLen);
+        $remaining = array_slice($args,$transformsLen);
 
-		return call_user_func_array($fn, array_merge(call_user_func($_transform, $targs), $remaining));
-	};
+        return call_user_func_array($fn, array_merge(
+            call_user_func($_transform,$targs),
+            $remaining)
+        );
+    };
 }

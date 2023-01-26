@@ -4,8 +4,10 @@ namespace Slash;
 
 /**
  * Compare if value $a is equal to $b
- * @param $a
- * @param $b
+ *
+ * @template TValue
+ * @param TValue $a
+ * @param TValue $b
  * @return bool
  *
  * @example

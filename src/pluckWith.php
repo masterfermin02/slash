@@ -2,7 +2,7 @@
 
 namespace Slash;
 
-function pluckWith($fn)
+function pluckWith(callable|string $fn): callable
 {
 	return curryRight('Slash\pluck', $fn);
 }

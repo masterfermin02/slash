@@ -56,7 +56,7 @@ Arrays
 **Example:** * Get the first n elements.
 ```php
  *
- * @param array $elements
+ * @param array<TKey, TValue> $elements
  * @param integer $amount
  * @return mixed|array
 ```
@@ -73,7 +73,7 @@ Collections
 **Example:** * Iterate through $collection using $iterator.
 ```php
  *
- * @param array $collection
+ * @param array<TKey, TValue> $collection
  * @param Closure $iterator
  * @return void
 ```

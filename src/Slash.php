@@ -2,27 +2,32 @@
 
 namespace Slash;
 
+use SebastianBergmann\Type\TrueType;
 use UnexpectedValueException;
 use BadMethodCallException;
 use ReflectionClass;
 use ReflectionException;
 
+/**
+ * @template TKey of array-key
+ * @template TValue
+ */
 class Slash
 {
 
 	/**
 	 * The instance of Slash.
 	 *
-	 * @var Slash
+	 * @var TValue
 	 */
 	protected static $instance;
 
 	/**
 	 * The modules you want to use.
 	 *
-	 * @var array
+	 * @var array<int, string>
 	 */
-	protected $modules = [
+	protected array $modules = [
 		'Slash\Arrays',
 		'Slash\Collections',
 		'Slash\Objects',
@@ -33,22 +38,23 @@ class Slash
 	/**
 	 * The loaded module instances.
 	 *
-	 * @var array
+	 * @var array<string, TValue>
 	 */
-	protected $instances = [];
+	protected array $instances = [];
 
 	/**
 	 * Load a module.
 	 *
+     * @template TType
 	 * @throws UnexpectedValueException
 	 * @param string $module
-	 * @param mixed|null $instance
-	 * @return mixed
+	 * @param TType|null $instance
+	 * @return TType
 	 */
-	public function load($module, $instance = null)
+	public function load(string $module, $instance = null)
 	{
-		if (! is_null($instance)) {
-			if (! $this->hasModule($module)) {
+		if (!is_null($instance)) {
+			if (!$this->hasModule($module)) {
 				$this->addModule($module);
 			}
 
@@ -66,9 +72,9 @@ class Slash
 	 * Determine whether the module exists.
 	 *
 	 * @param string $module
-	 * @return boolean
+	 * @return bool
 	 */
-	public function hasModule($module)
+	public function hasModule(string $module): bool
 	{
 		return in_array($module, $this->modules);
 	}
@@ -79,7 +85,7 @@ class Slash
 	 * @param string $module
 	 * @return void
 	 */
-	public function addModule($module)
+	public function addModule(string $module): void
 	{
 		$this->modules[] = $module;
 	}
@@ -87,9 +93,9 @@ class Slash
 	/**
 	 * Get all modules.
 	 *
-	 * @return array
+	 * @return array<int, string>
 	 */
-	public function getModules()
+	public function getModules(): array
 	{
 		return $this->modules;
 	}
@@ -100,7 +106,7 @@ class Slash
 	 * @param string $module
 	 * @return boolean
 	 */
-	public function isLoaded($module)
+	public function isLoaded(string $module): bool
 	{
 		return array_key_exists($module, $this->instances);
 	}
@@ -109,9 +115,9 @@ class Slash
 	 * Load a module (if not yet) and return its instance.
 	 *
 	 * @param string $module
-	 * @return mixed
+	 * @return TValue
 	 */
-	public function getInstance($module)
+	public function getInstance(string $module)
 	{
 		if (!$this->isLoaded($module)) {
 			$this->load($module);
@@ -124,12 +130,12 @@ class Slash
 	/**
 	 * Determine whether the given object has a method.
 	 *
-	 * @param $object
-	 * @param $method
+	 * @param TValue $object
+	 * @param string $method
 	 * @return bool
 	 * @throws ReflectionException
 	 */
-	public function hasMethod($object, $method)
+	public function hasMethod($object, string $method): bool
 	{
 		return (new ReflectionClass($object))->hasMethod($method);
 	}
@@ -139,11 +145,11 @@ class Slash
 	 *
 	 * @throws BadMethodCallException
 	 * @param string $name
-	 * @param array $arguments
-	 * @return mixed
+	 * @param array<TKey, TValue> $arguments
+	 * @return TValue
 	 * @throws ReflectionException
 	 */
-	public function run($name, array $arguments = [])
+	public function run(string $name, array $arguments = [])
 	{
 		foreach ($this->getModules() as $module) {
 			$instance = $this->getInstance($module);
@@ -160,10 +166,10 @@ class Slash
 	 * Handle calls to non-existent methods.
 	 *
 	 * @param string $method
-	 * @param array $arguments
-	 * @return mixed
+	 * @param array<TKey, TValue> $arguments
+	 * @return TValue
 	 */
-	public function __call($method, array $arguments = [])
+	public function __call(string $method, array $arguments = [])
 	{
 		return call_user_func_array([$this, 'run'], [$method, $arguments]);
 	}
@@ -172,10 +178,10 @@ class Slash
 	 * Handle calls to non-existent static methods.
 	 *
 	 * @param string $method
-	 * @param array $arguments
-	 * @return mixed
+	 * @param array<TKey, TValue> $arguments
+	 * @return TValue
 	 */
-	public static function __callStatic($method, array $arguments = [])
+	public static function __callStatic(string $method, array $arguments = [])
 	{
 		if (! (self::$instance instanceof self)) {
 			self::$instance = new self;

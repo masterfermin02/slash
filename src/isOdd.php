@@ -2,7 +2,7 @@
 
 namespace Slash;
 
-function isOdd($number): bool
+function isOdd(int $number): bool
 {
 	return !isEven($number);
 }
