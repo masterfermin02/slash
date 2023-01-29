@@ -2,11 +2,9 @@
 
 namespace Slash;
 
-use SebastianBergmann\Type\TrueType;
 use UnexpectedValueException;
 use BadMethodCallException;
 use ReflectionClass;
-use ReflectionException;
 
 /**
  * @template TKey of array-key
