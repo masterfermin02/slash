@@ -48,9 +48,9 @@ interface Enumerable extends Countable, IteratorAggregate, JsonSerializable
     /**
      * @template TItem
      * @param callable(TValue, TKey): TItem $fn
-     * @return static
+     * @return bool
      */
-    public function hasAny(callable $fn): self;
+    public function hasAny(callable $fn): bool;
 
     /**
      * @template TItem

@@ -68,6 +68,7 @@
       "src/greaterThanOrEqualTo.php",
       "src/group.php",
       "src/groupBy.php",
+      "src/helps.php",
       "src/isEven.php",
       "src/isOdd.php",
       "src/last.php",

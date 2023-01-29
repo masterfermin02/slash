@@ -114,6 +114,11 @@ final class Collection implements ArrayAccess, Enumerable
         return $this->all();
     }
 
+    /**
+     * @param callable $fn
+     *
+     * @return $this
+     */
     public function map(callable $fn): self
     {
         $items = [];
@@ -125,14 +130,19 @@ final class Collection implements ArrayAccess, Enumerable
         return new static($items);
     }
 
+    /**
+     * @param callable $fn
+     *
+     * @return $this
+     */
     public function filter(callable $fn): self
     {
         return new static(filter($this->items, $fn));
     }
 
-    public function hasAny(callable $fn): Enumerable
+    public function hasAny(callable $fn): bool
     {
-        // TODO: Implement hasAny() method.
+        return any($this->items, $fn);
     }
 
     public function each(callable $fn): Enumerable
@@ -142,7 +152,12 @@ final class Collection implements ArrayAccess, Enumerable
         return new static($this->items);
     }
 
-    public function reduce(callable $fn): Enumerable
+    /**
+     * @param callable $fn
+     *
+     * @return $this
+     */
+    public function reduce(callable $fn): self
     {
         return new static(reduce($this->items, $fn));
     }
