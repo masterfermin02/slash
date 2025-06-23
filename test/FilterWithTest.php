@@ -5,7 +5,7 @@ use PHPUnit\Framework\TestCase;
 class FilterWithTest extends TestCase {
 
     #[\PHPUnit\Framework\Attributes\DataProvider('cases')]
-    public function testAll(array $list, string $func, $expected): void
+    public function testAll(array $list, string $func, array $expected): void
     {
         $this->assertEquals(array_values($expected), array_values(Slash\filterWith($func)($list)));
     }

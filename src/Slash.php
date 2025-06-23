@@ -38,6 +38,11 @@ class Slash
 	 */
 	protected array $instances = [];
 
+    public static function make(): static
+    {
+        return new static();
+    }
+
 	/**
      * Load a module.
      *
