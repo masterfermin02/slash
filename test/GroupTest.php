@@ -1,10 +1,8 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use function Slash\getWith;
-use function Slash\groupBy;
 
-class groupTest extends TestCase {
+class GroupTest extends TestCase {
 
     protected $records = [
         ['id' => 1, 'value1' => 5, 'value2' => 10],
@@ -16,8 +14,7 @@ class groupTest extends TestCase {
 
     public function testGroupByID(): void
     {
-        $groupById = groupBy('id');
-        $grouped = $groupById($this->records);
+        $grouped = slash()->groupBy($this->records, 'id');
         $expected = [
             1 => [ [ "id" => 1, "value1" => 5, "value2" => 10 ], [ "id" => 1, "value1" => 1, "value2" => 2 ] ],
             2 => [ [ "id" => 2, "value1" => 50, "value2" => 100 ], [ "id" => 2, "value1" => 15, "value2" => 20 ] ],

@@ -7,7 +7,7 @@ class MapTest extends TestCase {
     #[\PHPUnit\Framework\Attributes\DataProvider('cases')]
     public function testMap(array $list, \Closure $func, array $expected): void
     {
-        $this->assertEquals(array_values($expected), array_values(Slash\map($list, $func)));
+        $this->assertEquals(array_values($expected), array_values(slash()->map($list, $func)));
     }
 
     #[\PHPUnit\Framework\Attributes\DataProvider('cases')]

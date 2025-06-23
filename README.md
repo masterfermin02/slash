@@ -12,19 +12,7 @@ A small usage example for the groupBy function:
 ```php
 <?php
 
-use function Slash\groupBy;
-
-$records = [
-     ['id' => 1, 'value1' => 5, 'value2' => 10],
-     ['id' => 2, 'value1' => 50, 'value2' => 100],
-     ['id' => 1, 'value1' => 2, 'value2' => 2],
-     ['id' => 2, 'value1' => 15, 'value2' => 20],
-     ['id' => 3, 'value1' => 15, 'value2' => 20],
-];
-
-$groupById = groupBy('id');
-
-$grouped = $groupById($records);
+$grouped = slash()->groupBy($this->records, 'id');
 
 /*
  * resultado :    [
@@ -41,21 +29,17 @@ Map usage :
 ```php
 <?php 
 
-use Slash\Slash;
-
-Slash\map([1, 2, 3], fn ($n) => $n * 2);  // === [2, 4, 6]
+slash()->map([1, 2, 3], fn ($n) => $n * 2);  // === [2, 4, 6]
 ```
 
 Example with slash object:
 ```php
 <?php
-use Slash\Slash;
+slash()->max([1, 2, 3]) // => 3
 
-Slash::max([1, 2, 3]) // => 3
+slash()->flatten([1, [2, [3]]]) // => [1, 2, 3]
 
-Slash::flatten([1, [2, [3]]]) // => [1, 2, 3]
-
-Slash::last([1, 2, 3], 2) // => [2, 3]
+slash()->last([1, 2, 3], 2) // => [2, 3]
 
 ```
 ## Why Slash?
@@ -80,8 +64,6 @@ Requires PHP 8+
 ```bash
 composer require masterfermin02/slash
 ```
-
-For php 7 use version 1.4.0
 
 ## Usage
 Slash operations are pure functions that can be used alone.
