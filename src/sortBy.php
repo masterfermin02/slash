@@ -7,8 +7,6 @@ namespace Slash;
  * Sort a list using comparator function `fn`,
  * returns \Closure that returns new array (shallow copy) in sorted order.
  *
- * @param callable $fn
- * @return callable
  *
  * @example
  *

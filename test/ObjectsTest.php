@@ -19,191 +19,187 @@ class ObjectsTest extends TestCase {
         $this->objects = New Objects();
     }
 
-    /**
-     * @dataProvider cases
-     */
-    public function testFunctionMethods($list, $func, $method, $expected): void
+    #[\PHPUnit\Framework\Attributes\DataProvider('cases')]
+    public function testFunctionMethods(\stdClass|int $list, \Closure|string|\stdClass|int|array $func, string $method, \stdClass|bool $expected): void
     {
         $this->assertEquals($expected, call_user_func([$this->objects, $method], $list, $func));
     }
 
-    /**
-     * @dataProvider valueCases
-     */
-    public function testArrayMethods($list, $method, $expected)
+    #[\PHPUnit\Framework\Attributes\DataProvider('valueCases')]
+    public function testArrayMethods(\stdClass|int|\DateTime|string|bool|\Closure|array|null $list, string $method, \stdClass|bool|array $expected): void
     {
         $this->assertEquals($expected, call_user_func([$this->objects, $method], $list));
     }
 
-    public function cases()
+    public static function cases(): array
     {
         $obj = new \stdClass;
         $obj->foo = 'bar';
         return [
             'With apply' => [
                 'list' => new \stdClass,
-                'func' => function($object) {
+                'func' => function($object): void {
                     $object->foo = 'bar';
                 },
                 'method' => 'apply',
-                'experted' => $obj,
+                'expected' => $obj,
             ],
             'With  has' => [
                 'list' => new \stdClass,
                 'func' => 'foo',
                 'method' => 'has',
-                'experted' => false,
+                'expected' => false,
             ],
             'With  extend' => [
                 'list' => (object) ['a' => 1, 'b' => 2],
                 'func' => (object) ['c' => 3, 'd' => 4],
                 'method' => 'extend',
-                'experted' => (object) ['c' => 3, 'd' => 4, 'a' => 1, 'b' => 2],
+                'expected' => (object) ['c' => 3, 'd' => 4, 'a' => 1, 'b' => 2],
             ],
             'With  defaults' => [
                 'list' => (object) ['a' => 1, 'b' => 2],
                 'func' => (object) ['c' => 3, 'd' => 4],
                 'method' => 'defaults',
-                'experted' => (object) ['a' => 1, 'b' => 2],
+                'expected' => (object) ['a' => 1, 'b' => 2],
             ],
             'With array defaults' => [
                 'list' => (object) ['a' => 1, 'b' => 2],
                 'func' => [(object) ['c' => 3], (object) ['d' => 4]],
                 'method' => 'defaults',
-                'experted' => (object) ['a' => 1, 'b' => 2],
+                'expected' => (object) ['a' => 1, 'b' => 2],
             ],
             'With isEqual' => [
                 'list' => 1,
                 'func' => 1,
                 'method' => 'isEqual',
-                'experted' => true,
+                'expected' => true,
             ],
             'With not isEqual' => [
                 'list' => 1,
                 'func' => 0,
                 'method' => 'isEqual',
-                'experted' => false,
+                'expected' => false,
             ],
         ];
     }
 
-    public function valueCases()
+    public static function valueCases(): array
     {
         return [
             'With keys' => [
                 'list' => (object) ['a' => 1, 'b' => 2],
                 'method' => 'keys',
-                'experted' => ['a','b']
+                'expected' => ['a','b']
             ],
             'With values' => [
                 'list' => (object) ['a' => 1, 'b' => 2],
                 'method' => 'values',
-                'experted' => [1,2]
+                'expected' => [1,2]
             ],
             'With copy' => [
                 'list' => (object) ['a' => 1, 'b' => 2],
                 'method' => 'copy',
-                'experted' => (object) ['a' => 1, 'b' => 2]
+                'expected' => (object) ['a' => 1, 'b' => 2]
             ],
             'With isNull' => [
                 'list' => null,
                 'method' => 'isNUll',
-                'experted' => true
+                'expected' => true
             ],
             'With isNull false' => [
                 'list' => 1,
                 'method' => 'isNUll',
-                'experted' => false
+                'expected' => false
             ],
             'With array isTraversable' => [
                 'list' => [],
                 'method' => 'isTraversable',
-                'experted' => true
+                'expected' => true
             ],
             'With null isTraversable' => [
                 'list' => null,
                 'method' => 'isTraversable',
-                'experted' => false
+                'expected' => false
             ],
             'With array isArray' => [
                 'list' => [],
                 'method' => 'isArray',
-                'experted' => true
+                'expected' => true
             ],
             'With  isDate' => [
                 'list' => new DateTime,
                 'method' => 'isDate',
-                'experted' => true
+                'expected' => true
             ],
             'With not isDate' => [
                 'list' => new stdClass,
                 'method' => 'isDate',
-                'experted' => false
+                'expected' => false
             ],
             'With not isNumber' => [
                 'list' => '',
                 'method' => 'isNumber',
-                'experted' => false
+                'expected' => false
             ],
             'With  isNumber' => [
                 'list' => 1,
                 'method' => 'isNumber',
-                'experted' => true
+                'expected' => true
             ],
             'With not isBoolean' => [
                 'list' => new stdClass,
                 'method' => 'isBoolean',
-                'experted' => false
+                'expected' => false
             ],
             'With isBoolean' => [
                 'list' => true,
                 'method' => 'isBoolean',
-                'experted' => true
+                'expected' => true
             ],
             'With  isString' => [
                 'list' => '',
                 'method' => 'isString',
-                'experted' => true
+                'expected' => true
             ],
             'With not  isString' => [
                 'list' => true,
                 'method' => 'isString',
-                'experted' => false
+                'expected' => false
             ],
             'With  isFunction' => [
-                'list' => function() {},
+                'list' => function(): void {},
                 'method' => 'isFunction',
-                'experted' => true
+                'expected' => true
             ],
             'With not isFunction' => [
                 'list' => true,
                 'method' => 'isFunction',
-                'experted' => false
+                'expected' => false
             ],
             'With isObject' => [
                 'list' => new stdClass,
                 'method' => 'isObject',
-                'experted' => true
+                'expected' => true
             ],
             'With not isObject' => [
                 'list' => true,
                 'method' => 'isObject',
-                'experted' => false
+                'expected' => false
             ],
             'With not isEmpty' => [
                 'list' => true,
                 'method' => 'isEmpty',
-                'experted' => false
+                'expected' => false
             ],
             'With isEmpty' => [
                 'list' => [],
                 'method' => 'isEmpty',
-                'experted' => true
+                'expected' => true
             ],
         ];
     }
 
-    function testMethods()
+    function testMethods(): void
     {
         $methods = $this->objects->methods(new DummyMethods3());
         $this->assertEquals(['foo'], $methods);

@@ -18,13 +18,12 @@ class Objects
 {
 
 	/**
-	 * Invoke $closure on $object, then return $object.
-	 *
-	 * @param TType $object
-	 * @param callable $closure
-	 * @return TType
-	 */
-	public function apply($object, callable $closure)
+     * Invoke $closure on $object, then return $object.
+     *
+     * @param TType $object
+     * @return TType
+     */
+    public function apply($object, callable $closure)
 	{
 		$closure($object);
 
@@ -32,13 +31,11 @@ class Objects
 	}
 
 	/**
-	 * Determine whether the given object has a key.
-	 *
-	 * @param TType $object
-	 * @param string $key
-	 * @return bool
-	 */
-	public function has($object, string $key): bool
+     * Determine whether the given object has a key.
+     *
+     * @param TType $object
+     */
+    public function has($object, string $key): bool
 	{
 		return in_array($key, $this->keys($object));
 	}
@@ -131,7 +128,7 @@ class Objects
 	{
 		$methods = (new ReflectionClass($object))->getMethods(ReflectionMethod::IS_PUBLIC);
 
-		$iterator = function (ReflectionMethod $method) {
+		$iterator = function (ReflectionMethod $method): string {
 			return $method->getName();
 		};
 
@@ -139,123 +136,112 @@ class Objects
 	}
 
 	/**
-	 * Determine whether the given value is null.
-	 *
-	 * @param TType $value
-	 * @return bool
-	 */
-	public function isNull($value): bool
+     * Determine whether the given value is null.
+     *
+     * @param TType $value
+     */
+    public function isNull($value): bool
 	{
 		return is_null($value);
 	}
 
 	/**
-	 * Determine whether the given value is traversable.
-	 *
-	 * @param TType $value
-	 * @return bool
-	 */
-	public function isTraversable($value): bool
+     * Determine whether the given value is traversable.
+     *
+     * @param TType $value
+     */
+    public function isTraversable($value): bool
 	{
-		return is_array($value) or ($value instanceof Traversable);
+		return is_array($value) || $value instanceof Traversable;
 	}
 
 	/**
-	 * Determine whether the given value is an array.
-	 *
-	 * @param TType $value
-	 * @return bool
-	 */
-	public function isArray($value): bool
+     * Determine whether the given value is an array.
+     *
+     * @param TType $value
+     */
+    public function isArray($value): bool
 	{
 		return is_array($value);
 	}
 
 	/**
-	 * Determine whether the given value is an instance of \DateTime.
-	 *
-	 * @param TType $value
-	 * @return bool
-	 */
-	public function isDate($value): bool
+     * Determine whether the given value is an instance of \DateTime.
+     *
+     * @param TType $value
+     */
+    public function isDate($value): bool
 	{
 		return ($value instanceof DateTime);
 	}
 
 	/**
-	 * Determine whether the given value is a float or an integer.
-	 *
-	 * @param TType $value
-	 * @return bool
-	 */
-	public function isNumber($value): bool
+     * Determine whether the given value is a float or an integer.
+     *
+     * @param TType $value
+     */
+    public function isNumber($value): bool
 	{
-		return is_integer($value) or is_float($value);
+		return is_int($value) || is_float($value);
 	}
 
 	/**
-	 * Determine whether the given value is a boolean.
-	 *
-	 * @param TType $value
-	 * @return bool
-	 */
-	public function isBoolean($value): bool
+     * Determine whether the given value is a boolean.
+     *
+     * @param TType $value
+     */
+    public function isBoolean($value): bool
 	{
 		return is_bool($value);
 	}
 
 	/**
-	 * Determine whether the given value is a string.
-	 *
-	 * @param TType $value
-	 * @return bool
-	 */
-	public function isString($value): bool
+     * Determine whether the given value is a string.
+     *
+     * @param TType $value
+     */
+    public function isString($value): bool
 	{
 		return is_string($value);
 	}
 
 	/**
-	 * Determine whether the given value is an instance of \Closure.
-	 *
-	 * @param TType $value
-	 * @return bool
-	 */
-	public function isFunction($value): bool
+     * Determine whether the given value is an instance of \Closure.
+     *
+     * @param TType $value
+     */
+    public function isFunction($value): bool
 	{
 		return ($value instanceof Closure);
 	}
 
 	/**
-	 * Determine whether the given value is an object.
-	 *
-	 * @param TType $value
-	 * @return bool
-	 */
-	public function isObject($value): bool
+     * Determine whether the given value is an object.
+     *
+     * @param TType $value
+     */
+    public function isObject($value): bool
 	{
 		return is_object($value);
 	}
 
 	/**
-	 * Compare two values using === (strict mode).
-	 *
-	 * @param TType $left
-	 * @param TType $right
-	 * @return bool
-	 */
-	public function isEqual($left, $right): bool
+     * Compare two values using === (strict mode).
+     *
+     * @param TType $left
+     * @param TType $right
+     */
+    public function isEqual($left, $right): bool
 	{
 		return ($left) === $right;
 	}
 
 	/**
-	 * Determine whether the given value is empty.
-	 *
-	 * @param TType $value
-	 * @return bool
-	 */
-	public function isEmpty($value): bool
+     * Determine whether the given value is empty.
+     *
+     * @param TType $value
+     */
+    public function isEmpty($value): bool
 	{
 		return empty($value);
 	}

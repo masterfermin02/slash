@@ -12,7 +12,6 @@ if (!function_exists('average')) {
      *
      * @param array<TKey, TValue> $list
      *
-     * @return float|int|null
      *
      * @example
      *    Slash\average([1, 3, 5]); // === 3

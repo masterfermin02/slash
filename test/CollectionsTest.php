@@ -10,8 +10,6 @@ class CollectionsTest extends TestCase {
 
     /**
      * The instance of Arrays.
-     *
-     * @var Collections
      */
     protected Collections $collections;
 
@@ -22,34 +20,32 @@ class CollectionsTest extends TestCase {
         $this->collections = New Collections();
     }
 
-    /**
-     * @dataProvider cases
-     */
-    public function testFunctionMethods($list, $func, $method, $expected)
+
+    #[\PHPUnit\Framework\Attributes\DataProvider('cases')]
+    public function testFunctionMethods(array $list, \Closure|string|int $func, string $method, bool|int|array $expected): void
     {
         $this->assertEquals($expected, call_user_func([$this->collections, $method], $list, $func));
     }
 
-    /**
-     * @dataProvider valueCases
-     */
-    public function testArrayMethods($list, $method, $expected)
+
+    #[\PHPUnit\Framework\Attributes\DataProvider('valueCases')]
+    public function testArrayMethods(array $list, string $method, int|array $expected): void
     {
         $this->assertEquals($expected, call_user_func([$this->collections, $method], $list));
     }
 
-    public function testSizeTypeErrorException()
+    public function testSizeTypeErrorException(): void
     {
         $this->expectException(TypeError::class);
         call_user_func([$this->collections, 'size'], null);
     }
 
-    public function testShuffle()
+    public function testShuffle(): void
     {
         $this->assertCount(2, call_user_func([$this->collections, 'shuffle'], [1,2]));
     }
 
-    public function testPluck()
+    public function testPluck(): void
     {
         $this->assertEquals([1,2], call_user_func([$this->collections, 'pluck'], [
             ['id' => 1],
@@ -59,11 +55,11 @@ class CollectionsTest extends TestCase {
         ));
     }
 
-    public function testSortBy()
+    public function testSortBy(): void
     {
         $param = [1,4,2,3];
         $expected = [4,3,2,1];
-        $asc = function ($a, $b) { return $a < $b ? 1 : 0; };
+        $asc = function ($a, $b): int { return $a < $b ? 1 : 0; };
 
         $this->assertEquals($expected, call_user_func([$this->collections, 'sortBy'], $param, $asc));
     }
@@ -77,62 +73,62 @@ class CollectionsTest extends TestCase {
                   'With array test invoke'                                         => "array",
                   'With array test reduce'                                         => "array",
                   'With array test sortBy'                                         => "array"
-    ])] public function cases(): array
+    ])] public static function cases(): array
     {
         return [
             'With array test map' => [
                 'list' => [1,2,3,4,5,6,7,8,9,10],
-                'func' => function ($n) { return $n * 2; },
+                'func' => function ($n): int|float { return $n * 2; },
                 'method' => 'map',
-                'experted' => [2, 4, 6, 8, 10, 12, 14, 16, 18, 20],
+                'expected' => [2, 4, 6, 8, 10, 12, 14, 16, 18, 20],
             ],
             'With 2,4,8 return true for even' => [
                 'list' => [2,4,8],
-                'func' => function($number) { return Slash\isEven($number); },
+                'func' => function($number): bool { return Slash\isEven($number); },
                 'method' => 'any',
-                'experted' => true,
+                'expected' => true,
             ],
             'With 2,4,8 return true for even all' => [
                 'list' => [2,4,8],
-                'func' => function($number) { return Slash\isEven($number); },
+                'func' => function($number): bool { return Slash\isEven($number); },
                 'method' => 'all',
-                'experted' => true,
+                'expected' => true,
             ],
             'With 2,4,8 return [4,8] for reject 2' => [
                 'list' => [2,4,8],
-                'func' => function($number) { return Slash\equal($number, 2); },
+                'func' => function($number): bool { return Slash\equal($number, 2); },
                 'method' => 'reject',
-                'experted' => [4,8],
+                'expected' => [4,8],
             ],
             'With ["a" => 2, "b" => 4, "c" => 8] pluck 0 should returns [2]' => [
                 'list' => [["a" => 2], "b" => 4, "c" => 8],
                 'func' => "a",
                 'method' => 'pluck',
-                'experted' => [2],
+                'expected' => [2],
             ],
             'With 2,4,8 return true for even contains' => [
                 'list' => [2,4,8],
                 'func' => 2,
                 'method' => 'contains',
-                'experted' => true,
+                'expected' => true,
             ],
             'With array test invoke' => [
                 'list' => [1,2,3,4,5,6,7,8,9,10],
-                'func' => function ($n) { return $n * 2; },
+                'func' => function ($n): int|float { return $n * 2; },
                 'method' => 'invoke',
-                'experted' => [2, 4, 6, 8, 10, 12, 14, 16, 18, 20],
+                'expected' => [2, 4, 6, 8, 10, 12, 14, 16, 18, 20],
             ],
             'With array test reduce' => [
                 'list' => [1,2,3],
-                'func' => function ($total, $n) { return $total + $n; },
+                'func' => function ($total, $n): float|int|array { return $total + $n; },
                 'method' => 'reduce',
-                'experted' => 6,
+                'expected' => 6,
             ],
             'With array test sortBy' => [
                 'list' => [1,4,2,3],
-                'func' => function ($a, $b) { return $a < $b ? 1 : 0; },
+                'func' => function ($a, $b): int { return $a < $b ? 1 : 0; },
                 'method' => 'sortBy',
-                'experted' => [4,3,2,1],
+                'expected' => [4,3,2,1],
             ],
         ];
     }
@@ -144,7 +140,7 @@ class CollectionsTest extends TestCase {
                   'With array [1, 2] max method should return 2'                              => "array",
                   'With array [1000, 2, 50, 1, 5000, 30, 40, 500] min method should return 1' => "array"
     ])]
-    public function valueCases(): array
+    public static function valueCases(): array
     {
         return [
             'With array [1, 2] size method should return 2' => [
@@ -180,25 +176,25 @@ class CollectionsTest extends TestCase {
         ];
     }
 
-    public function testToArray()
+    public function testToArray(): void
     {
         $data = 'Hello';
         $expected = [$data];
         $this->assertEquals($expected, $this->collections->toArray($data));
     }
 
-    public function testEach()
+    public function testEach(): void
     {
         $expected = [2,3,4,5,6,7,8,9,10,11];
         $data = [1,2,3,4,5,6,7,8,9,10];
-        $this->collections->each($data, function (&$n) {
+        $this->collections->each($data, function (&$n): void {
             $n++;
         });
 
         $this->assertEquals($expected[3], $data[3] + 1);
     }
 
-    public function testGroupByID()
+    public function testGroupByID(): void
     {
         $grouped = $this->collections->groupBy([
             ['id' => 1, 'value1' => 5, 'value2' => 10],

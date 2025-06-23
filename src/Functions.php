@@ -34,12 +34,11 @@ class Functions
 	protected array $delayed = [];
 
 	/**
-	 * Execute $closure and cache its output.
-	 *
-	 * @param Closure $closure
-	 * @return string
-	 */
-	public function cache(Closure $closure)
+     * Execute $closure and cache its output.
+     *
+     * @return string
+     */
+    public function cache(Closure $closure)
 	{
 		$hash = spl_object_hash($closure);
 
@@ -51,13 +50,11 @@ class Functions
 	}
 
 	/**
-	 * Wrap $closure inside $wrapper.
-	 *
-	 * @param Closure $closure
-	 * @param Closure $wrapper
-	 * @return TValue
-	 */
-	public function wrap(Closure $closure, Closure $wrapper)
+     * Wrap $closure inside $wrapper.
+     *
+     * @return TValue
+     */
+    public function wrap(Closure $closure, Closure $wrapper)
 	{
 		return $wrapper($closure);
 	}
@@ -69,7 +66,7 @@ class Functions
 	 * @param array<TKey, TValue> $arguments
 	 * @return TValue
 	 */
-	public function compose(array $closures, array $arguments = [])
+	public function compose(array $closures, array $arguments = []): mixed
 	{
         $fn = call_user_func_array(
             curryRight('Slash\compose'),
@@ -87,12 +84,9 @@ class Functions
 	}
 
 	/**
-	 * Execute $closure only once and ignore future calls.
-	 *
-	 * @param Closure $closure
-	 * @return void
-	 */
-	public function once(Closure $closure): void
+     * Execute $closure only once and ignore future calls.
+     */
+    public function once(Closure $closure): void
 	{
 		$hash = spl_object_hash($closure);
 
@@ -104,13 +98,11 @@ class Functions
 	}
 
 	/**
-	 * Only execute $closure after the exact $number of failed tries.
-	 *
-	 * @param int $number
-	 * @param Closure $closure
-	 * @return TValue|null
-	 */
-	public function after(int $number, Closure $closure)
+     * Only execute $closure after the exact $number of failed tries.
+     *
+     * @return TValue|null
+     */
+    public function after(int $number, Closure $closure)
 	{
 		$hash = spl_object_hash($closure);
 

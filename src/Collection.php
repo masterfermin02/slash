@@ -18,7 +18,7 @@ final class Collection implements ArrayAccess, Enumerable
      * @param array<TKey, TValue> $items
      */
     public  function __construct(
-        protected array $items = []
+        private array $items = []
     ) {
 
     }
@@ -30,14 +30,13 @@ final class Collection implements ArrayAccess, Enumerable
      */
     public static function make(array $items): self
     {
-       return new static($items);
+       return new self($items);
     }
 
     /**
      * Check if given offset exists.
      *
      * @param  TKey|null  $key
-     * @return bool
      */
     public function offsetExists($key): bool
     {
@@ -60,7 +59,6 @@ final class Collection implements ArrayAccess, Enumerable
      *
      * @param  TKey|null  $key
      * @param  TValue  $value
-     * @return void
      */
     public function offsetSet($key, $value): void
     {
@@ -75,8 +73,6 @@ final class Collection implements ArrayAccess, Enumerable
      * Remove the item at a given offset.
      *
      * @param TKey $offset
-     *
-     * @return void
      */
     public function offsetUnset(mixed $offset): void
     {
@@ -111,12 +107,10 @@ final class Collection implements ArrayAccess, Enumerable
 
     public function toArray(): array
     {
-        return $this->all();
+        return $this->items;
     }
 
     /**
-     * @param callable $fn
-     *
      * @return $this
      */
     public function map(callable $fn): self
@@ -127,17 +121,15 @@ final class Collection implements ArrayAccess, Enumerable
             $items[] = $fn($value, $key);
         }
 
-        return new static($items);
+        return new self($items);
     }
 
     /**
-     * @param callable $fn
-     *
      * @return $this
      */
     public function filter(callable $fn): self
     {
-        return new static(filter($this->items, $fn));
+        return new self(filter($this->items, $fn));
     }
 
     public function hasAny(callable $fn): bool
@@ -149,31 +141,29 @@ final class Collection implements ArrayAccess, Enumerable
     {
         walk($this->items, $fn);
 
-        return new static($this->items);
+        return new self($this->items);
     }
 
     /**
-     * @param callable $fn
-     *
      * @return $this
      */
     public function reduce(callable $fn): self
     {
-        return new static(reduce($this->items, $fn));
+        return new self(reduce($this->items, $fn));
     }
 
     public function filterWith(callable $fn): Enumerable
     {
-        return new static(filterWith($fn)($this->items));
+        return new self(filterWith($fn)($this->items));
     }
 
     public function groupBy(callable $fn): Enumerable
     {
-        return new static(groupBy($fn)($this->items));
+        return new self(groupBy($fn)($this->items));
     }
 
     public function unique(callable $fn): Enumerable
     {
-        return new static(unique($this->items, $fn));
+        return new self(unique($this->items, $fn));
     }
 }

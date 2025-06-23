@@ -10,9 +10,7 @@ if (!function_exists('all')) {
      * @template TValue
      *
      * @param array<TKey, TValue> $array
-     * @param callable            $predicate
      *
-     * @return bool
      *
      * @example
      * Slash\all([1, 3, 5], 'Slash\isOdd'); // === true

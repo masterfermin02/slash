@@ -2,17 +2,15 @@
 
 use PHPUnit\Framework\TestCase;
 
-class equalTest extends TestCase {
+class EqualTest extends TestCase {
 
-    /**
-     * @dataProvider cases
-     */
-    public function testComparator($list, $expected)
+    #[\PHPUnit\Framework\Attributes\DataProvider('cases')]
+    public function testComparator(array $list, bool $expected): void
     {
         $this->assertEquals($expected, Slash\equal($list[0],$list[1]));
     }
 
-    public function cases()
+    public static function cases(): array
     {
         return [
             'With 1 = 0 return false' => [

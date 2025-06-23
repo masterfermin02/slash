@@ -19,38 +19,36 @@ class FunctionsTest extends TestCase {
         $this->functions = New Functions();
     }
 
-    /**
-     * @dataProvider valueCases
-     */
-    public function testArrayMethods($list, $method, $expected)
+    #[\PHPUnit\Framework\Attributes\DataProvider('valueCases')]
+    public function testArrayMethods(\Closure $list, string $method, ?string $expected): void
     {
         $this->assertEquals($expected, call_user_func([$this->functions, $method], $list));
     }
 
-    public function valueCases()
+    public static function valueCases(): array
     {
         return [
             'With cache' => [
-                'list' => function () { return 'Hello'; },
+                'list' => function (): string { return 'Hello'; },
                 'method' => 'cache',
-                'experted' => 'Hello',
+                'expected' => 'Hello',
             ],
             'With once' => [
-                'list' => function () { return 'Hello'; },
+                'list' => function (): string { return 'Hello'; },
                 'method' => 'once',
-                'experted' => null,
+                'expected' => null,
             ],
         ];
     }
 
-    public function testWrap()
+    public function testWrap(): void
     {
-        $this->assertEquals('Hello', $this->functions->wrap(function() { return 'Hello'; }, function($fn) { return $fn(); }));
+        $this->assertEquals('Hello', $this->functions->wrap(function(): string { return 'Hello'; }, function($fn) { return $fn(); }));
     }
 
-    public function testCompose()
+    public function testCompose(): void
     {
-        $sum = function ($a, $b) {
+        $sum = function ($a, $b): float|int|array {
             return $a + $b;
         };
         $functions = [
@@ -61,9 +59,9 @@ class FunctionsTest extends TestCase {
         $this->assertEquals(6, $this->functions->compose($functions, $args));
     }
 
-    public function testAfter()
+    public function testAfter(): void
     {
-        $closure = function()
+        $closure = function(): string
         {
             return 'foo';
         };

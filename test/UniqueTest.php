@@ -3,33 +3,31 @@
 use PHPUnit\Framework\TestCase;
 use function Slash\unique;
 
-class uniqueTest extends TestCase {
-    /**
-     * @dataProvider cases
-     */
-    public function testFilter($list, $func, $expected)
+class UniqueTest extends TestCase {
+    #[\PHPUnit\Framework\Attributes\DataProvider('cases')]
+    public function testFilter(array $list, string|\Closure|null $func, array $expected): void
     {
         $this->assertEquals(array_values($expected), array_values(unique($list, $func)));
     }
 
-    public function testNullCollectionThrowException()
+    public function testNullCollectionThrowException(): void
     {
         $this->expectException(TypeError::class);
         unique(null);
     }
 
-    public function cases()
+    public static function cases(): array
     {
         return [
             'With a empty list' => [
                 'list' => [],
                 'func' => 'Slash\isEven',
-                'experted' => [],
+                'expected' => [],
             ],
             'With range should remove duplicated index' => [
                 'list' => [1,1,2,2,3,3,4,4],
                 'func' => function ($number) { return $number; },
-                'experted' => [1,2,3,4],
+                'expected' => [1,2,3,4],
             ],
             'With an associative array with several elements that satisfy the predicate' => [
                 'list' => ['a' => 1, 't' => 1, 'b' => 2, 'c' => 4, 'd' => 7, 'e' => 9],

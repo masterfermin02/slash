@@ -3,30 +3,26 @@
 use PHPUnit\Framework\TestCase;
 use function Slash\pair;
 
-class pairTest extends TestCase {
+class PairTest extends TestCase {
 
-    /**
-     * @dataProvider cases
-     */
-    public function testPair($list, $expected)
+    #[\PHPUnit\Framework\Attributes\DataProvider('cases')]
+    public function testPair(array $list, array $expected): void
     {
         $this->assertEquals($expected, Slash\pair($list[0],$list[1]));
     }
 
-    /**
-     * @dataProvider cases
-     */
-    public function testPairWith($list, $expected)
+    #[\PHPUnit\Framework\Attributes\DataProvider('cases')]
+    public function testPairWith(array $list, array $expected): void
     {
         $this->assertEquals($expected, Slash\pairWith(function($item){ return $item; })($list[0],$list[1]));
     }
 
-    public function cases()
+    public static function cases(): array
     {
         return [
             'With [[1,2],[3,4]]' => [
                 'list' => [[1,2],[3,4]],
-                'experted' => [[1,3],[1,4],[2,3],[2,4]]
+                'expected' => [[1,3],[1,4],[2,3],[2,4]]
             ],
         ];
     }

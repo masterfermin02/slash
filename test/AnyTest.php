@@ -2,33 +2,22 @@
 
 use PHPUnit\Framework\TestCase;
 
-class allTest extends TestCase {
+class AnyTest extends TestCase {
 
-    /**
-     * @dataProvider cases
-     */
-    public function testAll($list, $func, $expected)
+    #[\PHPUnit\Framework\Attributes\DataProvider('cases')]
+    public function testAny(array $list, string $func, bool $expected): void
     {
-        $this->assertEquals($expected, Slash\all($list, $func));
+        $this->assertEquals($expected, Slash\any($list, $func));
     }
 
-    /**
-     * @param $list
-     * @param $func
-     * @param $expected
-     *
-     * @dataProvider invalidArgs
-     *
-     * @return void
-     */
-    public function testInvalidArgumentException($list, $func): void
+    #[\PHPUnit\Framework\Attributes\DataProvider('invalidArgs')]
+    public function testInvalidArgs(?\stdClass $list, string $func): void
     {
         $this->expectException(TypeError::class);
-
-        Slash\all($list, $func);
+        Slash\any($list, $func);
     }
 
-    public function invalidArgs(): array
+    public static function invalidArgs(): array
     {
         return [
             'With null' => [
@@ -58,28 +47,29 @@ class allTest extends TestCase {
         ];
     }
 
-    public function cases(): array
+    public static function cases(): array
     {
         return [
+
             'With a empty list' => [
                 'list' => [],
                 'func' => 'Slash\isEven',
-                'experted' => true,
+                'expected' => false,
             ],
             'With range 1-10 return false for even' => [
                 'list' => range(1, 10),
                 'func' => 'Slash\isEven',
-                'experted' => false,
+                'expected' => true,
             ],
             'With 2,4,8 return true for even' => [
                 'list' => [2,4,8],
                 'func' => 'Slash\isEven',
-                'experted' => true,
+                'expected' => true,
             ],
             'With 1,3,5 return true for odd' => [
                 'list' => [1,3,5],
                 'func' => 'Slash\isOdd',
-                'experted' => true,
+                'expected' => true,
             ],
             'With an associative array with no elements that satisfy the predicate' => [
                 'list' => ['a' => 2, 'b' => 4, 'c' => 6, 'd' => 8],
@@ -89,12 +79,12 @@ class allTest extends TestCase {
             'With an associative array with one element that satisfies the predicate' => [
                 'list' => ['a' => 2, 'b' => 4, 'c' => 5, 'd' => 6],
                 'func' => 'Slash\isOdd',
-                'expected' => false,
+                'expected' => true,
             ],
             'With an associative array with several elements that satisfy the predicate' => [
                 'list' => ['a' => 1, 'b' => 3, 'c' => 4, 'd' => 7],
                 'func' => 'Slash\isOdd',
-                'expected' => false,
+                'expected' => true,
             ],
             'With an associative array with all elements that satisfy the predicate' => [
                 'list' => ['a' => 1, 'b' => 3, 'c' => 5, 'd' => 7],

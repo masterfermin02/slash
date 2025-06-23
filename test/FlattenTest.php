@@ -2,26 +2,24 @@
 
 use PHPUnit\Framework\TestCase;
 
-class flattenTest extends TestCase {
+class FlattenTest extends TestCase {
 
-    /**
-     * @dataProvider cases
-     */
-    public function testFlatMap($list, $expected)
+    #[\PHPUnit\Framework\Attributes\DataProvider('cases')]
+    public function testFlatMap(array $list, array $expected): void
     {
         $this->assertEquals($expected, Slash\flatten($list));
     }
 
-    public function cases()
+    public static function cases(): array
     {
         return [
             'With a empty list' => [
                 'list' => [],
-                'experted' => [],
+                'expected' => [],
             ],
             'With [[1,2],[3,4]]' => [
                 'list' => [[1,2],[3,4]],
-                'experted' => [1,2,3,4]
+                'expected' => [1,2,3,4]
             ],
         ];
     }

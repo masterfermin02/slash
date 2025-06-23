@@ -19,34 +19,32 @@ class UtilitiesTest extends TestCase {
         $this->utilities = New Utilities();
     }
 
-    /**
-     * @dataProvider valueCases
-     */
-    public function testArrayMethods($list, $method, $expected)
+    #[\PHPUnit\Framework\Attributes\DataProvider('valueCases')]
+    public function testArrayMethods(string|int $list, string $method, string|int $expected): void
     {
         $this->assertEquals($expected, call_user_func([$this->utilities, $method], $list));
     }
 
-    public function valueCases()
+    public static function valueCases(): array
     {
         return [
             'With escape' => [
                 'list' => '<h1>Hello world</h1>',
                 'method' => 'escape',
-                'experted' => htmlentities('<h1>Hello world</h1>', ENT_QUOTES, 'UTF-8', false),
+                'expected' => htmlentities('<h1>Hello world</h1>', ENT_QUOTES, 'UTF-8', false),
             ],
             'With with' => [
                 'list' => 1,
                 'method' => 'with',
-                'experted' => 1,
+                'expected' => 1,
             ],
         ];
     }
 
-    public function testToArray()
+    public function testToArray(): void
     {
         $this->utilities->id('test');
-        $this->utilities->times(2, function () { });
+        $this->utilities->times(2, function (): void { });
         $this->assertTrue(true);
     }
 }

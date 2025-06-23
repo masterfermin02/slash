@@ -3,26 +3,24 @@
 use PHPUnit\Framework\TestCase;
 use function Slash\average;
 
-class averageTest extends TestCase {
+class AverageTest extends TestCase {
 
-    /**
-     * @dataProvider cases
-     */
-    public function testAverage($list, $expected)
+    #[\PHPUnit\Framework\Attributes\DataProvider('cases')]
+    public function testAverage(array $list, ?float $expected): void
     {
         $this->assertEquals($expected, average($list));
     }
 
-    public function cases()
+    public static function cases(): array
     {
         return [
             'With empty input' => [
                 'list' => [],
-                'experted' => null,
+                'expected' => null,
             ],
             'With avarage' => [
                 'list' => [1, 0],
-                'experted' => 0.50,
+                'expected' => 0.50,
             ],
         ];
     }

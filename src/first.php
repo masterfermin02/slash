@@ -9,7 +9,6 @@ namespace Slash;
  * @template TKey
  * @template TValue
  * @param array<TKey, TValue> $list
- * @param ?callable $predicate
  * @return TValue|null
  *
  * @example
@@ -20,7 +19,7 @@ namespace Slash;
 function first(array $list, ?callable $predicate = null)
 {
 	if (is_null($predicate)) {
-		return !empty($list) ? $list[0] : null;
+		return $list === [] ? null : $list[0];
 	}
 
 	foreach ($list as $v) {

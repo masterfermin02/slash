@@ -9,9 +9,7 @@ if (!function_exists('comparator')) {
      * and returns a version that adhere's to the Array#sort
      * API of return -1, 0 or 1 for sorting.
      *
-     * @param callable $fn
      *
-     * @return callable
      *
      * @example
      *
@@ -19,7 +17,7 @@ if (!function_exists('comparator')) {
      */
     function comparator(callable $fn): callable
     {
-        return function ($a, $b) use ($fn) {
+        return function ($a, $b) use ($fn): int {
             if (call_user_func($fn, $a, $b)) {
                 return -1;
             }

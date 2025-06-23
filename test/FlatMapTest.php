@@ -4,52 +4,50 @@ use PHPUnit\Framework\TestCase;
 
 use function Slash\greaterThanOrEqual;
 
-class flatMapTest extends TestCase {
+class FlatMapTest extends TestCase {
 
-    /**
-     * @dataProvider cases
-     */
-    public function testFlatMap($list, $func, $expected)
+    #[\PHPUnit\Framework\Attributes\DataProvider('cases')]
+    public function testFlatMap(array $list, \Closure $func, array $expected): void
     {
         $this->assertEquals($expected, Slash\flatMap($list, $func));
     }
 
-    public function cases()
+    public static function cases(): array
     {
         return [
             'With a empty list' => [
                 'list' => [],
-                'func' => function () {},
-                'experted' => [],
+                'func' => function (): void {},
+                'expected' => [],
             ],
             'With [[1,2],[3,4]]' => [
                 'list' => [[1,2],[3,4]],
-                'func' => function ($item) {
+                'func' => function ($item): array {
                     return [
                         $item[0] + 2,
                         $item[1] + 2
                     ];
             },
-                'experted' => [3,4,5,6]
+                'expected' => [3,4,5,6]
             ],
             'With [[1,2],[3,4], []]' => [
                 'list' => [[1,2],[3,4], []],
-                'func' => function ($item) {
-                    return !empty($item) ? [
+                'func' => function ($item): array {
+                    return empty($item) ? [] : [
                         $item[0] + 2,
                         $item[1] + 2
-                    ] : [];
+                    ];
                 },
-                'experted' => [3,4,5,6]
+                'expected' => [3,4,5,6]
             ],
             'With [[1,2,3,4]] greaterThanOrEqual' => [
                 'list' => [1,2,3,4],
-                'func' => function ($item) {
+                'func' => function ($item): array {
                     return greaterThanOrEqual($item, 3) ? [
                         $item
                     ] : [];
                 },
-                'experted' => [3,4]
+                'expected' => [3,4]
             ],
         ];
     }

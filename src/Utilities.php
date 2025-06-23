@@ -8,23 +8,21 @@ class Utilities
 {
 
 	/**
-	 * Generate a unique identifier.
-	 *
-	 * @param string $prefix
-	 * @return string
-	 */
-	public function id($prefix = '')
+     * Generate a unique identifier.
+     *
+     * @param string $prefix
+     */
+    public function id($prefix = ''): string
 	{
 		return uniqid($prefix, true);
 	}
 
 	/**
-	 * Escape all HTML entities in a string.
-	 *
-	 * @param string $string
-	 * @return string
-	 */
-	public function escape($string)
+     * Escape all HTML entities in a string.
+     *
+     * @param string $string
+     */
+    public function escape($string): string
 	{
 		return htmlentities($string, ENT_QUOTES, 'UTF-8', false);
 	}
@@ -41,13 +39,11 @@ class Utilities
 	}
 
 	/**
-	 * Invoke a $closure $number of times.
-	 *
-	 * @param integer $number
-	 * @param Closure $closure
-	 * @return void
-	 */
-	public function times($number, Closure $closure)
+     * Invoke a $closure $number of times.
+     *
+     * @param integer $number
+     */
+    public function times($number, Closure $closure): void
 	{
 		foreach (range(1, $number) as $index) {
 			$closure();

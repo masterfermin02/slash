@@ -12,7 +12,6 @@ if (!function_exists('curryRight')) {
      * @template TKey
      * @template TValue
      *
-     * @param callable            $callable
      * @param array<TKey, TValue> ...$outerArguments
      *
      * @return \Closure
@@ -30,6 +29,6 @@ if (!function_exists('curryRight')) {
      */
     function curryRight(callable $callable, ...$outerArguments): callable
     {
-        return fn() => call_user_func_array($callable, [...func_get_args(), ...$outerArguments]);
+        return fn(): mixed => call_user_func_array($callable, [...func_get_args(), ...$outerArguments]);
     }
 }

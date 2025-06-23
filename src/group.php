@@ -48,7 +48,7 @@ $grouped = group($records, 'id');
  */
 function group($list, $prop): array
 {
-	return reduce($list, function ($grouped, $item) use ($prop) {
+	return reduce($list, function (array $grouped, $item) use ($prop) {
         $key = get($item, $prop);
 		$grouped[$key][] = $item;
 		return $grouped;

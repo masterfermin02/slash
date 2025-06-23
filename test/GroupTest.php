@@ -14,7 +14,7 @@ class groupTest extends TestCase {
         ['id' => 3, 'value1' => 15, 'value2' => 20],
     ];
 
-    public function testGroupByID()
+    public function testGroupByID(): void
     {
         $groupById = groupBy('id');
         $grouped = $groupById($this->records);

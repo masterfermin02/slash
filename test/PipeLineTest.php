@@ -11,7 +11,7 @@ use function Slash\equalTo;
 
 class pipeLineTest extends TestCase {
 
-    public function testComposeRunOneFunction()
+    public function testComposeRunOneFunction(): void
     {
         $composed = pipeLine(
             Slash\filterWith('Slash\isEven')
@@ -21,9 +21,9 @@ class pipeLineTest extends TestCase {
     }
 
 
-    public function testComposeRunMoreThanOneFunction()
+    public function testComposeRunMoreThanOneFunction(): void
     {
-        $sum = function ($a, $b) {
+        $sum = function ($a, $b): float|int|array {
             return $a + $b;
         };
         $pipelines = pipeLine(
@@ -34,36 +34,36 @@ class pipeLineTest extends TestCase {
         $this->assertEquals($expected, $pipelines([1,2,3,4]));
     }
 
-    public function testComposeRunMoreThanTwoFunctions()
+    public function testComposeRunMoreThanTwoFunctions(): void
     {
-        $sum = function ($a, $b) {
+        $sum = function ($a, $b): float|int|array {
             return $a + $b;
         };
         $pipelines = pipeLine(
             filterWith('Slash\isEven'),
             reduceWith($sum),
-            function ($sum) { return $sum * 5; }
+            function ($sum): int|float { return $sum * 5; }
         );
         $expected = 6 * 5;
         $this->assertEquals($expected, $pipelines([1,2,3,4]));
     }
 
-    public function testComposeRunMoreThanThreeFunctions()
+    public function testComposeRunMoreThanThreeFunctions(): void
     {
-        $sum = function ($a, $b) {
+        $sum = function ($a, $b): float|int|array {
             return $a + $b;
         };
         $pipelines = pipeLine(
             Slash\filterWith('Slash\isEven'),
             Slash\reduceWith($sum),
-            function ($sum) { return $sum * 5; },
-            function ($sum) { return $sum * 5; }
+            function ($sum): int|float { return $sum * 5; },
+            function ($sum): int|float { return $sum * 5; }
         );
         $expected = 6 * 5 * 5;
         $this->assertEquals($expected, $pipelines([1,2,3,4]));
     }
 
-    public function testAverageCaculation()
+    public function testAverageCaculation(): void
     {
         $withinMale             = useWith(equalTo('male'), getWith('gender'));
         $filterByMale           = filterWith($withinMale);

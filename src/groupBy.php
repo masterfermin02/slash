@@ -9,7 +9,6 @@ namespace Slash;
  * by passing each obj through `prop` function.
  *
  * @param mixed $fn
- * @return callable
  *
  * @example
  *

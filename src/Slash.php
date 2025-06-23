@@ -14,11 +14,9 @@ class Slash
 {
 
 	/**
-	 * The instance of Slash.
-	 *
-	 * @var object
-	 */
-	protected static object $instance;
+     * The instance of Slash.
+     */
+    protected static object $instance;
 
 	/**
 	 * The modules you want to use.
@@ -41,14 +39,12 @@ class Slash
 	protected array $instances = [];
 
 	/**
-	 * Load a module.
-	 *
-	 * @throws UnexpectedValueException
-	 * @param string $module
-	 * @param ?object $instance
-	 * @return object
-	 */
-	public function load(string $module,  ?object $instance = null)
+     * Load a module.
+     *
+     * @throws UnexpectedValueException
+     * @return object
+     */
+    public function load(string $module,  ?object $instance = null)
 	{
 		if (!is_null($instance)) {
 			if (!$this->hasModule($module)) {
@@ -66,23 +62,17 @@ class Slash
 	}
 
 	/**
-	 * Determine whether the module exists.
-	 *
-	 * @param string $module
-	 * @return bool
-	 */
-	public function hasModule(string $module): bool
+     * Determine whether the module exists.
+     */
+    public function hasModule(string $module): bool
 	{
 		return in_array($module, $this->modules);
 	}
 
 	/**
-	 * Add a new module.
-	 *
-	 * @param string $module
-	 * @return void
-	 */
-	public function addModule(string $module): void
+     * Add a new module.
+     */
+    public function addModule(string $module): void
 	{
 		$this->modules[] = $module;
 	}
@@ -98,23 +88,17 @@ class Slash
 	}
 
 	/**
-	 * Determine whether a module was loaded.
-	 *
-	 * @param string $module
-	 * @return boolean
-	 */
-	public function isLoaded(string $module): bool
+     * Determine whether a module was loaded.
+     */
+    public function isLoaded(string $module): bool
 	{
 		return array_key_exists($module, $this->instances);
 	}
 
 	/**
-	 * Load a module (if not yet) and return its instance.
-	 *
-	 * @param string $module
-	 * @return object
-	 */
-	public function getInstance(string $module): object
+     * Load a module (if not yet) and return its instance.
+     */
+    public function getInstance(string $module): object
 	{
 		if (!$this->isLoaded($module)) {
 			$this->load($module);
@@ -125,26 +109,21 @@ class Slash
 
 
 	/**
-	 * Determine whether the given object has a method.
-	 *
-	 * @param object $object
-	 * @param string $method
-	 * @return bool
+     * Determine whether the given object has a method.
      */
-	public function hasMethod(object $object, string $method): bool
+    public function hasMethod(object $object, string $method): bool
 	{
 		return (new ReflectionClass($object))->hasMethod($method);
 	}
 
 	/**
-	 * Run a method and return its output.
-	 *
-	 * @throws BadMethodCallException
-	 * @param string $name
-	 * @param array<TKey, TValue> $arguments
-	 * @return TValue
+     * Run a method and return its output.
+     *
+     * @throws BadMethodCallException
+     * @param array<TKey, TValue> $arguments
+     * @return TValue
      */
-	public function run(string $name, array $arguments = [])
+    public function run(string $name, array $arguments = []): mixed
 	{
 		foreach ($this->getModules() as $module) {
 			$instance = $this->getInstance($module);
@@ -161,25 +140,23 @@ class Slash
 	}
 
 	/**
-	 * Handle calls to non-existent methods.
-	 *
-	 * @param string $method
-	 * @param array<TKey, TValue> $arguments
-	 * @return TValue
-	 */
-	public function __call(string $method, array $arguments = [])
+     * Handle calls to non-existent methods.
+     *
+     * @param array<TKey, TValue> $arguments
+     * @return TValue
+     */
+    public function __call(string $method, array $arguments = [])
 	{
 		return call_user_func_array([$this, 'run'], [$method, $arguments]);
 	}
 
 	/**
-	 * Handle calls to non-existent static methods.
-	 *
-	 * @param string $method
-	 * @param array<TKey, TValue> $arguments
-	 * @return TValue
-	 */
-	public static function __callStatic(string $method, array $arguments = [])
+     * Handle calls to non-existent static methods.
+     *
+     * @param array<TKey, TValue> $arguments
+     * @return TValue
+     */
+    public static function __callStatic(string $method, array $arguments = [])
 	{
 		if (!isset(self::$instance)) {
 			self::$instance = new self;

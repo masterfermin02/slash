@@ -24,11 +24,15 @@ namespace Slash;
  */
 function pair(array $list, $listFn): array
 {
-	is_array($list) || ($list = [$list]);
-	(is_callable($listFn) || is_array($listFn)) || ($listFn = [$listFn]);
+	if (!is_array($list)) {
+        $list = [$list];
+    }
+	if (!is_callable($listFn) && !is_array($listFn)) {
+        $listFn = [$listFn];
+    }
 
 	$paired = call_user_func(flatMapWith(function ($itemLeft) use ($listFn) {
-		return call_user_func(mapWith(function ($itemRight) use ($itemLeft) {
+		return call_user_func(mapWith(function ($itemRight) use ($itemLeft): array {
 			return [$itemLeft, $itemRight];
 		}), is_callable($listFn) ? call_user_func($listFn, $itemLeft) : $listFn);
 	}), $list);

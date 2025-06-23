@@ -19,7 +19,7 @@ class ArraysTest extends TestCase {
         $this->arrays = new Arrays();
     }
 
-    function testReturnsTheFirstNElements()
+    function testReturnsTheFirstNElements(): void
     {
         $elements = [2, 3, 4, 5, 6, 7];
 
@@ -27,7 +27,7 @@ class ArraysTest extends TestCase {
         $this->assertEquals($this->arrays->first($elements, 3), [2, 3, 4]);
     }
 
-    function testExcludesTheLastNElements()
+    function testExcludesTheLastNElements(): void
     {
         $elements = [2, 3, 4, 5, 6, 7];
 
@@ -35,7 +35,7 @@ class ArraysTest extends TestCase {
         $this->assertEquals([2, 3, 4], $this->arrays->initial($elements, 3));
     }
 
-    function testReturnsTheRestOfTheArrayElements()
+    function testReturnsTheRestOfTheArrayElements(): void
     {
         $elements = [2, 3, 4, 5, 6, 7];
 
@@ -43,7 +43,7 @@ class ArraysTest extends TestCase {
         $this->assertEquals([4, 5, 6, 7], $this->arrays->rest($elements, 2));
     }
 
-    function testReturnsTheLastNElements()
+    function testReturnsTheLastNElements(): void
     {
         $elements = [2, 3, 4, 5, 6, 7];
 
@@ -51,28 +51,28 @@ class ArraysTest extends TestCase {
         $this->assertEquals([5, 6, 7], $this->arrays->last($elements, 3));
     }
 
-    function testRemovesFalsyValues()
+    function testRemovesFalsyValues(): void
     {
         $elements = [false, 'foo', 0, '', 42];
 
         $this->assertEquals(['foo', 42], $this->arrays->pack($elements));
     }
 
-    function testFlattensAnArray()
+    function testFlattensAnArray(): void
     {
         $elements = ['such', ['wow', ['amaze']]];
 
         $this->assertEquals(['such', 'wow', 'amaze'], $this->arrays->flatten($elements));
     }
 
-    function testCreatesAnArrayContainingARangeOfElements()
+    function testCreatesAnArrayContainingARangeOfElements(): void
     {
         $this->assertEquals([0, 1, 2, 3], $this->arrays->range(3));
         $this->assertEquals([1, 2, 3], $this->arrays->range(3, 1));
         $this->assertEquals([1, 3, 5], $this->arrays->range(5, 1, 2));
     }
 
-    function testComputesTheDifferenceBetweenTwoArrays()
+    function testComputesTheDifferenceBetweenTwoArrays(): void
     {
         $one = [1, 2, 3, 4, 5];
 
@@ -80,13 +80,13 @@ class ArraysTest extends TestCase {
         $this->assertEquals([2, 4], $this->arrays->difference($one, $another));
     }
 
-    function testRemovesDuplicatedValues()
+    function testRemovesDuplicatedValues(): void
     {
         $elements = [1, 2, 3, 3, 4, 5, 5, 6, 1];
 
         $this->assertEquals([1, 2, 3, 4, 5, 6], $this->arrays->unique($elements));
 
-        $iterator = function($value)
+        $iterator = function($value): bool
         {
             return in_array($value, [1, 3, 5], true);
         };
@@ -94,7 +94,7 @@ class ArraysTest extends TestCase {
         $this->assertEquals([1, 3, 3, 5, 5, 1], $this->arrays->unique($elements, $iterator));
     }
 
-    function testRemovesAllInstancesFromTheArray()
+    function testRemovesAllInstancesFromTheArray(): void
     {
         $elements = ['foo', 'baz', 'bar', 'wow', 'doge', 1];
 
@@ -103,7 +103,7 @@ class ArraysTest extends TestCase {
         $this->assertEquals(['foo', 'bar', 'doge', 1], $this->arrays->without($elements, $ignore));
     }
 
-    function testMergesTwoArrays()
+    function testMergesTwoArrays(): void
     {
         $one = [2, 3, 4, 5, 6];
 
@@ -112,7 +112,7 @@ class ArraysTest extends TestCase {
         $this->assertEquals([2, 3, 4, 5, 6, 1, 7, 8, 9], $this->arrays->zip($one, $another));
     }
 
-    function testReturnsTheIndexOfTheFirstMatch()
+    function testReturnsTheIndexOfTheFirstMatch(): void
     {
         $elements = [4, 7, 8, 9, 11, 18];
 
@@ -121,7 +121,7 @@ class ArraysTest extends TestCase {
         $this->assertEquals(3, $this->arrays->indexof($elements, $element));
     }
 
-    function testComputesTheIntersectionOfTwoArrays()
+    function testComputesTheIntersectionOfTwoArrays(): void
     {
         $one = [2, 3, 4, 5, 6, 7];
 
@@ -130,7 +130,7 @@ class ArraysTest extends TestCase {
         $this->assertEquals([3, 5, 7], $this->arrays->intersection($one, $another));
     }
 
-    function testReturnsAnArrayContainingTheUniqueItems()
+    function testReturnsAnArrayContainingTheUniqueItems(): void
     {
         $one = [1, 2, 3, 4, 5];
 

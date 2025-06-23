@@ -12,49 +12,45 @@ class Arrays
 {
 
 	/**
-	 * Get the first n elements.
-	 *
-	 * @param array<TKey, TValue> $elements
-	 * @param int $amount
-	 * @return array<TKey, TValue>
-	 */
-	public function first(array $elements, int $amount = 1): array
+     * Get the first n elements.
+     *
+     * @param array<TKey, TValue> $elements
+     * @return array<TKey, TValue>
+     */
+    public function first(array $elements, int $amount = 1): array
 	{
 		return array_slice($elements, 0, $amount);
 	}
 
 	/**
-	 * Exclude the last n elements.
-	 *
-	 * @param array<TKey, TValue> $elements
-	 * @param integer $amount
-	 * @return array<TKey, TValue>
+     * Exclude the last n elements.
+     *
+     * @param array<TKey, TValue> $elements
+     * @return array<TKey, TValue>
      */
-	public function initial(array $elements, int $amount = 1): array
+    public function initial(array $elements, int $amount = 1): array
 	{
 		return array_slice($elements, 0, count($elements) - $amount);
 	}
 
 	/**
-	 * Get the rest of the elements.
-	 *
-	 * @param array<TKey, TValue> $elements
-	 * @param integer $index
-	 * @return array<TKey, TValue>
+     * Get the rest of the elements.
+     *
+     * @param array<TKey, TValue> $elements
+     * @return array<TKey, TValue>
      */
-	public function rest(array $elements, int $index = 1): array
+    public function rest(array $elements, int $index = 1): array
 	{
 		return array_slice($elements, $index);
 	}
 
 	/**
-	 * Get the last n elements.
-	 *
-	 * @param array<TKey, TValue> $elements
-	 * @param integer $amount
-	 * @return array<TKey, TValue>
-	 */
-	public function last(array $elements,int $amount = 1): array
+     * Get the last n elements.
+     *
+     * @param array<TKey, TValue> $elements
+     * @return array<TKey, TValue>
+     */
+    public function last(array $elements,int $amount = 1): array
 	{
 		return array_slice($elements, count($elements) - $amount);
 	}
@@ -92,14 +88,11 @@ class Arrays
 	}
 
 	/**
-	 * Create an array containing a range of elements.
-	 *
-	 * @param integer $to
-	 * @param integer $from
-	 * @param integer $step
-	 * @return array<int, int>
+     * Create an array containing a range of elements.
+     *
+     * @return array<int, int>
      */
-	public function range(int $to, int $from = 0, int $step = 1): array
+    public function range(int $to, int $from = 0, int $step = 1): array
 	{
 		return range($from, $to, $step);
 	}
@@ -117,13 +110,12 @@ class Arrays
 	}
 
 	/**
-	 * Remove duplicated values.
-	 *
-	 * @param array<TKey, TValue> $elements
-	 * @param ?callable $iterator
-	 * @return array<TKey, TValue>
+     * Remove duplicated values.
+     *
+     * @param array<TKey, TValue> $elements
+     * @return array<TKey, TValue>
      */
-	public function unique(array $elements, ?callable $iterator = null): array
+    public function unique(array $elements, ?callable $iterator = null): array
 	{
 		if (!is_null($iterator)) {
 			return array_values(filter($elements, $iterator));
@@ -141,7 +133,7 @@ class Arrays
      */
 	public function without(array $elements, array $ignore): array
 	{
-		return array_values(filter($elements, function ($node) use ($ignore) {
+		return array_values(filter($elements, function ($node) use ($ignore): bool {
 			return !in_array($node, $ignore, true);
 		}));
 	}

@@ -8,7 +8,6 @@ use http\Exception\InvalidArgumentException;
  * Reverse of compose, taking it's arguments and chaining
  * them from left -> right
  *
- * @return callable
  *
  * @example
  *

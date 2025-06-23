@@ -8,7 +8,6 @@ namespace Slash;
  *
  * @template TValue
  * @param TValue $to
- * @return callable
  *
  * @example
  *

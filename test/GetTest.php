@@ -2,60 +2,58 @@
 
 use \PHPUnit\Framework\TestCase;
 
-class getTest extends TestCase {
+class GetTest extends TestCase {
 
     protected const SAMPLE_VALUE = 'Sample value';
 
-    /**
-     * @dataProvider cases
-     */
-    public function testGet($input, $prop, $expected)
+    #[\PHPUnit\Framework\Attributes\DataProvider('cases')]
+    public function testGet(\stdClass|\Closure|array|null $input, string $prop, string $expected): void
     {
         $this->assertEquals($expected, Slash\get($input, $prop));
     }
 
-    public function cases()
+    public static function cases(): array
     {
         return [
             'With a null input' => [
                 'input' => null,
                 'prop' => 'prop',
-                'experted' => 'prop',
+                'expected' => 'prop',
             ],
             'With an empty array input' => [
                 'input' => [],
                 'prop' => 'prop',
-                'experted' => 'prop',
+                'expected' => 'prop',
             ],
             'With an array without prop requested input' => [
                 'input' => ['noprop' => []],
                 'prop' => 'prop',
-                'experted' => 'prop',
+                'expected' => 'prop',
             ],
             'With an array input' => [
                 'input' => ['prop' => self::SAMPLE_VALUE],
                 'prop' => 'prop',
-                'experted' => 'Sample value',
+                'expected' => 'Sample value',
             ],
             'With an empty object input' => [
                 'input' => new stdClass,
                 'prop' => 'prop',
-                'experted' => 'prop',
+                'expected' => 'prop',
             ],
             'With an object input' => [
-                'input' => $this->getObject(),
+                'input' => self::getObject(),
                 'prop' => 'prop',
-                'experted' => self::SAMPLE_VALUE,
+                'expected' => self::SAMPLE_VALUE,
             ],
             'With function' => [
-                'input' => function() { return self::SAMPLE_VALUE; },
+                'input' => function(): string { return self::SAMPLE_VALUE; },
                 'prop' => 'prop',
-                'experted' => self::SAMPLE_VALUE,
+                'expected' => self::SAMPLE_VALUE,
             ],
         ];
     }
 
-    private function getObject()
+    private static function getObject(): \stdClass
     {
         $object = new stdClass;
         $object->prop = self::SAMPLE_VALUE;

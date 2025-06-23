@@ -5,7 +5,7 @@ use function Slash\curryLeft;
 
 class curryLeftTest extends TestCase {
 
-    public function testCurryRunOneFunction()
+    public function testCurryRunOneFunction(): void
     {
         $isEven = curryLeft(
             Slash\filterWith('Slash\isEven')

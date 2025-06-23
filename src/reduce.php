@@ -13,7 +13,7 @@ namespace Slash;
  *
  * @return TReduceValue|TValue
  */
-function reduce(array $list, $fn, $initial = null)
+function reduce(array $list, $fn, $initial = null): mixed
 {
 	return array_reduce($list, $fn, $initial);
 }

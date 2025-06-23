@@ -2,38 +2,36 @@
 
 use PHPUnit\Framework\TestCase;
 
-class firstTest extends TestCase {
+class LastTest extends TestCase {
 
-    /**
-     * @dataProvider cases
-     */
-    public function testAll($list, $func, $expected)
+    #[\PHPUnit\Framework\Attributes\DataProvider('cases')]
+    public function testAll(array $list, string $func, ?int $expected): void
     {
-        $this->assertEquals($expected, Slash\first($list, $func));
+        $this->assertEquals($expected, Slash\last($list, $func));
     }
 
-    public function cases()
+    public static function cases(): array
     {
         return [
             'With a empty list' => [
                 'list' => [],
                 'func' => 'Slash\isEven',
-                'experted' => null,
+                'expected' => null,
             ],
             'With range 1-10 return false for even' => [
                 'list' => [1,2,3,4,5,6,7,8,9,10],
                 'func' => 'Slash\isEven',
-                'experted' => 2,
+                'expected' => 10,
             ],
             'With an associative array with several elements that satisfy the predicate' => [
                 'list' => ['a' => 1, 'b' => 2, 'c' => 4, 'd' => 7, 'e' => 9],
                 'func' => 'Slash\isEven',
-                'expected' => 2,
+                'expected' => 4,
             ],
             'With an associative array with all elements that satisfy the predicate' => [
                 'list' => ['a' => 1, 'b' => 3, 'c' => 5, 'd' => 7, 'e' => 8],
                 'func' => 'Slash\isOdd',
-                'expected' => 1,
+                'expected' => 7,
             ],
         ];
     }

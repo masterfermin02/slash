@@ -14,7 +14,7 @@ class CollectionTest extends \PHPUnit\Framework\TestCase
             ['id' => 1],
             ['id' => 2],
             ['id' => 3],
-        ])->map(fn ($item) => $item['id'])->all()
+        ])->map(fn ($item): mixed => $item['id'])->all()
         );
     }
 }

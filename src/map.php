@@ -9,7 +9,6 @@ namespace Slash;
  * @template TKey
  * @template TValue
  * @param array<TKey, TValue> $list
- * @param callable $fn
  * @return array<TKey, TValue>
  *
  * @example
@@ -17,7 +16,7 @@ namespace Slash;
  * Slash\map([1,2,3], function($x){ return $x+1; }); // [2,3,4]
  *
  */
-function map(array $list, callable $fn)
+function map(array $list, callable $fn): array
 {
 	return array_map($fn, $list);
 }
